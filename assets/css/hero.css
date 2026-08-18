@@ -1,0 +1,386 @@
+/*=========================================================
+ISAGO HERO
+=========================================================*/
+
+.isago-hero {
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 28px 0 55px;
+
+}
+
+
+/*=========================================================
+HERO GRID
+=========================================================*/
+
+.hero-grid {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 180px minmax(0, 1fr);
+
+    gap: 30px;
+
+    align-items: start;
+
+}
+
+
+/*=========================================================
+LEFT HERO
+=========================================================*/
+
+.hero-left {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+
+}
+
+
+/*=========================================================
+LEFT CARD
+=========================================================*/
+
+.hero-side-card {
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    overflow: hidden;
+
+}
+
+
+.hero-side-card > a {
+
+    display: block;
+
+    width: 100%;
+
+    overflow: hidden;
+
+}
+
+
+.hero-side-card img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 120px;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+
+    transition: transform .4s ease;
+
+}
+
+
+.hero-side-card:hover img {
+
+    transform: scale(1.04);
+
+}
+
+
+/*=========================================================
+LEFT CARD CONTENT
+=========================================================*/
+
+.hero-side-content {
+
+    padding-top: 10px;
+
+}
+
+
+
+
+
+
+
+
+
+/*=========================================================
+CENTER HERO
+=========================================================*/
+
+.hero-main {
+
+    width: 100%;
+
+    min-width: 0;
+
+    margin: 0;
+
+    padding: 0;
+
+    overflow: hidden;
+
+}
+
+
+/*=========================================================
+MAIN HERO IMAGE
+=========================================================*/
+
+.hero-main > a {
+
+    display: block;
+
+    width: 100%;
+
+    overflow: hidden;
+
+}
+
+
+.hero-main img {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: none;
+
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    transition: transform .45s ease;
+
+}
+
+
+.hero-main:hover img {
+
+    transform: scale(1.02);
+
+}
+
+
+/*=========================================================
+MAIN HERO CONTENT
+=========================================================*/
+
+.hero-main-content {
+
+    width: 100%;
+
+    padding: 13px 20px 0;
+
+    text-align: center;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+EXCERPT
+=========================================================*/
+
+.hero-main-content p {
+
+    max-width: 620px;
+
+    margin: 0 auto 10px;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    color: var(--isago-date);
+
+}
+
+
+
+
+
+/*=========================================================
+TABLET
+=========================================================*/
+
+@media (max-width: 1100px) {
+
+    .hero-grid {
+
+        grid-template-columns: 165px minmax(0, 1fr);
+
+        gap: 25px;
+
+    }
+
+
+    .hero-side-card img {
+
+        height: 110px;
+
+    }
+
+
+    .hero-main-content {
+
+        padding-left: 10px;
+
+        padding-right: 10px;
+
+    }
+
+
+
+}
+
+
+/*=========================================================
+MOBILE
+=========================================================*/
+
+@media (max-width: 768px) {
+
+    .isago-hero {
+
+        padding: 25px 0 40px;
+
+    }
+
+
+    /*
+     * Stack the two hero columns.
+     */
+
+    .hero-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+    }
+
+
+    /*
+     * Put the two small cards beside each other
+     * on phones/tablets.
+     */
+
+    .hero-left {
+
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 18px;
+
+    }
+
+
+    .hero-side-card img {
+
+        width: 100%;
+
+        height: auto;
+
+        aspect-ratio: 4 / 3;
+
+    }
+
+
+    .hero-side-content {
+
+        padding-top: 8px;
+
+    }
+
+
+
+
+
+
+
+
+    .hero-main img {
+
+        aspect-ratio: 16 / 10;
+
+    }
+
+
+    .hero-main-content {
+
+        padding: 15px 5px 0;
+
+    }
+
+
+
+
+    .hero-main-content p {
+
+        font-size: 13px;
+
+        line-height: 1.6;
+
+    }
+
+
+}
+
+
+/*=========================================================
+SMALL PHONES
+=========================================================*/
+
+@media (max-width: 480px) {
+
+    .hero-left {
+ text-align: center;
+    width: 100%;
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero-side-card img {
+
+        aspect-ratio: 16 / 10;
+
+    }
+
+
+
+
+
+}
+
+
+
+
+

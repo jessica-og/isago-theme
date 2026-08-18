@@ -1,0 +1,770 @@
+.wrap h1{
+
+font-size:32px;
+
+font-weight:800;
+
+margin-bottom:35px;
+
+}
+
+.wrap h2{
+
+margin:35px 0 15px;
+
+font-size:22px;
+
+font-weight:700;
+
+}
+
+.form-table th{
+
+width:240px;
+
+font-weight:700;
+
+}
+
+.form-table td{
+
+padding:18px 10px;
+
+}
+
+.isago-preview{
+
+border-radius:8px;
+
+border:1px solid #ddd;
+
+background:#fafafa;
+
+padding:6px;
+
+max-width:240px;
+
+height:auto;
+
+display:block;
+
+}
+
+
+
+
+
+
+
+/*=========================================================
+ISAGO ADMIN PAGE
+=========================================================*/
+
+.isago-admin{
+    max-width:1100px;
+}
+
+/*=========================================================
+ADMIN SETTINGS CARD
+=========================================================*/
+
+.isago-admin .form-table{
+
+    width:100%;
+
+    margin:25px 0 0;
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:12px;
+
+    border-collapse:separate;
+
+    border-spacing:0;
+
+    overflow:hidden;
+
+}
+
+/*=========================================================
+TABLE CELLS
+=========================================================*/
+
+.isago-admin .form-table th,
+.isago-admin .form-table td{
+
+    padding:20px 28px;
+
+    vertical-align:middle;
+
+}
+
+/* Left labels */
+
+.isago-admin .form-table th{
+
+    width:240px;
+
+    font-weight:700;
+
+    color:#172033;
+
+}
+
+/* Field area */
+
+.isago-admin .form-table td{
+
+    color:#374151;
+
+}
+
+/*=========================================================
+SECTION HEADINGS
+=========================================================*/
+
+.isago-admin .form-table th[colspan="2"]{
+
+    width:auto;
+
+    padding:0 28px;
+
+}
+
+/* Section divider */
+
+.isago-admin .form-table th[colspan="2"] hr{
+
+    margin:32px 0 20px;
+
+    border:0;
+
+    border-top:1px solid #e5e7eb;
+
+}
+
+/* First section divider */
+
+.isago-admin .form-table tbody tr:first-child th[colspan="2"] hr{
+
+    margin-top:0;
+
+}
+
+/* Section title */
+
+.isago-admin .form-table th[colspan="2"] h2{
+
+    margin:0 0 18px;
+
+    padding:0;
+
+    font-size:22px;
+
+    line-height:1.3;
+
+    font-weight:800;
+
+    color:#172033;
+
+}
+
+/*=========================================================
+FORM INPUTS
+=========================================================*/
+
+.isago-admin .form-table input[type="text"],
+.isago-admin .form-table input[type="url"],
+.isago-admin .form-table input[type="number"],
+.isago-admin .form-table input[type="email"],
+.isago-admin .form-table select,
+.isago-admin .form-table textarea{
+
+    max-width:650px;
+
+}
+
+/*=========================================================
+IMAGE PREVIEW
+=========================================================*/
+
+.isago-preview{
+
+    display:block;
+
+    width:280px;
+
+    max-width:100%;
+
+    min-height:80px;
+
+    object-fit:cover;
+
+    margin-bottom:10px;
+
+    border-radius:8px;
+
+    border:1px solid #ddd;
+
+    background:#fafafa;
+
+}
+
+/*=========================================================
+UPLOAD BUTTON
+=========================================================*/
+
+
+
+/*
+IMPORTANT:
+Do NOT use display:flex on the upload button itself.
+*/
+
+.isago-upload-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+}
+
+/*=========================================================
+TEXTAREA
+=========================================================*/
+
+.isago-admin textarea{
+
+    width:100%;
+
+    max-width:650px;
+
+}
+
+/*=========================================================
+ADMIN CARDS
+=========================================================*/
+
+.isago-admin-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(320px,1fr));
+
+    gap:24px;
+
+    margin-top:35px;
+
+}
+
+.isago-card{
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:12px;
+
+    padding:24px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.04);
+
+}
+
+.isago-card h2{
+
+    margin:0 0 12px;
+
+    font-size:22px;
+
+}
+
+.isago-card p{
+
+    color:#666;
+
+    margin-bottom:20px;
+
+}
+
+/*=========================================================
+MESSAGE CARD
+=========================================================*/
+
+.isago-message-card{
+
+    background:#fff;
+
+    border-radius:12px;
+
+    padding:25px;
+
+    margin-top:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+
+    max-width:800px;
+
+}
+
+.isago-message-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+    border-bottom:1px solid #eee;
+
+    padding-bottom:10px;
+
+}
+
+.isago-message-header h2{
+
+    margin:0;
+
+    font-size:22px;
+
+}
+
+.isago-message-date{
+
+    font-size:13px;
+
+    color:#777;
+
+}
+
+.isago-message-meta{
+
+    display:flex;
+
+    gap:30px;
+
+    margin-bottom:20px;
+
+    font-size:14px;
+
+    color:#444;
+
+}
+
+.isago-message-body{
+
+    background:#f9fafb;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    line-height:1.6;
+
+    color:#333;
+
+}
+
+.isago-message-actions{
+
+    margin-top:20px;
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+ISAGO HOMEPAGE BUILDER
+=========================================================*/
+
+.isago-home-builder{
+
+    max-width:1100px;
+
+}
+
+.isago-home-builder-form{
+
+    margin-top:25px;
+
+}
+
+.isago-builder-sections{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+
+/*=========================================================
+Builder Card
+=========================================================*/
+
+.isago-builder-card{
+
+    background:#fff;
+
+    border:1px solid #dcdcde;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    box-shadow:0 1px 2px rgba(0,0,0,.03);
+
+}
+
+
+/*=========================================================
+Header
+=========================================================*/
+
+.isago-builder-card-header{
+
+    width:100%;
+
+    min-height:68px;
+
+    padding:0 20px;
+
+    border:0;
+
+    background:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    transition:
+
+        background .2s ease,
+
+        color .2s ease;
+
+}
+
+.isago-builder-card-header:hover{
+
+    background:#f8fafc;
+
+}
+
+
+/*=========================================================
+Title
+=========================================================*/
+
+.isago-builder-card-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    color:#1d2327;
+
+}
+
+
+/*=========================================================
+Icon
+=========================================================*/
+
+.isago-builder-card-icon{
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:8px;
+
+    background:#f1f5f9;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#2271b1;
+
+}
+
+.isago-builder-card-icon .dashicons{
+
+    font-size:19px;
+
+    width:19px;
+
+    height:19px;
+
+}
+
+
+/*=========================================================
+Toggle
+=========================================================*/
+
+.isago-builder-toggle{
+
+    width:32px;
+
+    height:32px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:6px;
+
+    color:#646970;
+
+    transition:
+
+        transform .25s ease,
+
+        background .2s ease;
+
+}
+
+.isago-builder-card-header:hover
+.isago-builder-toggle{
+
+    background:#f1f5f9;
+
+}
+
+
+/*=========================================================
+Content
+=========================================================*/
+
+.isago-builder-card-content{
+
+    display:none;
+
+    border-top:1px solid #e5e7eb;
+
+    padding:10px 24px 20px;
+
+}
+
+
+/*
+---------------------------------------------------------
+Open State
+---------------------------------------------------------
+*/
+
+.isago-builder-card.is-open
+.isago-builder-card-content{
+
+    display:block;
+
+}
+
+.isago-builder-card.is-open
+.isago-builder-toggle{
+
+    transform:rotate(180deg);
+
+}
+
+
+/*=========================================================
+Inner Form Table
+=========================================================*/
+
+.isago-builder-card .form-table{
+
+    margin-top:0;
+
+    margin-bottom:0;
+
+}
+
+.isago-builder-card .form-table th{
+
+    width:240px;
+
+    padding-left:0;
+
+}
+
+.isago-builder-card .form-table td{
+
+    padding-right:0;
+
+}
+
+
+/*=========================================================
+Submit
+=========================================================*/
+
+.isago-builder-submit{
+
+    margin-top:25px;
+
+    padding-bottom:30px;
+
+}
+
+
+
+
+
+/*=========================================================
+ISAGO BUILDER ACCORDION ICONS
+=========================================================*/
+
+.isago-builder-card-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+
+/*=========================================================
+LEFT ICON
+=========================================================*/
+
+.isago-builder-card-symbol{
+
+    width:34px;
+    height:34px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:8px;
+
+    background:#eef2ff;
+
+    color:#4f46e5;
+
+    font-size:20px;
+
+    line-height:34px;
+
+    flex-shrink:0;
+
+}
+
+
+/*=========================================================
+RIGHT CHEVRON
+=========================================================*/
+
+.isago-builder-card-icon{
+
+    width:30px;
+    height:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#4f46e5;
+
+    font-size:18px;
+
+    line-height:30px;
+
+    flex-shrink:0;
+
+    transition:
+        transform .25s ease,
+        color .25s ease;
+
+}
+
+
+/*=========================================================
+OPEN STATE
+=========================================================*/
+
+.isago-builder-card.is-open
+.isago-builder-card-icon{
+
+    transform:rotate(180deg);
+
+    color:#00a8c8;
+
+}
+
+
+
+
+/*=========================================================
+Mobile
+=========================================================*/
+
+@media(max-width:782px){
+
+    .isago-builder-card-content{
+
+        padding:8px 15px 18px;
+
+    }
+
+    .isago-builder-card .form-table th{
+
+        width:auto;
+
+    }
+
+    .isago-builder-card-header{
+
+        padding:0 15px;
+
+    }
+
+}

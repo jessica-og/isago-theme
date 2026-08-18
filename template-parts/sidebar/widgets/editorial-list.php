@@ -1,0 +1,67 @@
+<?php
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+$settings = isago_get_sidebar_settings();
+
+$args = [
+
+'post_type'=>'post',
+
+'posts_per_page'=>$settings['editorial_posts'],
+
+'ignore_sticky_posts'=>true
+
+];
+
+if(!empty($settings['editorial_category'])){
+
+$args['category_name']=$settings['editorial_category'];
+
+}
+
+$query=new WP_Query($args);
+
+if(!$query->have_posts()){
+
+return;
+
+}
+?>
+
+<section class="sidebar-widget">
+
+<?php while ($query->have_posts()) : $query->the_post(); ?>
+
+<article class="sidebar-mini-post">
+
+    <a class="sidebar-mini-thumb"
+       href="<?php the_permalink(); ?>">
+
+        <?php the_post_thumbnail('thumbnail'); ?>
+
+    </a>
+
+    <div>
+
+        <h4>
+
+            <a href="<?php the_permalink(); ?>">
+
+                <?php the_title(); ?>
+
+            </a>
+
+        </h4>
+
+    </div>
+
+</article>
+
+<?php endwhile; ?>
+
+</section>
+
+<?php wp_reset_postdata(); ?>

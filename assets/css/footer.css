@@ -1,0 +1,597 @@
+/*=========================================================
+ISAGO PREMIUM FOOTER
+=========================================================*/
+
+.isago-footer{
+
+    margin-top:90px;
+
+    background: var(--isago-footer-bg);
+
+    color:#fff;
+
+    overflow:hidden;
+
+}
+
+.isago-footer .container{
+
+    padding:65px 0 0;
+
+}
+
+/*=========================================================
+GRID
+=========================================================*/
+
+.isago-footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    minmax(280px,2.2fr)
+    minmax(120px,1fr)
+    minmax(120px,1fr)
+    minmax(120px,1fr)
+    minmax(260px,1.4fr);
+
+    gap:48px;
+
+    padding-bottom:55px;
+
+    align-items:flex-start;
+
+}
+
+/*=========================================================
+BRAND
+=========================================================*/
+
+.footer-brand{
+
+    max-width:320px;
+
+}
+
+.footer-logo{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    margin-bottom:22px;
+
+    text-decoration:none;
+
+}
+
+.footer-logo img{
+
+    max-height:48px;
+
+    width:auto;
+
+}
+
+.footer-logo span{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:42px;
+
+    font-weight:900;
+
+    line-height:1;
+
+    color:#fff;
+
+    letter-spacing:-1px;
+
+}
+
+.footer-description{
+
+    color:#94a3b8;
+
+    font-size:14px;
+
+    line-height:1.85;
+
+    margin-bottom:28px;
+
+}
+
+.footer-socials{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.footer-socials a{
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:4px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#fff;
+
+    transition:.25s;
+
+}
+
+.footer-socials a:hover{
+
+    background:var(--isago-primary);
+
+    border-color:var(--isago-primary);
+
+    color:#fff;
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================================
+MENU COLUMNS
+=========================================================*/
+
+.footer-column h4,
+
+.footer-newsletter h4{
+
+    margin:0 0 24px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.18em;
+
+    color:#fff;
+
+}
+
+.footer-links{
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
+
+}
+
+.footer-links li{
+
+    margin-bottom:14px;
+
+}
+
+.footer-links li:last-child{
+
+    margin-bottom:0;
+
+}
+
+.footer-links a{
+
+    display:inline-block;
+
+    color:#cbd5e1;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    transition:.25s;
+
+}
+
+.footer-links a:hover{
+
+    color:var(--isago-primary);
+
+    transform:translateX(5px);
+
+}
+
+/*=========================================================
+NEWSLETTER
+=========================================================*/
+
+.footer-newsletter{
+
+    max-width:100%;
+
+}
+
+.footer-newsletter p{
+
+    color:#94a3b8;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    margin-bottom:18px;
+
+}
+
+.footer-newsletter form{
+
+    display:flex;
+
+    margin-bottom:12px;
+
+}
+
+.footer-newsletter input{
+
+    flex:1;
+
+    height:40px;
+
+    padding:0 14px;
+
+    border:none;
+
+    outline:none;
+
+    background:var(--isago-bg);
+
+    color:var(--isago-text);
+
+    font-size:13px;
+
+    border-radius:3px 0 0 3px;
+
+}
+
+.footer-newsletter input::placeholder{
+
+    color:#9ca3af;
+
+}
+
+.footer-newsletter button{
+
+    height:40px;
+
+    border:none;
+
+    padding:0 18px;
+
+    background:var(--isago-primary);
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    border-radius:0 3px 3px 0;
+
+    transition:.25s;
+
+}
+
+.footer-newsletter button:hover{
+
+    background:var(--isago-secondary);
+
+    color:var(--isago-text);
+
+}
+
+.footer-newsletter small{
+
+    display:block;
+
+    color:#94a3b8;
+
+    font-size:11px;
+
+    line-height:1.6;
+
+}
+
+/*=========================================================
+BOTTOM
+=========================================================*/
+
+.footer-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding:22px 0;
+
+    gap:20px;
+
+}
+
+.footer-bottom p{
+
+    margin:0;
+
+    font-size:13px;
+
+    color:#94a3b8;
+
+}
+
+.footer-bottom nav{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.footer-bottom-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:0;
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
+
+}
+
+.footer-bottom-menu li{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.footer-bottom-menu li:not(:last-child)::after{
+
+    content:"•";
+
+    color:#64748b;
+
+    margin:0 14px;
+
+}
+
+.footer-bottom-menu a{
+
+    color:#cbd5e1;
+
+    font-size:13px;
+
+    transition:.25s;
+
+}
+
+.footer-bottom-menu a:hover{
+
+    color:var(--isago-primary);
+
+}
+
+/*=========================================================
+TABLET
+=========================================================*/
+
+@media(max-width:1200px){
+
+.isago-footer-grid{
+
+grid-template-columns:
+repeat(2,minmax(260px,1fr));
+
+gap:45px;
+
+}
+
+.footer-brand{
+
+max-width:none;
+
+}
+
+.footer-newsletter{
+
+grid-column:1/-1;
+
+max-width:520px;
+
+}
+
+}
+
+/*=========================================================
+SMALL TABLET
+=========================================================*/
+
+@media(max-width:900px){
+
+.isago-footer{
+
+margin-top:70px;
+
+}
+
+.isago-footer .container{
+
+padding-top:50px;
+
+}
+
+.isago-footer-grid{
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+padding-bottom:45px;
+
+}
+
+.footer-newsletter{
+
+grid-column:1/-1;
+
+}
+
+.footer-bottom{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+}
+
+/*=========================================================
+MOBILE
+=========================================================*/
+
+@media(max-width:768px){
+
+.isago-footer-grid{
+
+grid-template-columns:1fr;
+
+gap:38px;
+
+}
+
+.footer-brand,
+
+.footer-column,
+
+.footer-newsletter{
+
+text-align:center;
+
+max-width:none;
+
+}
+
+.footer-socials{
+
+justify-content:center;
+
+}
+
+.footer-newsletter form{
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+.footer-newsletter input{
+
+border-radius:4px;
+
+}
+
+.footer-newsletter button{
+
+width:100%;
+
+border-radius:4px;
+
+}
+
+.footer-bottom{
+
+flex-direction:column;
+
+gap:18px;
+
+text-align:center;
+
+}
+
+.footer-bottom-menu{
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+}
+
+/*=========================================================
+SMALL MOBILE
+=========================================================*/
+
+@media(max-width:480px){
+
+.footer-logo span{
+
+font-size:36px;
+
+}
+
+.footer-description{
+
+font-size:13px;
+
+}
+
+.footer-links a{
+
+font-size:13px;
+
+}
+
+.footer-newsletter p{
+
+font-size:13px;
+
+}
+
+.footer-socials{
+
+gap:8px;
+
+}
+
+.footer-socials a{
+
+width:32px;
+
+height:32px;
+
+}
+
+}

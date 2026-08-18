@@ -1,0 +1,235 @@
+
+--isago-bg:#0f172a;
+
+--isago-card:#172033;
+
+--isago-text:#f8fafc;
+
+--isago-muted:#cbd5e1;
+
+--isago-border:#263244;
+
+--isago-hover-bg:#263244;
+
+h2- big
+h3- small
+
+
+category-text
+isago-small-post-title
+isago-post-meta
+section-heading
+
+
+cat- 10
+post-text - 19
+date- 11
+p- 14
+big-text-  font-size: clamp(30px, 3.2vw, 46px);
+
+
+
+
+@media (max-width: 480px) {}
+1100
+---------- 
+post-text -17
+big-text- 38
+
+
+
+768
+-----------
+cat- 9
+post-text - 16
+big-text- 31
+date- 10
+p- 13
+
+
+
+480
+--------------
+text - 28
+cat- 9
+
+
+360
+-----------------
+post-text - 20
+cat- 8
+
+
+align-items: center;
+width: 100%;
+
+  .editorial-large .editorial-content{
+        text-align:center;
+        max-width:700px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+ .editorial-large h2,
+    .editorial-large p,
+    .editorial-large .editorial-meta{
+        text-align:center;
+    }
+
+
+<tr>
+    <th>Hero Image</th>
+    <td class='isago-upload-button'>
+
+        <input type="text"
+            class="isago-image-url regular-text"
+            name="isago_theme_settings[about_hero_image]"
+            value="<?php echo esc_attr($settings['about_hero_image'] ?? ''); ?>">
+
+        <button class="button isago-upload-button">
+            Upload Image
+        </button>
+
+        <br><br>
+
+        <img class="isago-preview"
+            src="<?php echo esc_url($settings['about_hero_image'] ?? ''); ?>"
+            style="max-width:200px; display:<?php echo !empty($settings['about_hero_image']) ? 'block' : 'none'; ?>; border-radius:6px;">
+
+    </td>
+</tr>
+
+
+
+
+$image = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+
+if (!$image) {
+    $image = isago_get_youtube_thumbnail(get_the_ID());
+}
+
+if (!$image) {
+    $image = get_template_directory_uri() . '/assets/images/placeholder.png';
+}
+
+'image' => $image,
+
+
+
+
+Header
+background:#fff;
+
+with
+
+background:var(--isago-bg);
+
+------------------------------------------------------
+
+color:#111827;
+
+with
+
+color:var(--isago-text);
+
+----------------------------------------------------------------
+border-bottom:1px solid #ececec;
+
+with
+
+border-bottom:1px solid var(--isago-border);
+
+--------------------------------------------------------------
+background:#f3f4f6;
+
+with
+
+background:var(--isago-card);
+--------------------------------------------------
+
+
+
+
+
+assets/css/navigation.css
+
+
+
+background:#fff;
+
+with
+
+background:var(--isago-card);
+
+--------------------------------------------------
+border:1px solid #ececec;
+
+with
+
+border:1px solid var(--isago-border);
+--------------------------------------------------
+
+color:#111827;
+
+with
+
+color:var(--isago-text);
+
+
+
+
+
+
+
+assets/css/layout.css
+
+Replace
+
+background:#fff;
+
+with
+
+background:var(--isago-bg);
+
+
+
+
+
+
+
+lets build the category page together, when a user clicks on say "chatGPT prompts" nav category.  lets take it step by step. using the attached reference image , this is what the page would look like. ask me for any code you need in other to fetch queries or implement a feature or anything you want to clarify.
+
+
+
+
+
+
+
+
+
+
+
+<div class="category-post-grid">
+
+<?php
+
+while ($query->have_posts()) :  
+
+    $query->the_post();
+
+    get_template_part(
+
+        'template-parts/category/post-card'
+
+    );
+
+endwhile;
+
+?>
+
+</div>
+
+
+
+
+
+
