@@ -1,0 +1,1064 @@
+.isago-category-section{
+
+    padding-top:42px;
+
+    margin-top:32px;
+
+    border-top:1px solid var(--isago-border);
+
+}
+  
+
+/*=========================================================
+Header Section
+=========================================================*/
+
+
+.section-heading{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:22px;
+
+}
+
+.section-heading h2{
+
+    font-size:18px;
+
+    font-weight:900;
+
+    letter-spacing:.04em;
+
+    text-transform:uppercase;
+
+}
+
+.section-heading a{
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:var(--isago-primary);
+
+}
+.section-heading a:hover{
+    color:var(--isago-secondary);
+
+}
+
+
+
+
+
+
+  
+
+
+
+/*=========================================================
+Grid Section
+=========================================================*/
+.isago-grid-layout{
+
+display:grid;
+
+grid-template-columns:repeat(3,minmax(0,1fr));
+
+gap:24px;
+
+}
+.grid-card{
+
+    display:flex;
+
+    flex-direction:column;
+    
+
+}
+.grid-card:hover img{
+
+    transform:scale(1.05);
+
+}
+.grid-image{
+
+    display:block;
+
+    overflow:hidden;
+
+}
+
+.grid-image img{
+
+    width:100%;
+
+        aspect-ratio:4/3;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+
+
+
+
+
+
+
+
+/*=========================================================
+EDITORIAL SECTION
+=========================================================*/
+
+.isago-editorial-section{
+    border-top:1px solid var(--isago-border);
+    margin:clamp(40px,5vw,70px) 0;
+    width:100%;
+
+    margin-top:50px;
+
+    padding-top:35px;
+}
+
+.editorial-grid{
+
+    display:grid;
+
+    grid-template-columns:minmax(0,1.7fr) minmax(260px,360px);
+
+    gap:clamp(20px,2vw,36px);
+
+    align-items:start;
+
+}
+
+
+
+
+
+
+/*=================================================
+RIGHT GRID
+=================================================*/
+
+.editorial-right-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+    align-content:start;
+
+}
+
+
+
+/*=================================================
+LEFT FEATURE
+=================================================*/
+.editorial-large img{
+
+    width:100%;
+
+    aspect-ratio:16/10;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.4s;
+
+}
+
+.editorial-large:hover img{
+
+    transform:scale(1.04);
+
+}
+.editorial-large{
+
+    min-width:0;
+
+}
+
+.editorial-large>a{
+
+    display:block;
+
+    overflow:hidden;
+
+}
+
+
+
+/*=================================================
+RIGHT GRID
+=================================================*/
+.editorial-small{
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-width:0;
+
+}
+
+.editorial-small-thumb{
+
+    display:block;
+
+    overflow:hidden;
+
+}
+
+.editorial-small-thumb img{
+
+    width:100%;
+
+    aspect-ratio:16/10;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.35s;
+
+}
+
+.editorial-small:hover img{
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+ISAGO MAGZINE SECTION
+=========================================================*/
+
+.isago-magzine-section{
+
+    width:100%;
+
+    margin-top:50px;
+
+    padding-top:35px;
+
+    border-top:1px solid var(--isago-border);
+
+}
+
+
+
+.magzine-grid{
+
+    display:grid;
+
+    grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);
+
+    gap:28px;
+
+    align-items:start;
+
+}
+
+
+
+.magzine-featured{
+
+    min-width:0;
+
+}
+
+
+
+
+
+
+
+
+/*=========================================================
+LARGE STORY
+=========================================================*/
+
+.magzine-large{
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-width:0;
+
+}
+
+
+.magzine-large-image{
+
+    display:block;
+
+    width:100%;
+
+    overflow:hidden;
+
+    background:#f1f1f1;
+
+}
+
+
+.magzine-large-image img{
+
+    display:block;
+
+    width:100%;
+
+    aspect-ratio:16 / 9;
+
+    object-fit:cover;
+
+    transition:transform .45s ease;
+
+}
+
+
+.magzine-large:hover .magzine-large-image img{
+
+    transform:scale(1.025);
+
+}
+
+
+
+
+
+/*=========================================================
+SMALL STORY GRID
+=========================================================*/
+
+.magzine-small-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    gap:28px 20px;
+
+    min-width:0;
+
+}
+
+
+
+.magzine-small{
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-width:0;
+
+}
+
+
+.magzine-small-image{
+
+    display:block;
+
+    width:100%;
+
+    overflow:hidden;
+
+    background:#f1f1f1;
+
+}
+
+
+.magzine-small-image img{
+
+    display:block;
+
+    width:100%;
+
+    aspect-ratio:16 / 10;
+
+    object-fit:cover;
+
+    transition:transform .4s ease;
+
+}
+
+
+.magzine-small:hover .magzine-small-image img{
+
+    transform:scale(1.04);
+
+}
+
+
+
+.magzine-small-content{
+
+    padding-top:11px;
+
+}
+
+
+
+
+/*=========================================================
+MAGZINE — TABLET
+=========================================================*/
+
+@media (max-width:1100px){
+
+    .magzine-grid{
+
+        grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+
+        gap:24px;
+
+    }
+
+    .magzine-small-grid{
+
+        gap:22px 16px;
+
+    }
+
+  
+
+}
+
+
+/*=========================================================
+MAGZINE — SMALL TABLET
+=========================================================*/
+
+@media (max-width:900px){
+
+    .magzine-grid{
+
+        grid-template-columns:1fr;
+        gap:32px;
+
+    }
+
+    .magzine-large-image img{
+
+        aspect-ratio:16 / 8.5;
+
+    }
+.magzine-large-content, 
+.magzine-large-content h2,
+ .magzine-large-content p{
+    text-align: center;
+max-width: 100%;
+}
+    .magzine-small-grid{
+
+        grid-template-columns:repeat(2,minmax(0,1fr));
+
+        gap:24px;
+
+    }
+
+}
+
+
+/*=========================================================
+MAGZINE — MOBILE
+=========================================================*/
+
+@media (max-width:600px){
+
+    .isago-magzine-section{
+
+        margin-top:40px;
+
+        padding-top:28px;
+
+    }
+
+    .magzine-grid{
+
+        gap:28px;
+
+    }
+
+  
+
+   
+
+  
+
+    .magzine-meta{
+
+        justify-content:center;
+
+    }
+
+    .magzine-small-grid{
+
+        grid-template-columns:1fr 1fr;
+
+        gap:22px 14px;
+
+    }
+
+
+}
+
+
+/*=========================================================
+MAGZINE — VERY SMALL MOBILE
+=========================================================*/
+
+@media (max-width:430px){
+
+    .magzine-small-grid{
+
+        grid-template-columns:1fr;
+
+        gap:28px;
+
+    }
+
+    .magzine-small-image img{
+
+        aspect-ratio:16 / 9;
+
+    }
+
+    .magzine-small-content{
+
+        text-align:center;
+
+    }
+
+  
+
+}
+
+
+
+
+
+
+/*=========================================================
+ISAGO LIST CARD
+=========================================================*/
+
+.list-layout {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+
+/*---------------------------------------------------------
+Individual Card
+---------------------------------------------------------*/
+
+.list-item {
+
+    display: grid;
+
+    grid-template-columns: 250px minmax(0, 1fr);
+
+    gap: 22px;
+
+    align-items: center;
+
+    padding: 18px;
+box-shadow: 2px 2px 12px #0002;
+    background: var(--isago-card);
+
+    border: 1px solid var(--isago-border);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+/*---------------------------------------------------------
+Card Hover
+---------------------------------------------------------*/
+
+.list-item:hover {
+
+    transform: translateY(-2px);
+
+       border-color: rgba(0, 212, 245, 0.4);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.06);
+
+}
+
+.list-item:hover .isago-editorial-post-title a{
+    color:var(--isago-primary);
+}
+
+/*---------------------------------------------------------
+Thumbnail
+---------------------------------------------------------*/
+
+.list-thumb {
+
+    display: block;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 7px;
+
+}
+
+
+.list-thumb img {
+
+    display: block;
+
+    width: 100%;
+
+
+    aspect-ratio: 16 / 10;
+
+    object-fit: cover;
+
+    transition: transform .35s ease;
+
+}
+
+
+.list-item:hover .list-thumb img {
+
+    transform: scale(1.03);
+
+}
+
+
+/*---------------------------------------------------------
+Content
+---------------------------------------------------------*/
+
+.list-content {
+
+    min-width: 0;
+
+}
+
+
+
+/*---------------------------------------------------------
+Tablet
+---------------------------------------------------------*/
+
+@media (max-width: 900px) {
+
+    .list-item {
+
+        grid-template-columns: 220px minmax(0, 1fr);
+
+        gap: 18px;
+
+        padding: 15px;
+
+    }
+
+
+
+}
+
+
+/*---------------------------------------------------------
+Mobile
+---------------------------------------------------------*/
+
+@media (max-width: 640px) {
+
+    .list-layout {
+
+        gap: 15px;
+
+    }
+
+    .list-item {
+
+        grid-template-columns: 200px minmax(0, 1fr);
+
+        gap: 14px;
+
+        padding: 12px;
+
+        border-radius: 8px;
+
+        align-items: start;
+
+    }
+
+    .list-thumb {
+
+        border-radius: 6px;
+
+    }
+
+    .list-thumb img {
+
+        aspect-ratio: 4 / 3;
+
+    }
+
+
+
+}
+
+
+/*---------------------------------------------------------
+Small Mobile
+---------------------------------------------------------*/
+
+@media (max-width: 480px) {
+
+    .list-item {
+
+ text-align:center;
+        max-width:700px;
+grid-template-columns:1fr;
+        gap: 12px;
+
+        padding: 10px;
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+Responsive
+=========================================================*/
+@media(max-width:1200px){
+
+.editorial-grid{
+
+grid-template-columns:1.5fr 320px;
+
+gap:24px;
+
+}
+
+}
+
+
+
+@media(max-width:1100px){
+
+.isago-grid-layout{
+grid-template-columns:repeat(2,1fr);
+        }
+
+.section-heading h2{
+
+    font-size:16px;
+}
+.section-heading a{
+
+    font-size:12px;
+
+}
+}
+
+
+
+
+@media(max-width:992px){
+
+.editorial-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.editorial-right-grid{
+
+margin-top:28px;
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.editorial-large img{
+
+aspect-ratio:16/9;
+
+}
+.editorial-content{
+    align-items: center;
+width: 100%;
+}
+
+  .editorial-large .editorial-content{
+        text-align:center;
+        max-width:700px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+
+    .editorial-large h2,
+    .editorial-large p,
+    .editorial-large .editorial-meta{
+        text-align:center;
+    }
+}
+
+
+
+
+@media(max-width:768px){
+.isago-grid-layout{
+grid-template-columns:repeat(2,1fr);
+       }
+
+.editorial-right-grid{
+
+gap:18px;
+
+}
+
+}
+
+
+@media(max-width:600px){
+
+.editorial-right-grid{
+
+grid-template-columns:1fr;
+
+gap:20px;
+
+}
+
+.editorial-small{
+
+display:grid;
+
+grid-template-columns:120px 1fr;
+
+gap:16px;
+
+align-items:start;
+
+}
+
+.editorial-small-content{
+
+padding:0;
+
+}
+
+.editorial-small-thumb img{
+
+height:90px;
+
+aspect-ratio:auto;
+
+}
+
+
+}
+
+@media(max-width:480px){
+
+.isago-grid-layout{
+ text-align: center;
+    width: 100%;
+grid-template-columns:1fr;
+        }
+
+.section-heading h2{
+
+    font-size:15px;
+}
+.section-heading a{
+
+    font-size:10px;
+
+}
+
+
+
+
+
+.editorial-small{
+
+grid-template-columns:95px 1fr;
+
+gap:12px;
+
+}
+
+.editorial-small-thumb img{
+
+height:72px;
+
+}
+
+
+
+}
+
+
+
+@media(max-width:380px){
+.section-heading{
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+        }
+
+}
+
+
+
+
+/*=========================================================
+BACK TO TOP
+=========================================================*/
+
+.isago-back-to-top{
+
+    position:fixed;
+
+    right:24px;
+
+    bottom:24px;
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    border-radius:50%;
+
+    background:var(--isago-nav);
+
+    color:var(--isago-text);
+
+    box-shadow: 2px 2px 12px #0002;
+
+ border:1px solid rgba(255,255,255,.12);
+
+    cursor:pointer;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(15px);
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease,
+        background .25s ease,
+        color .25s ease;
+
+    z-index:99990;
+
+}
+
+
+.isago-back-to-top.visible{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
+
+
+.isago-back-to-top:hover{
+
+    background:var(--isago-primary);
+
+    border-color:var(--isago-primary);
+
+    color:var(--isago-text);
+
+}
+
+
+.isago-back-to-top i{
+
+    font-size:16px;
+
+}
+
+
+@media(max-width:768px){
+
+    .isago-back-to-top{
+
+        right:16px;
+
+        bottom:18px;
+
+        width:44px;
+
+        height:44px;
+
+    }
+
+}

@@ -1,37 +1,80 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+
     /*
     |--------------------------------------------------------------------------
     | DARK MODE
     |--------------------------------------------------------------------------
+    |
+    | Isago uses DARK MODE as the default theme.
+    |
+    | localStorage values:
+    |
+    | "dark"  = dark mode
+    | "light" = light mode
+    |
+    | If no saved preference exists, DARK MODE is used.
+    |
     */
 
-   /*
-|--------------------------------------------------------------------------
-| DARK MODE
-|--------------------------------------------------------------------------
-*/
 
-const darkButtons =
-    document.querySelectorAll(".isago-dark-toggle");
+    const darkButtons =
+        document.querySelectorAll(".isago-dark-toggle");
 
-if (darkButtons.length) {
 
-    function updateDarkModeIcons() {
+    /*
+    |--------------------------------------------------------------------------
+    | Apply Theme
+    |--------------------------------------------------------------------------
+    */
+
+    function applyTheme(theme) {
+
+        const isDark =
+            theme !== "light";
+
+
+        document.body.classList.toggle(
+            "dark-mode",
+            isDark
+        );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Update HTML preload state
+        |--------------------------------------------------------------------------
+        */
+
+        document.documentElement.classList.toggle(
+            "isago-dark-preload",
+            isDark
+        );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Update Icons
+        |--------------------------------------------------------------------------
+        */
 
         darkButtons.forEach(function (button) {
 
-            const icon = button.querySelector("i");
+            const icon =
+                button.querySelector("i");
+
 
             if (!icon) {
                 return;
             }
 
-            if (
-                document.body.classList.contains("dark-mode")
-            ) {
 
-                /* Dark mode = SUN */
+            if (isDark) {
+
+                /*
+                Dark mode is active.
+                Show SUN because clicking it switches to light mode.
+                */
 
                 icon.classList.remove(
                     "fa-regular",
@@ -42,10 +85,26 @@ if (darkButtons.length) {
                     "fa-solid",
                     "fa-sun"
                 );
+
+
+                button.setAttribute(
+                    "aria-label",
+                    "Switch to Light Mode"
+                );
+
+
+                button.setAttribute(
+                    "title",
+                    "Switch to Light Mode"
+                );
+
 
             } else {
 
-                /* Light mode = MOON */
+                /*
+                Light mode is active.
+                Show MOON because clicking it switches to dark mode.
+                */
 
                 icon.classList.remove(
                     "fa-solid",
@@ -55,6 +114,18 @@ if (darkButtons.length) {
                 icon.classList.add(
                     "fa-regular",
                     "fa-moon"
+                );
+
+
+                button.setAttribute(
+                    "aria-label",
+                    "Switch to Dark Mode"
+                );
+
+
+                button.setAttribute(
+                    "title",
+                    "Switch to Dark Mode"
                 );
 
             }
@@ -68,22 +139,37 @@ if (darkButtons.length) {
     |--------------------------------------------------------------------------
     | Restore Saved Theme
     |--------------------------------------------------------------------------
+    |
+    | No saved preference = DARK MODE.
+    |
     */
 
     const savedTheme =
         localStorage.getItem("isago-theme");
 
 
-    if (savedTheme === "dark") {
-
-        document.body.classList.add(
-            "dark-mode"
-        );
-
-    }
+    const initialTheme =
+        savedTheme === "light"
+            ? "light"
+            : "dark";
 
 
-    updateDarkModeIcons();
+    applyTheme(initialTheme);
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Remove Dark Preload Class
+    |--------------------------------------------------------------------------
+    |
+    | The preload class prevents a light-mode flash
+    | before JavaScript finishes loading.
+    |
+    */
+
+    document.documentElement.classList.remove(
+        "isago-dark-preload"
+    );
 
 
     /*
@@ -98,10 +184,6 @@ if (darkButtons.length) {
             "click",
             function () {
 
-                document.body.classList.toggle(
-                    "dark-mode"
-                );
-
 
                 const isDark =
                     document.body.classList.contains(
@@ -109,24 +191,32 @@ if (darkButtons.length) {
                     );
 
 
+                const newTheme =
+                    isDark
+                        ? "light"
+                        : "dark";
+
+
+                /*
+                Save user's preference.
+                */
+
                 localStorage.setItem(
                     "isago-theme",
-                    isDark
-                        ? "dark"
-                        : "light"
+                    newTheme
                 );
 
 
-                updateDarkModeIcons();
+                /*
+                Apply new theme.
+                */
+
+                applyTheme(newTheme);
 
             }
         );
 
     });
-
-}
-
-
 
 
 
@@ -147,13 +237,10 @@ if (darkButtons.length) {
     |--------------------------------------------------------------------------
     | Save Current Scroll Position
     |--------------------------------------------------------------------------
-    |
-    | We store the position directly on the browser history entry.
-    | This means every page/history entry can have its own position.
-    |
     */
 
     let ticking = false;
+
 
     function saveScrollPosition() {
 
@@ -161,11 +248,15 @@ if (darkButtons.length) {
             return;
         }
 
+
         ticking = true;
+
 
         window.requestAnimationFrame(function () {
 
-            const currentState = history.state || {};
+            const currentState =
+                history.state || {};
+
 
             history.replaceState(
 
@@ -180,6 +271,7 @@ if (darkButtons.length) {
 
             );
 
+
             ticking = false;
 
         });
@@ -189,7 +281,7 @@ if (darkButtons.length) {
 
     /*
     |--------------------------------------------------------------------------
-    | Save while user scrolls
+    | Save While User Scrolls
     |--------------------------------------------------------------------------
     */
 
@@ -204,23 +296,21 @@ if (darkButtons.length) {
 
     /*
     |--------------------------------------------------------------------------
-    | Restore position when returning with Back / Forward
+    | Restore Position When Returning
     |--------------------------------------------------------------------------
     */
 
     function restoreScrollPosition() {
 
-        const state = history.state;
+        const state =
+            history.state;
+
 
         if (
             state &&
             typeof state.isagoScrollY === "number"
         ) {
 
-            /*
-            * Wait until images/content have had a chance
-            * to establish their page height.
-            */
 
             requestAnimationFrame(function () {
 
@@ -228,11 +318,14 @@ if (darkButtons.length) {
 
                     window.scrollTo({
 
-                        top: state.isagoScrollY,
+                        top:
+                            state.isagoScrollY,
 
-                        left: 0,
+                        left:
+                            0,
 
-                        behavior: "auto"
+                        behavior:
+                            "auto"
 
                     });
 
@@ -247,12 +340,8 @@ if (darkButtons.length) {
 
     /*
     |--------------------------------------------------------------------------
-    | pageshow
+    | Pageshow
     |--------------------------------------------------------------------------
-    |
-    | pageshow also fires when the browser restores a page from
-    | its back/forward cache.
-    |
     */
 
     window.addEventListener(
@@ -267,7 +356,7 @@ if (darkButtons.length) {
 
     /*
     |--------------------------------------------------------------------------
-    | Save immediately before leaving the page
+    | Save Before Leaving
     |--------------------------------------------------------------------------
     */
 
@@ -275,7 +364,9 @@ if (darkButtons.length) {
         "pagehide",
         function () {
 
-            const currentState = history.state || {};
+            const currentState =
+                history.state || {};
+
 
             history.replaceState(
 
@@ -301,20 +392,27 @@ if (darkButtons.length) {
     */
 
     const backToTop =
-        document.querySelector(".isago-back-to-top");
+        document.querySelector(
+            ".isago-back-to-top"
+        );
 
 
     if (backToTop) {
+
 
         function updateBackToTop() {
 
             if (window.scrollY > 500) {
 
-                backToTop.classList.add("visible");
+                backToTop.classList.add(
+                    "visible"
+                );
 
             } else {
 
-                backToTop.classList.remove("visible");
+                backToTop.classList.remove(
+                    "visible"
+                );
 
             }
 
@@ -339,13 +437,17 @@ if (darkButtons.length) {
 
                 event.preventDefault();
 
+
                 window.scrollTo({
 
-                    top: 0,
+                    top:
+                        0,
 
-                    left: 0,
+                    left:
+                        0,
 
-                    behavior: "smooth"
+                    behavior:
+                        "smooth"
 
                 });
 

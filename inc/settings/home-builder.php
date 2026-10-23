@@ -7,31 +7,73 @@ if (!defined('ABSPATH')) {
 function isago_get_hero_settings()
 {
 
-$options = isago_get_option(
-
-'isago_home_settings'
-);
-
-return [
-
-'featured'=>
-
-$options['hero_featured']  
-
-??0,
-
-'left'=>
-
-$options['hero_left_category']
-
-??'',
+    $options =
+        isago_get_option(
+            'isago_home_settings'
+        );
 
 
+    /*
+     * Hero Left Content Type  
+     *
+     * Supported:
+     *
+     * blog
+     * ai_prompt
+     * ai_tool
+     */
 
-];
+    $left_type =
+        sanitize_key(
+            $options['hero_left_type']
+            ?? 'blog'
+        );
+
+
+    /*
+     * Safety fallback.
+     */
+
+    if (
+        !in_array(
+            $left_type,
+            [
+                'blog',
+                'ai_prompt',
+                'ai_tool'
+            ],
+            true
+        )
+    ) {
+
+        $left_type = 'blog';
+
+    }
+
+
+    return [
+
+        'featured' =>
+
+            absint(
+                $options['hero_featured']
+                ?? 0
+            ),
+
+
+        'left_type' =>
+
+            $left_type,
+
+
+        'left' =>
+
+            $options['hero_left_category']
+            ?? '',
+
+    ];
 
 }
-
 
 
 /**
@@ -42,44 +84,213 @@ $options['hero_left_category']
 
 function isago_get_home_sections()
 {
-    $options = isago_get_option('isago_home_settings');
+
+    $options =
+        isago_get_option(
+            'isago_home_settings'
+        );
+
+
+
+
 
     $sections = [];
 
-    for ($i = 1; $i <= 8; $i++) {
 
-        if (empty($options["section{$i}_category"])) {
+    for (
+        $i = 1;
+        $i <= 8;
+        $i++
+    ) {
+
+        /*=================================================
+        CONTENT TYPE
+        =================================================*/
+
+        $type =
+            sanitize_key(
+                $options[
+                    "section{$i}_type"
+                ]
+                ?? 'none'
+            );
+
+
+        /*
+         * NONE = disabled.
+         *
+         * Do not add the section to the frontend
+         * at all.
+         */
+
+        if (
+            $type === 'none'
+        ) {
+
             continue;
+
         }
 
-        $sections[] = [
 
-            'title' => sanitize_text_field(
-                $options["section{$i}_title"] ?? ''
-            ),
+        /*
+         * Safety fallback.
+         */
 
-            'slug' => sanitize_title(
-                $options["section{$i}_category"]
-            ),
-
-            'posts' => absint(
-                $options["section{$i}_posts"] ?? 4
-            ),
-
-            // Layout is the ONLY field using underscores
-            'layout' => sanitize_key(
-                $options["section{$i}_layout"] ?? 'grid'
-            ),
-
-            'show_ad' => !empty(
-                $options["section{$i}_ad"]
+        if (
+            !in_array(
+                $type,
+                [
+                    'blog',
+                    'ai_prompt',
+                    'ai_tool'
+                ],
+                true
             )
+        ) {
 
-        ];
+            continue;
+
+        }
+
+
+        /*=================================================
+        SOURCE
+        =================================================*/
+
+        $source =
+            $options[
+                "section{$i}_category"
+            ]
+            ?? '__all';
+
+
+        if (
+            $source === ''
+            ||
+            $source === null
+        ) {
+
+            $source = '__all';
+
+        }
+
+
+
+
+/*=================================================
+CONTENT ORDER
+=================================================*/
+
+$orderby = sanitize_key(
+    $options["section{$i}_orderby"] ?? 'latest'
+);
+
+/*
+ * Backward compatibility with the old saved value.
+ */
+
+if ($orderby === 'date') {
+    $orderby = 'latest';
+}
+
+if (
+    !in_array(
+        $orderby,
+        ['latest', 'older', 'modified'],
+        true
+    )
+) {
+    $orderby = 'latest';
+}
+
+
+
+
+        /*=================================================
+        SECTION
+        =================================================*/
+
+    $sections[] = [
+
+    'number' =>
+        $i,
+
+
+    'title' =>
+        sanitize_text_field(
+            $options[
+                "section{$i}_title"
+            ]
+            ?? ''
+        ),
+
+
+    'type' =>
+        $type,
+
+
+    'slug' =>
+        $source,
+
+
+    'posts' =>
+        max(
+            1,
+            absint(
+                $options[
+                    "section{$i}_posts"
+                ]
+                ?? 4
+            )
+        ),
+
+'orderby' => $orderby,
+    'layout' =>
+        sanitize_key(
+            $options[
+                "section{$i}_layout"
+            ]
+            ?? 'grid'
+        ),
+
+
+    /*
+     * Whether this section should display
+     * its corresponding homepage advertisement.
+     */
+
+    'show_ad' =>
+        !empty(
+            $options[
+                "section{$i}_ad"
+            ]
+        ),
+
+
+    /*
+     * Advertisement Manager slot.
+     *
+     * Section 1 -> homepage1
+     * Section 2 -> homepage2
+     * ...
+     * Section 8 -> homepage8
+     */
+
+    'ad_slot' =>
+        'homepage' . $i,
+
+];
     }
 
+
     return $sections;
+
 }
+
+
+
+
+
 
 /**
  * ----------------------------------------------------
@@ -217,22 +428,147 @@ function isago_get_home_video_settings()
         'isago_home_settings'
     );
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Section title
+    |--------------------------------------------------------------------------
+    */
+
+    $title = sanitize_text_field(
+
+        $options['homepage_video_title']
+        ??
+        'Latest Videos'
+
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Content type
+    |--------------------------------------------------------------------------
+    */
+
+    $type = sanitize_key(
+
+        $options['homepage_video_type']
+        ??
+        'blog'
+
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Validate content type
+    |--------------------------------------------------------------------------
+    */
+
+    $allowed_types = [
+
+        'blog',
+        'ai_prompt',
+        'ai_tool'
+
+    ];
+
+
+    if (
+        !in_array(
+            $type,
+            $allowed_types,
+            true
+        )
+    ) {
+
+        $type = 'blog';
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Source
+    |--------------------------------------------------------------------------
+    |
+    | Blog:
+    |     category slug
+    |
+    | AI Prompt:
+    |     prompt category slug
+    |
+    | AI Tool:
+    |     tool category term ID
+    |
+    |--------------------------------------------------------------------------
+    */
+
+    $source =
+        $options['homepage_video_category']
+        ??
+        '';
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Sanitize source according to content type
+    |--------------------------------------------------------------------------
+    */
+
+    if ($type === 'ai_tool') {
+
+        $source = absint($source);
+
+    } else {
+
+        $source = sanitize_title($source);
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Number of videos
+    |--------------------------------------------------------------------------
+    */
+
+    $posts = absint(
+
+        $options['homepage_video_posts']
+        ??
+        3
+
+    );
+
+
+    if ($posts < 1) {
+
+        $posts = 3;
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Return settings
+    |--------------------------------------------------------------------------
+    */
+
     return [
 
-        'title' => sanitize_text_field(
-            $options['homepage_video_title']
-            ?? 'Videos'
-        ),
+        'title'  => $title,
 
-        'category' => sanitize_title(
-            $options['homepage_video_category']
-            ?? ''
-        ),
+        'type'   => $type,
 
-        'posts' => absint(
-            $options['homepage_video_posts']
-            ?? 3
-        )
+        'source' => $source,
+
+        /*
+         * Keep category as a backward-compatible alias.
+         */
+        'category' => $source,
+
+        'posts'  => $posts,
 
     ];
 

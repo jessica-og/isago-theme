@@ -14,21 +14,25 @@ if (!defined('ABSPATH')) {
 
         <?php
 
-        if (has_post_thumbnail()) {
+        echo isago_get_post_thumbnail(
 
-            the_post_thumbnail(
-                'large'
+    get_the_ID(),
+                'large',
+                [
+                    'loading' => 'lazy',
+                     'alt'     => the_title_attribute([
+                        'echo' => false
+                    ])
+                ]
             );
-
-        }
 
         ?>
 
     </a>
 
-    <div class="category-featured-content">
+    <div class="category-featured-content center-big-post-content">
 
-        <div class="editorial-category">
+        <div class="category-text">
 
             <?php
 
@@ -42,7 +46,7 @@ if (!defined('ABSPATH')) {
 
         </div>
 
-        <h2>
+        <h2 class="isago-big-post-title">
 
             <a href="<?php the_permalink(); ?>">
 
@@ -52,7 +56,7 @@ if (!defined('ABSPATH')) {
 
         </h2>
 
-        <p>
+        <p class="isago-excerpt">
 
             <?php
 
@@ -65,43 +69,50 @@ if (!defined('ABSPATH')) {
 
         </p>
 
-     <div class="category-featured-meta">
+     <div class="isago-post-meta">
 
-    <div class="category-author">
+   <?php
 
-        <?php echo get_avatar(get_the_author_meta('ID'),32); ?>
+$theme = isago_get_theme_settings();
 
-        <span>
+$author_image =
+    isago_get_author_image_url(
+        'medium'
+    );
 
-            By <?php the_author(); ?>
+?>
 
-        </span>
+<div class="category-author">
 
-    </div>
+    <?php if (!empty($author_image)) : ?>
 
-    <div class="category-featured-stats">
+        <img
+            src="<?php echo esc_url($author_image); ?>"
+            width="32"
+            height="32"
+            alt="<?php echo esc_attr($author_name); ?>"
+            loading="lazy"
+        >
 
-        <span>
+    <?php endif; ?>
 
-            <?php echo get_the_date(); ?>
+    <span>
 
-        </span>
+        By <?php echo esc_html($author_name); ?>
 
-        <span>
+    </span>
 
-            •
+    <span>
+        •
+    </span>
 
-        </span>
+    <span>
 
-        <span>
+        <?php echo esc_html(get_the_date()); ?>
 
-            <?php echo number_format(get_comments_number()); ?>
+    </span>
 
-            comments
-
-        </span>
-
-    </div>
+</div>
 
 </div>
 

@@ -35,7 +35,7 @@ FULLSCREEN SEARCH (PREMIUM UI)
     width: 100%;
     max-width: 720px;
 
-    background: #fff;
+    background: var(--isago-card);
     border-radius: 18px;
 
     padding: 40px 28px 28px;
@@ -67,10 +67,10 @@ FULLSCREEN SEARCH (PREMIUM UI)
     padding: 0 18px;
 
     font-size: 16px;
-
-    border: 1px solid #ddd;
+background-color: var(--isago-bg);
+    border: 1px solid var(--isago-secondary);
     border-radius: 10px;
-
+    color: var(--isago-text);
     transition: 0.25s;
 }
 
@@ -88,7 +88,7 @@ FULLSCREEN SEARCH (PREMIUM UI)
     border-radius: 10px;
 
     background: var(--isago-primary);
-    color: #fff;
+    color: var(--isago-text);
 
     font-weight: 700;
     cursor: pointer;
@@ -113,8 +113,8 @@ FULLSCREEN SEARCH (PREMIUM UI)
     border: none;
     border-radius: 50%;
 
-    background: rgba(255,255,255,0.15);
-    color: #fff;
+    background: var(--isago-card);
+    color: var(--isago-text);
 
     display: flex;
     align-items: center;
@@ -152,9 +152,9 @@ FULLSCREEN SEARCH (PREMIUM UI)
 
     margin-top: 8px;
 
-    background: #fff;
+    background: var(--isago-bg);
     border-radius: 12px;
-    border: 1px solid #eee;
+    border: 1px solid var(--isago-border);
 
     box-shadow: 0 20px 50px rgba(0,0,0,0.2);
 
@@ -171,7 +171,7 @@ FULLSCREEN SEARCH (PREMIUM UI)
 }
 
 .isago-search-results::-webkit-scrollbar-thumb {
-    background: #ddd;
+    background: var(--isago-primary);
     border-radius: 10px;
 }
 
@@ -182,7 +182,7 @@ FULLSCREEN SEARCH (PREMIUM UI)
     padding: 12px 14px;
 
     text-decoration: none;
-    color: #111;
+    color: var(--isago-text);
 
     align-items: center;
     transition: 0.2s;
@@ -201,7 +201,7 @@ FULLSCREEN SEARCH (PREMIUM UI)
 }
 
 .search-item:hover {
-    background: #f7f7f7;
+    background: var(--isago-hover-bg);
 }
 
 /* NO RESULTS */
@@ -209,7 +209,7 @@ FULLSCREEN SEARCH (PREMIUM UI)
     padding: 15px;
     text-align: center;
     font-size: 14px;
-    color: #888;
+    color: var(--isago-date);
 }
 
 /*=========================================================

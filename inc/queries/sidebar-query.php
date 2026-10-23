@@ -25,15 +25,45 @@ function isago_single_post_query($id)
 Popular Posts
 =========================================================*/
 
-function isago_popular_posts_query($count = 5)
+function isago_get_sidebar_popular_posts($posts = 5)
 {
-    return isago_query([
 
-        'posts_per_page' => absint($count),
+    return new WP_Query([
 
-        'orderby' => 'comment_count',
+        'post_type' => [
+
+            'post',
+
+            'isago_video'
+
+        ],
+
+        'post_status' => 'publish',
+
+        'posts_per_page' => absint($posts),
+
+        'post__not_in' => [
+
+            get_the_ID()
+
+        ],
+
+        'ignore_sticky_posts' => true,
+
+        /*
+        |--------------------------------------------------------------------------
+        | Most Viewed
+        |--------------------------------------------------------------------------
+        */
+
+        'meta_key' => '_isago_post_views',
+
+        'orderby' => 'meta_value_num',
+
+        'order' => 'DESC'
 
     ]);
+
 }
 
 
@@ -104,7 +134,7 @@ function isago_category_sidebar_posts(
 
                 'terms' => $category->term_id,
 
-                'include_children' => false
+                'include_children' => true
 
             ]
 

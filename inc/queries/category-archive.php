@@ -2,7 +2,7 @@
 
 if (!defined('ABSPATH')) {
     exit;
-}
+}  
 
 /*=========================================================
 Current Page
@@ -29,6 +29,94 @@ function isago_get_category_paged()
 
 }
 
+
+/*=========================================================
+Recursive Category Article Count
+=========================================================*/
+
+function isago_get_category_total_articles($category_id = null)
+{
+    $category_id = absint(
+        $category_id ?: get_queried_object_id()
+    );
+
+    if (!$category_id) {
+        return 0;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Count Posts In This Category + ALL Descendants
+    |--------------------------------------------------------------------------
+    |
+    | WordPress automatically includes child categories when
+    | include_children is true.
+    |
+    | This includes:
+    |
+    | Parent
+    | ├── Child
+    | │   ├── Grandchild
+    | │   └── Grandchild
+    | └── Child
+    |
+    */
+
+    $query = new WP_Query([
+
+        'post_type' => [
+            'post',
+            'isago_video'
+        ],
+
+        'post_status' => 'publish',
+
+        'posts_per_page' => 1,
+
+        'fields' => 'ids',
+
+        'tax_query' => [
+
+            [
+                'taxonomy' => 'category',
+
+                'field' => 'term_id',
+
+                'terms' => [$category_id],
+
+                'include_children' => true
+            ]
+
+        ],
+
+        /*
+        |--------------------------------------------------------------------------
+        | We need found_posts for the total.
+        |--------------------------------------------------------------------------
+        */
+
+        'no_found_rows' => false,
+
+        /*
+        |--------------------------------------------------------------------------
+        | Performance
+        |--------------------------------------------------------------------------
+        */
+
+        'ignore_sticky_posts' => true,
+
+        'update_post_meta_cache' => false,
+
+        'update_post_term_cache' => false
+
+    ]);
+
+
+    return (int) $query->found_posts;
+}
+
+
 /*=========================================================
 Featured Post
 =========================================================*/
@@ -46,17 +134,42 @@ function isago_get_category_featured()
 
  $settings = isago_get_category_archive_settings();
 
+$category_id = absint(
+
+    $_POST['category']
+
+    ??
+
+    get_queried_object_id()
+
+);
+
 $args = [
 
-    'post_type' => 'post',
+    'post_type' => [
 
-    'cat' => absint(
+        'post',
 
-        $_POST['category']
-        ??
-        get_queried_object_id()
+        'isago_video'
 
-    ),
+    ],
+
+
+
+'tax_query' => [
+
+    [
+
+        'taxonomy' => 'category',
+
+        'field' => 'term_id',
+
+        'terms' => $category_id,
+          'include_children' => true
+
+    ]
+
+],
 
     /*
      * Always show ONE featured article.
@@ -66,25 +179,35 @@ $args = [
 
 ];
 
-    switch ($filter) {
+switch ($filter) {
 
-        case 'popular':
+  case 'popular':
 
-            $args['orderby'] = 'comment_count';
+    $args['meta_key'] = '_isago_post_views';
 
-            break;
+    $args['orderby'] = 'meta_value_num';
 
-        case 'trending':
+    $args['order'] = 'DESC';
 
-            $args['orderby'] = 'modified';
+    break;
 
-            break;
+case 'trending':
 
-        default:
+    $args['meta_key'] = '_isago_post_views_week';
 
-            $args['orderby'] = 'date';
+    $args['orderby'] = 'meta_value_num';
 
-    }
+    $args['order'] = 'DESC';
+
+    break;
+
+    default:
+
+        $args['orderby'] = 'date';
+
+        $args['order'] = 'DESC';
+
+}
 
     if ($sort === 'oldest') {
 
@@ -131,20 +254,43 @@ $settings = isago_get_category_archive_settings();
 $featured_post_id = get_query_var(
     'isago_category_featured_post_id'
 );
- $args = [
 
-    'post_type' => 'post',
 
-    'cat' => absint(
+$category_id = absint(
 
-        $_POST['category']
+    $_POST['category']
 
-        ??
+    ??
 
-        get_queried_object_id()
+    get_queried_object_id()
 
-    ),
+);
 
+$args = [
+
+    'post_type' => [
+
+        'post',
+
+        'isago_video'
+
+    ],
+
+
+'tax_query' => [
+
+    [
+
+        'taxonomy' => 'category',
+
+        'field' => 'term_id',
+
+        'terms' => $category_id,
+          'include_children' => true
+
+    ]
+
+],
     'posts_per_page' => $settings['posts'],
 
     'paged' => isago_get_category_paged(),
@@ -163,25 +309,25 @@ $featured_post_id = get_query_var(
     */
 
     switch ($filter) {
+case 'popular':
 
-        case 'popular':
+    $args['meta_key'] = '_isago_post_views';
 
-       $args['meta_key'] = '_isago_post_views';
+    $args['orderby'] = 'meta_value_num';
 
-$args['orderby'] = 'meta_value_num';
+    $args['order'] = 'DESC';
 
-            $args['order'] = 'DESC';
+    break;
 
-            break;
+case 'trending':
 
-        case 'trending':
+    $args['meta_key'] = '_isago_post_views_week';
 
-            $args['orderby'] = 'modified';
-            //$args['orderby'] = 'comment_count';
+    $args['orderby'] = 'meta_value_num';
 
-            $args['order'] = 'DESC';
+    $args['order'] = 'DESC';
 
-            break;
+    break;
 
         default:
 
@@ -234,29 +380,57 @@ $args['orderby'] = 'meta_value_num';
 Popular Posts
 =========================================================*/
 
+
 function isago_get_category_popular($posts = 5)
 {
-    return new WP_Query([
+    $category_id = absint(
 
-        'post_type' => 'post',
+        $_POST['category']
 
-        'cat' => absint(
+        ??
 
-    $_POST['category']
+        get_queried_object_id()
 
-    ??
+    );
 
-    get_queried_object_id()
+    $args = [
 
-),
+        'post_type' => [
 
-        'posts_per_page' => $posts,
+            'post',
+
+            'isago_video'
+
+        ],
+
+        'tax_query' => [
+
+            [
+
+                'taxonomy' => 'category',
+
+                'field' => 'term_id',
+
+                'terms' => $category_id,
+                  'include_children' => true
+
+            ]
+
+        ],
+
+        'posts_per_page' => absint($posts),
 
         'ignore_sticky_posts' => true,
+        
+'meta_key' => '_isago_post_views',
 
-        'orderby' => 'comment_count'
+'orderby' => 'meta_value_num',
 
-    ]);
+'order' => 'DESC'
+
+    ];
+
+    return new WP_Query($args);
 }
    
 /*=========================================================

@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 
 <h2>
 
-No Results Found
+No Results Found  
 
 </h2>
 

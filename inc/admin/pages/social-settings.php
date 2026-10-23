@@ -35,11 +35,78 @@ function isago_social_menu()
 
 function isago_register_social_settings()
 {
-    register_setting(
-        'isago_social_options',
-        'isago_social_settings'
-    );
+   register_setting(
+    'isago_social_options',
+    'isago_social_settings',
+    [
+        'type'              => 'array',
+        'sanitize_callback' => 'isago_sanitize_social_settings',
+        'default'           => [],
+    ]
+);
 }
+
+function isago_sanitize_social_settings($input)
+{
+    if (!is_array($input)) {
+        $input = [];
+    }
+
+    $profiles = [
+        'facebook',
+        'x',
+        'instagram',
+        'youtube',
+        'tiktok',
+        'linkedin',
+        'pinterest',
+        'threads',
+    ];
+
+    $output = [];
+
+    foreach ($profiles as $profile) {
+
+        $url = trim(
+            $input[$profile] ?? ''
+        );
+
+        if ($url === '') {
+            $output[$profile] = '';
+            continue;
+        }
+
+        $output[$profile] = esc_url_raw($url);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Display settings
+    |--------------------------------------------------------------------------
+    */
+
+    $display = [
+        'header',
+        'footer',
+        'share',
+        'copy',
+        'email',
+        'rss',
+        'blank',
+    ];
+
+    foreach ($display as $key) {
+
+        $output[$key] = !empty(
+            $input[$key]
+        ) ? 1 : 0;
+
+    }
+
+    return $output;
+}
+
+
 
 
 function isago_social_page()

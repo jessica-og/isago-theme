@@ -18,7 +18,7 @@ body{
 
     font-family:var(--isago-font);
 
-    background:var(--isago-bg);
+    background:var(--isago-body-bg);
 
     color:var(--isago-text);
 
@@ -51,6 +51,27 @@ ul{
     list-style:none;
 
 }
+h1, p,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--isago-font);
+}
+
+.isago-video-preview-thumbnail {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    pointer-events: none;
+}  
 
 .container{
 
@@ -63,6 +84,102 @@ ul{
     padding:0 20px;
 
 }
+
+
+/* Isago reusable button */
+.isago-global-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 26px;
+    background: #00d4f5;
+    color: #07111f !important;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none !important;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    
+}
+
+/* Hover effect */
+.isago-global-button:hover {
+    background: #36fefb;
+    color: #07111f !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 212, 245, 0.25);
+}
+
+/* Keyboard accessibility */
+.isago-global-button:focus-visible {
+    outline: 3px solid #07111f;
+    outline-offset: 3px;
+}
+
+
+/* Isago Premium Prompts CTA */
+.isago-premium-cta {
+    margin: 40px 0;
+    padding: 32px 28px;
+    background: linear-gradient(
+        135deg,
+        #f0fcff 0%,
+        #ffffff 55%,
+        #e9ffff 100%
+    );
+    border: 1px solid #c9f5fb;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.isago-premium-cta-content {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.isago-premium-cta-label {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #008ba5;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.isago-premium-cta h2 {
+    margin: 0 0 14px;
+    color: #07111f;
+    font-size: clamp(24px, 4vw, 34px);
+    line-height: 1.25;
+    font-weight: 800;
+}
+
+.isago-premium-cta p {
+    max-width: 600px;
+    margin: 0 auto 24px;
+    color: #475569;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .isago-premium-cta {
+        margin: 28px 0;
+        padding: 26px 18px;
+        border-radius: 14px;
+    }
+
+    .isago-premium-cta .isago-global-button {
+        max-width: 100%;
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+}
+
 @media (max-width:480px){
 
     .container{

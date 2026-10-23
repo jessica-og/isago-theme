@@ -1,0 +1,1161 @@
+/*=========================================================
+ISAGO ACCOUNT
+=========================================================*/
+
+.isago-account-wrapper {
+
+    width: 100%;
+   
+    padding:
+        70px
+        20px;
+}
+
+
+.isago-account-container {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin:
+        0 auto;
+}
+
+
+/*=========================================================
+HEADER
+=========================================================*/
+
+.isago-account-heading {
+
+    margin-bottom: 35px;
+}
+
+
+.isago-account-eyebrow {
+
+    display: inline-block;
+
+    margin-bottom: 9px;
+
+    color:
+        var(
+            --isago-primary
+        );
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: .10em;
+
+    text-transform: uppercase;
+}
+
+
+.isago-account-title {
+
+    margin:
+        0
+        0
+        10px;
+
+    color:
+        var(
+            --isago-heading
+        );
+
+    font-size: 40px;
+
+    line-height: 1.1;
+
+    font-weight: 800;
+}
+
+
+.isago-account-description {
+
+    margin: 0;
+
+    color:
+        var(
+            --isago-muted
+        );
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/*=========================================================
+GRID
+=========================================================*/
+
+.isago-account-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap: 22px;
+}
+
+
+/*=========================================================
+CARD
+=========================================================*/
+
+.isago-account-card {
+
+    padding: 28px;
+
+    border:
+        1px solid
+        var(
+            --isago-border
+        );
+
+    border-radius: 16px;
+
+    background:
+        var(
+            --isago-card
+        );
+}
+
+
+.isago-account-card-heading {
+
+    margin-bottom: 25px;
+}
+
+
+.isago-account-card-label {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color:
+        var(
+            --isago-primary
+        );
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .08em;
+}
+
+
+.isago-account-card-heading h2 {
+
+    margin: 0;
+
+    color:
+        var(
+            --isago-heading
+        );
+
+    font-size: 23px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+}
+
+
+/*=========================================================
+PROFILE
+=========================================================*/
+
+.isago-account-profile {
+
+    border-top:
+        1px solid
+        var(
+            --isago-border);
+}
+
+
+.isago-account-profile-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding:
+        15px
+        0;
+
+    border-bottom:
+        1px solid
+        var(
+            --isago-border
+        );
+}
+
+
+.isago-account-profile-label {
+
+    color:
+        var(
+            --isago-muted
+        );
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.isago-account-profile-value {
+
+    color:
+        var(
+            --isago-text
+        );
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-align: right;
+
+    overflow-wrap: anywhere;
+}
+
+
+/*=========================================================
+EMPTY PURCHASE STATE
+=========================================================*/
+
+.isago-account-empty {
+
+    min-height: 270px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        15px;
+}
+
+
+.isago-account-empty-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    margin-bottom: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            0,
+            212,
+            245,
+            .10
+        );
+
+    color:
+        var(
+            --isago-primary
+        );
+
+    font-size: 18px;
+}
+
+
+.isago-account-empty h3 {
+
+    margin:
+        0
+        0
+        8px;
+
+    color:
+        var(
+            --isago-heading
+        );
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+
+.isago-account-empty p {
+
+    max-width: 400px;
+
+    margin:
+        0
+        0
+        20px;
+
+    color:
+        var(
+            --isago-muted
+        );
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/*=========================================================
+BUTTONS
+=========================================================*/
+
+.isago-account-primary-button,
+
+.isago-account-secondary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding:
+        0
+        16px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
+}
+
+
+.isago-account-primary-button {
+
+    background:
+        var(
+            --isago-primary
+        );
+
+    color: var(--isago-text);
+}
+
+
+.isago-account-secondary-button {
+
+    border:
+        1px solid
+        var(
+            --isago-border
+        );
+
+    color:
+        var(
+            --isago-text
+        );
+
+    background:
+        var(--isago-primary);
+}
+
+
+.isago-account-primary-button:hover,
+
+.isago-account-secondary-button:hover {
+
+    opacity: .86;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.isago-account-card-actions {
+
+    margin-top: 22px;
+}
+
+
+/*=========================================================
+ACCOUNT FOOTER
+=========================================================*/
+
+.isago-account-footer {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.isago-account-footer-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color:
+        var(
+            --isago-muted
+        );
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.isago-account-footer-link:hover {
+
+    color:
+        var(
+            --isago-primary
+        );
+}
+
+
+.isago-account-logout {
+
+    color:
+        #b33;
+}
+
+
+.isago-account-logout:hover {
+
+    color:
+        #d22;
+}
+
+
+/*=========================================================
+GUEST STATE
+=========================================================*/
+
+.isago-account-guest {
+
+    max-width: 500px;
+
+    margin:
+        0 auto;
+
+    text-align: center;
+}
+
+
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width: 800px) {
+
+    .isago-account-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .isago-account-wrapper {
+
+        padding:
+            40px
+            15px;
+    }
+
+
+    .isago-account-title {
+
+        font-size: 30px;
+    }
+
+
+    .isago-account-card {
+
+        padding: 22px 18px;
+    }
+
+
+    .isago-account-profile-row {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+
+    .isago-account-profile-value {
+
+        text-align: left;
+    }
+
+
+    .isago-account-footer {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+}
+
+
+
+
+
+
+
+
+/*=========================================================
+ISAGO ACCOUNT PURCHASES
+=========================================================*/
+
+.isago-account-purchases-card {
+    min-width: 0;
+}
+
+
+.isago-account-purchase-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 10px;
+
+    border: 1px solid rgba(
+        0,
+        212,
+        245,
+        0.22
+    );
+
+    border-radius: 999px;
+
+    background: rgba(
+        0,
+        212,
+        245,
+        0.08
+    );
+
+    color: var(--isago-primary);
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+
+.isago-account-purchases-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+
+.isago-account-purchase {
+    display: grid;
+
+    grid-template-columns:
+        110px
+        minmax(0, 1fr);
+
+    gap: 18px;
+
+    padding: 20px 0;
+
+    border-top: 1px solid
+        rgba(
+            127,
+            127,
+            127,
+            0.16
+        );
+}
+
+
+.isago-account-purchase:first-child {
+    border-top: 0;
+}
+
+
+.isago-account-purchase-image {
+    display: block;
+
+    width: 110px;
+    height: 90px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: rgba(
+        127,
+        127,
+        127,
+        0.08
+    );
+}
+
+
+.isago-account-purchase-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.isago-account-purchase-content {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.isago-account-purchase-top {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 18px;
+}
+
+
+.isago-account-purchase-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--isago-primary);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+
+.isago-account-purchase-title {
+    margin: 0;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+
+.isago-account-purchase-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.isago-account-purchase-title a:hover {
+    color: var(--isago-primary);
+}
+
+
+.isago-account-purchase-price {
+    flex-shrink: 0;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+.isago-account-purchase-meta {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    color: var(--isago-date);
+
+    font-size: 12px;
+}
+
+
+.isago-account-purchase-meta span {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.isago-account-purchase-meta i {
+    font-size: 11px;
+}
+
+
+.isago-account-purchase-status {
+    color: #24b47e;
+    font-weight: 700;
+}
+
+
+.isago-account-purchase-actions {
+    display: flex;
+    align-items: center;
+}
+
+
+.isago-account-purchase-actions
+.isago-account-primary-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 9px 14px;
+
+    font-size: 12px;
+}
+
+
+.isago-account-purchase-actions
+.isago-account-primary-button i {
+    font-size: 10px;
+}
+
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (
+    max-width: 600px
+) {
+
+    .isago-account-purchase {
+
+        grid-template-columns:
+            82px
+            minmax(0, 1fr);
+
+        gap: 14px;
+
+        padding: 16px 0;
+
+    }
+
+
+    .isago-account-purchase-image {
+
+        width: 82px;
+        height: 76px;
+
+        border-radius: 8px;
+
+    }
+
+
+    .isago-account-purchase-top {
+
+        flex-direction: column;
+
+        gap: 7px;
+
+    }
+
+
+    .isago-account-purchase-price {
+
+        font-size: 14px;
+
+    }
+
+
+    .isago-account-purchase-title {
+
+        font-size: 15px;
+
+    }
+
+
+    .isago-account-purchase-meta {
+
+        gap: 8px 12px;
+
+    }
+
+}
+
+
+
+
+
+/*=========================================================
+ORDER HISTORY
+=========================================================*/
+
+.isago-account-order-history-card {
+    grid-column: 1 / -1;
+}
+
+
+.isago-account-order-history {
+    width: 100%;
+}
+
+
+.isago-account-order-history-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+.isago-account-order-history-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+}
+
+
+.isago-account-order-history-table th,
+.isago-account-order-history-table td {
+    padding: 14px 12px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--isago-border);
+}
+
+
+.isago-account-order-history-table th {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+
+.isago-account-order-history-table td {
+    font-size: 14px;
+    color: var(--isago-muted);
+}
+
+
+.isago-account-order-id {
+    font-size: 12px !important;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+.isago-account-order-prompt a {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+.isago-account-order-prompt a:hover {
+    text-decoration: underline;
+}
+
+
+.isago-account-order-amount {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+.isago-account-order-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+.isago-account-order-status.is-paid {
+    background: rgba(0, 212, 245, 0.12);
+}
+
+
+.isago-account-order-status.is-pending {
+    background: rgba(245, 180, 0, 0.12);
+}
+
+
+.isago-account-order-status.is-failed,
+.isago-account-order-status.is-cancelled,
+.isago-account-order-status.is-abandoned {
+    background: rgba(220, 60, 60, 0.10);
+}
+
+
+.isago-account-order-status.is-refunded,
+.isago-account-order-status.is-reversed {
+    background: rgba(120, 120, 120, 0.12);
+}
+
+
+.isago-account-order-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+}
+
+
+.isago-account-order-pagination a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.isago-account-order-pagination a.is-active {
+    background: var(--isago-primary);
+    border-color: var(--isago-primary);
+}
+
+
+@media (max-width: 767px) {
+
+    .isago-account-order-history-table {
+        min-width: 680px;
+    }
+
+}
+
+
+
+
+
+/*=========================================================
+PROMPT SCHEDULED REMOVAL NOTICE
+=========================================================*/
+
+.isago-account-prompt-removal-notice {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-top: 16px;
+
+    padding: 14px 16px;
+
+    border: 1px solid rgba(
+        245,
+        158,
+        11,
+        0.35
+    );
+
+    border-radius: 10px;
+
+    background: rgba(
+        245,
+        158,
+        11,
+        0.08
+    );
+
+}
+
+
+.isago-account-prompt-removal-notice-icon {
+
+    flex: 0 0 auto;
+
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(
+        245,
+        158,
+        11,
+        0.14
+    );
+
+}
+
+
+.isago-account-prompt-removal-notice-icon i {
+
+    font-size: 14px;
+
+}
+
+
+.isago-account-prompt-removal-notice-content {
+
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.isago-account-prompt-removal-notice-content > strong {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+
+.isago-account-prompt-removal-notice-content p {
+
+    margin: 0;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+}
+
+
+.isago-account-prompt-removal-notice-content p strong {
+
+    font-weight: 700;
+}
+
+
+/*---------------------------------------------------------
+MOBILE
+---------------------------------------------------------*/
+
+@media (max-width: 600px) {
+
+    .isago-account-prompt-removal-notice {
+
+        gap: 10px;
+
+        padding: 12px 13px;
+
+    }
+
+
+    .isago-account-prompt-removal-notice-icon {
+
+        width: 29px;
+
+        height: 29px;
+
+    }
+
+
+    .isago-account-prompt-removal-notice-content > strong {
+
+        font-size: 12px;
+
+    }
+
+
+    .isago-account-prompt-removal-notice-content p {
+
+        font-size: 12px;
+
+    }
+
+}
+
+
+
+

@@ -92,7 +92,7 @@
         <div class="cookies-icon"><i class="fas fa-envelope"></i></div>
         <div>
             <h3>Contact Us</h3>
-            <p>privacy@isago.com</p>
+            <p>isago.nae@gmail.com</p>
         </div>
     </div>
 

@@ -4,28 +4,106 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$title = $args['title'] ?? '';
 
-$slug = $args['slug'] ?? '';
+/*=========================================================
+SECTION SETTINGS
+=========================================================*/
 
-$link = $args['link'] ?? '#';
+$title =
+    $args['title']
+    ?? '';
 
-$post_count = absint(
-    $args['posts'] ?? 5
-);
 
-$query = isago_get_category_posts(
-    $slug,
-    $post_count
-);
+$type =
+    sanitize_key(
+        $args['type']
+        ?? 'blog'
+    );
 
-if (!$query->have_posts()) {
+
+$slug =
+    $args['slug']
+    ?? '__all';
+
+
+$link =
+    $args['link']
+    ?? '#';
+
+
+$post_count =
+    absint(
+        $args['posts']
+        ?? 5
+    );
+
+
+/*=========================================================
+GET SECTION CONTENT
+=========================================================*/
+
+$section_content =
+    isago_get_home_section_content(
+
+        [
+
+            'type' =>
+                $type,
+
+            'slug' =>
+                $slug,
+'orderby' => $args['orderby'] ?? 'latest',
+        ],
+
+        $post_count
+
+    );
+
+
+$items =
+    $section_content['items']
+    ?? [];
+
+
+/*=========================================================
+CHECK FOR CONTENT
+=========================================================*/
+
+if (
+    $items instanceof WP_Query
+) {
+
+    if (
+        !$items->have_posts()
+    ) {
+
+        return;
+
+    }
+
+} elseif (
+    is_array($items)
+) {
+
+    if (
+        empty($items)
+    ) {
+
+        return;
+
+    }
+
+} else {
+
     return;
+
 }
 
 ?>
 
+
 <section class="isago-category-section">
+
 
     <?php
 
@@ -37,9 +115,11 @@ if (!$query->have_posts()) {
 
         [
 
-            'title' => $title,
+            'title' =>
+                $title,
 
-            'link'  => $link
+            'link' =>
+                $link,
 
         ]
 
@@ -47,90 +127,299 @@ if (!$query->have_posts()) {
 
     ?>
 
+
     <div class="list-layout">
+
 
         <?php
 
-        while ($query->have_posts()) :
+        /*=====================================================
+        AI PROMPTS
+        =====================================================*/
 
-            $query->the_post();
+        if (
+            $type === 'ai_prompt'
+        ) {
 
-        ?>
+            if (
+                $items instanceof WP_Query
+            ) {
 
-            <article class="list-item">
+                while (
+                    $items->have_posts()
+                ) {
 
-                <a
-                    class="list-thumb"
-                    href="<?php the_permalink(); ?>">
+                    $items->the_post();
 
-                <?php the_post_thumbnail('medium_large'); ?>
 
-                </a>
+                    isago_render_homepage_item(
 
-                <div class="grid-content">
+                        get_post(),
 
-                    <div class="grid-category">
+                        'ai_prompt'
 
-                    <?php
+                    );
 
-$cat = get_the_category();
+                }
 
-echo !empty($cat)
-    ? esc_html(strtoupper($cat[0]->name))
-    : '';
 
-?>
+                wp_reset_postdata();
 
-                    </div>
+            }
 
-                    <h3>
+        }
 
-                        <a href="<?php the_permalink(); ?>">
 
-                            <?php the_title(); ?>
+        /*=====================================================
+        AI TOOLS
+        =====================================================*/
+
+        elseif (
+            $type === 'ai_tool'
+        ) {
+
+            if (
+                is_array($items)
+            ) {
+
+                foreach (
+                    $items
+                    as $platform
+                ) {
+
+                    isago_render_homepage_item(
+
+                        $platform,
+
+                        'ai_tool'
+
+                    );
+
+                }
+
+            }
+
+        }
+
+
+        /*=====================================================
+        BLOG POSTS
+        =====================================================*/
+
+        elseif (
+            $type === 'blog'
+        ) {
+
+            if (
+                $items instanceof WP_Query
+            ) {
+
+                while (
+                    $items->have_posts()
+                ) :
+
+                    $items->the_post();
+
+                    ?>
+
+                    <article class="list-item">
+
+ 
+                        <!-- =====================================
+                        THUMBNAIL
+                        ====================================== -->
+
+                        <a
+                            class="list-thumb"
+                            href="<?php the_permalink(); ?>"
+                            aria-label="<?php echo esc_attr(
+                                get_the_title()
+                            ); ?>"  
+                        >
+
+                            <?php
+
+                            echo isago_get_post_thumbnail(
+
+                                get_the_ID(),
+
+                                'medium_large',
+
+                                [
+
+                                    'loading' =>
+                                        'lazy',
+
+                                    'alt' =>
+                                        the_title_attribute([
+                                            'echo' =>
+                                                false
+                                        ])
+
+                                ]
+
+                            );
+
+                            ?>
 
                         </a>
 
-                    </h3>
 
-                    <p>
+                        <!-- =====================================
+                        CONTENT
+                        ====================================== -->
 
-                        <?php
+                        <div class="list-content">
 
-                        echo wp_trim_words(
 
-                            get_the_excerpt(),
+                            <!-- CATEGORY -->
 
-                            20
+                            <div class="category-text">
 
-                        );
+                                <?php
 
-                        ?>
+                                $categories =
+                                    get_the_category();
 
-                    </p>
 
-                <div class="editorial-meta">
+                                if (
+                                    !empty(
+                                        $categories
+                                    )
+                                ) {
 
-            <?php echo get_the_date(); ?>
+                                    echo esc_html(
 
-            •
+                                        strtoupper(
+                                            $categories[0]->name
+                                        )
 
-            <?php the_author(); ?>
+                                    );
 
-        </div>
+                                }
 
-                </div>
+                                ?>
 
-            </article>  
+                            </div>
 
-        <?php
 
-        endwhile;
+                            <!-- TITLE -->
 
-        wp_reset_postdata();
+                            <h3
+                                class="isago-editorial-post-title"
+                            >
+
+                                <a
+                                    href="<?php the_permalink(); ?>"
+                                >
+
+                                    <?php the_title(); ?>
+
+                                </a>
+
+                            </h3>
+
+
+                            <!-- EXCERPT -->
+
+                            <p class="isago-excerpt">
+
+                                <?php
+
+                                echo wp_trim_words(
+
+                                    get_the_excerpt(),
+
+                                    20
+
+                                );
+
+                                ?>
+
+                            </p>
+
+
+                            <!-- AUTHOR -->
+
+                            <?php
+
+                            $theme =
+                                isago_get_theme_settings();
+
+
+                            $author_name =
+                                !empty(
+                                    $theme['author_name']
+                                )
+                                    ? $theme['author_name']
+                                    : 'Isago';
+
+                            ?>
+
+
+                            <!-- META -->
+
+                            <div class="isago-post-meta">
+
+
+                                <span>
+
+                                    <?php
+
+                                    echo esc_html(
+                                        get_the_date()
+                                    );
+
+                                    ?>
+
+                                </span>
+
+
+                                <span
+                                    aria-hidden="true"
+                                >
+
+                                    •
+
+                                </span>
+
+
+                                <span>
+
+                                    <?php
+
+                                    echo esc_html(
+                                        $author_name
+                                    );
+
+                                    ?>
+
+                                </span>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </article>
+
+                    <?php
+
+                endwhile;
+
+
+                wp_reset_postdata();
+
+            }
+
+        }
 
         ?>
 
+
     </div>
+
 
 </section>

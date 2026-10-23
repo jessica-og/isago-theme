@@ -13,31 +13,24 @@ $settings = isago_get_home_video_settings();
         href="<?php the_permalink(); ?>">
   
         <?php
+  echo isago_get_post_thumbnail(
 
-        if (has_post_thumbnail()) {
-
-            the_post_thumbnail(
-                'medium_large'
+    get_the_ID(),
+                'medium_large',
+                [
+                    'loading' => 'lazy',
+                     'alt'     => the_title_attribute([
+                        'echo' => false
+                    ])
+                ]
             );
-
-        } else{
-            $yt_thumb = isago_get_video_url(get_the_ID());
-
-    if ($yt_thumb) {
-       echo isago_get_video_thumbnail();
-    } else {
-        // fallback image
-        echo '<img src="' . get_template_directory_uri() . '/assets/images/video.png" alt="No image">';
-    }
-
-        }
         ?>
 
     </a>
 
-    <div class="category-post-content">
+    <div class="category-post-content center-post-content">
 
-        <div class="category-post-category">
+        <div class="category-text">
 
             <?php
 
@@ -51,7 +44,7 @@ $settings = isago_get_home_video_settings();
 
         </div>
 
-        <h3>
+        <h3 class="sidebar-post-title ">
 
             <a href="<?php the_permalink(); ?>">
 
@@ -61,7 +54,7 @@ $settings = isago_get_home_video_settings();
 
         </h3>
 
-        <p>
+        <p class="isago-excerpt">
 
             <?php
 
@@ -77,35 +70,50 @@ $settings = isago_get_home_video_settings();
 
         </p>
 
-        <div class="category-post-meta">
+        <div class="isago-post-meta">
 
-            <div class="category-author">
+       <?php
 
-                <?php
+$theme = isago_get_theme_settings();
 
-                echo get_avatar(
+$author_image =
+    isago_get_author_image_url(
+        'medium'
+    );
 
-                    get_the_author_meta('ID'),
+?>
 
-                    26
+<div class="category-author">
 
-                );
+    <?php if (!empty($author_image)) : ?>
 
-                ?>
+        <img
+            src="<?php echo esc_url($author_image); ?>"
+            width="32"
+            height="32"
+            alt="<?php echo esc_attr($author_name); ?>"
+            loading="lazy"
+        >
 
-                <span>
+    <?php endif; ?>
 
-                    <?php the_author(); ?>
+    <span>
 
-                </span>
+        By <?php echo esc_html($author_name); ?>
 
-            </div>
+    </span>
 
-            <span>
+    <span>
+        •
+    </span>  
 
-                <?php echo get_the_date(); ?>
+    <span>
 
-            </span>
+        <?php echo esc_html(get_the_date()); ?>
+
+    </span>
+
+</div>
 
         </div>
 

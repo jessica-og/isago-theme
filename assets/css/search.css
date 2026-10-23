@@ -31,6 +31,7 @@ line-height:1;
 margin-bottom:12px;
 
 letter-spacing:-2px;
+color: var(--isago-text);
 
 }
 
@@ -60,7 +61,7 @@ height:58px;
 
 padding:0 18px;
 
-border:1px solid #e5e5e5;
+border:1px solid var(--isago-border);
 
 border-radius:8px;
 
@@ -86,7 +87,7 @@ border:none;
 
 background:var(--isago-primary);
 
-color:#fff;
+color:var(--isago-card);
 
 font-weight:700;
 
@@ -100,7 +101,7 @@ transition:.3s;
 
 .search-page-form button:hover{
 
-background:var(--isago-secondary);
+background:#36E8FF;
 
 color:#111;
 
@@ -155,6 +156,127 @@ margin:auto;
     border-radius: 8px;
     font-size: 16px;
 }
+
+
+
+
+@media (max-width: 768px) {
+.search-header h1{
+
+font-size:48px;
+
+}
+
+}
+
+
+@media (max-width: 608px) {
+.search-header h1{
+
+font-size:38px;
+
+}
+.search-header p{
+
+font-size:14px;
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   SEARCH PAGE LIVE SEARCH DROPDOWN
+========================================= */
+
+.search-page-form {
+    position: relative;
+    align-items: stretch;
+}
+
+.search-page-form .isago-search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 360px;
+    overflow-y: auto;
+    display: none;
+    box-sizing: border-box;
+    background: var(--isago-card, #172033);
+    border: 1px solid var(--isago-border, #29364b);
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+}
+
+.search-page-form .search-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    color: var(--isago-text, #ffffff);
+    text-decoration: none;
+    min-height: 72px;
+    box-sizing: border-box;
+}
+
+.search-page-form .search-item + .search-item {
+    border-top: 1px solid var(--isago-border, #29364b);
+}
+
+.search-page-form .search-item:hover {
+    background: rgba(0, 212, 245, 0.09);
+}
+
+.search-page-form .search-item img {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.search-page-form .search-item span {
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 600;
+}
+
+.search-page-form .no-results,
+.search-page-form .search-loading {
+    padding: 16px;
+    color: var(--isago-text, #ffffff);
+    font-size: 14px;
+}
+
+@media (max-width: 608px) {
+    .search-page-form {
+        flex-wrap: wrap;
+    }
+
+    .search-page-form input {
+        min-width: 0;
+    }
+
+    .search-page-form .isago-search-results {
+        top: 66px;
+    }
+}
+
+
+
+
 
 
 

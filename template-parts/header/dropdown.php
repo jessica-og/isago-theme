@@ -6,8 +6,9 @@ if (!defined('ABSPATH')) {
 
 ?>
 
-<ul class="isago-dropdown">
+<div class="isago-dropdown">
 
+    <ul class="isago-dropdown-scroll">
     <?php foreach ($item->children as $child) : ?>
 
         <?php
@@ -86,3 +87,4 @@ if (!defined('ABSPATH')) {
     <?php endforeach; ?>
 
 </ul>
+                </div>

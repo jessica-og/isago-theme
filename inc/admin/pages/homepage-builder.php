@@ -8,10 +8,10 @@ if (!defined('ABSPATH')) {
 |--------------------------------------------------------------------------
 | Homepage Builder
 |--------------------------------------------------------------------------
-*/
+*/   
 
 add_action(
-    'admin_menu',
+    'admin_menu',  
     'isago_homepage_builder_menu'
 );
 
@@ -65,7 +65,7 @@ function isago_register_homepage_settings()
 */
 
 function isago_homepage_builder()
-{
+{  
 
     $options = get_option(
         'isago_home_settings',
@@ -157,8 +157,8 @@ function isago_homepage_builder()
             |--------------------------------------------------------------------------
             */
 
-            require_once ISAGO_DIR .
-                '/inc/admin/fields/advertisement-fields.php';
+            // require_once ISAGO_DIR .
+            //     '/inc/admin/fields/advertisement-fields.php';
 
             ?>
 

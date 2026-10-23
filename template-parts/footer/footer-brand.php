@@ -22,7 +22,9 @@ if (!defined('ABSPATH')) {
 
             ?>
 
-            <span>ISAGO.</span>
+          <span class="footer-logo-text">
+    ISAGO<span class="footer-logo-dot">.</span>
+</span>
 
             <?php
 

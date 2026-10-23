@@ -10,51 +10,23 @@ $footer_ad = isago_get_ad('footer');
 
     <div class="container">
  
-      <?php if (
-    !empty($footer_ad['enable']) &&
-    !empty($footer_ad['image'])
-) : ?>
+    
+<?php if (isago_ad_enabled('footer')) : ?>
+      <div class="ad-box footer-banner">
+          <?php
 
-    <div class="header-ad-label">
-        Advertisement
-    </div>
+        echo isago_render_ad(
+            'footer',
+            'ad-image',
+            'category-banner',  
+        
+        );
 
-    <div class="header-ad-box">
-
-        <div class="header-banner">
-
-            <?php if (!empty($footer_ad['url'])) : ?>
-
-                <a
-                    href="<?php echo esc_url($footer_ad['url']); ?>"
-                    <?php
-                    if (!empty($footer_ad['blank'])) {
-                        echo 'target="_blank" rel="noopener noreferrer"';
-                    }
-                    ?>
-                >
-
-                    <img
-                        src="<?php echo esc_url($footer_ad['image']); ?>"
-                        alt="<?php echo esc_attr($footer_ad['alt']); ?>"
-                    >
-
-                </a>
-
-            <?php else : ?>
-
-                <img
-                    src="<?php echo esc_url($footer_ad['image']); ?>"
-                    alt="<?php echo esc_attr($footer_ad['alt']); ?>"
-                >
-
-            <?php endif; ?>
-
-        </div>
-
-    </div>
-
+        ?>
+      </div>
 <?php endif; ?>
+
+    
 
 
         <div class="isago-footer-grid">

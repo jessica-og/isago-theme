@@ -4,30 +4,70 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$category = get_the_category();
+
+$author_image =
+    isago_get_author_image_url(
+        'medium'
+    );
+
+
+$post_id =
+    get_the_ID();
+
+
+$category =
+    get_the_category();
+
+
+$is_video =
+    get_post_type($post_id) === 'isago_video';
+
+
+/*
+|--------------------------------------------------------------------------
+| Get playable video URL
+|--------------------------------------------------------------------------
+*/
+
+$video_url =
+    isago_get_video_url(
+        $post_id
+    );
+
 ?>
 
 <header class="post-header">
 
+
     <div class="post-category">
 
-        <?php
+        <?php if (isago_ad_enabled('post')) : ?>
 
-        if (!empty($category)) {
+            <div class="ad-box">
 
-            echo esc_html(strtoupper($category[0]->name));
+                <?php
 
-        }
+                echo isago_render_ad(
+                    'post',
+                    'ad-image',
+                    'category-banner'
+                );
 
-        ?>
+                ?>
+
+            </div>
+
+        <?php endif; ?>
 
     </div>
+
 
     <h1 class="post-title">
 
         <?php the_title(); ?>
 
     </h1>
+
 
     <?php if (has_excerpt()) : ?>
 
@@ -39,28 +79,39 @@ $category = get_the_category();
 
     <?php endif; ?>
 
+
     <div class="post-meta-row">
+
 
         <div class="post-meta">
 
+
             <div class="post-author">
 
-                <?php
-
-                echo get_avatar(
-                    get_the_author_meta('ID'),
-                    42
-                );
-
-                ?>
+                <img
+                    class="post-author-avatar"
+                    src="<?php echo esc_url($author_image); ?>"
+                    width="42"
+                    height="42"
+                    alt="<?php echo esc_attr(
+                        isago_get_author_name()
+                    ); ?>"
+                    loading="lazy"
+                >
 
                 <span>
 
-                    <?php the_author(); ?>
+                    <?php echo esc_html(
+                        isago_get_author_name()
+                    ); ?>
 
                 </span>
 
             </div>
+
+
+            <span>•</span>
+
 
             <span>
 
@@ -68,11 +119,9 @@ $category = get_the_category();
 
             </span>
 
-            <span>
 
-                <?php echo get_comments_number(); ?> Comments
+            <span>•</span>
 
-            </span>
 
             <span>
 
@@ -86,7 +135,7 @@ $category = get_the_category();
 
                             get_post_field(
                                 'post_content',
-                                get_the_ID()
+                                $post_id
                             )
 
                         )
@@ -101,7 +150,9 @@ $category = get_the_category();
 
             </span>
 
+
         </div>
+
 
         <?php
 
@@ -111,22 +162,118 @@ $category = get_the_category();
 
         ?>
 
+
     </div>
 
-    <?php if (has_post_thumbnail()) : ?>
+
+    <?php if (!empty($video_url)) : ?>
+
+
+        <!-- =====================================================
+             FEATURED IMAGE WITH VIDEO
+             ===================================================== -->
+
+        <div class="post-featured-image isago-post-video">
+
+
+            <div class="isago-post-video-thumb">
+
+
+                <?php
+
+                /*
+                |--------------------------------------------------------------------------
+                | Featured Image
+                |--------------------------------------------------------------------------
+                */
+
+                echo isago_get_post_thumbnail(
+
+                    $post_id,
+
+                    'full',
+
+                    [
+                        'loading' =>
+                            'lazy',
+
+                        'alt' =>
+                            the_title_attribute([
+                                'echo' => false
+                            ])
+                    ]
+
+                );
+
+                ?>
+
+
+                <div
+                    class="homepage-video-overlay"
+                    aria-hidden="true"
+                ></div>
+
+
+                <button
+                    type="button"
+                    class="homepage-video-play isago-post-video-play"
+                    data-video="<?php echo esc_url(
+                        $video_url
+                    ); ?>"
+                    aria-label="<?php echo esc_attr(
+                        'Play ' . get_the_title($post_id)
+                    ); ?>"
+                >
+
+                    <i
+                        class="fa-solid fa-play"
+                        aria-hidden="true"
+                    ></i>
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    <?php else : ?>
+
+
+        <!-- =====================================================
+             NORMAL POST FEATURED IMAGE
+             ===================================================== -->
 
         <div class="post-featured-image">
 
             <?php
 
-            the_post_thumbnail(
-                'full'
+            echo isago_get_post_thumbnail(
+
+                $post_id,
+
+                'full',
+
+                [
+                    'loading' =>
+                        'lazy',
+
+                    'alt' =>
+                        the_title_attribute([
+                            'echo' => false
+                        ])
+                ]
+
             );
 
             ?>
 
         </div>
 
+
     <?php endif; ?>
+
 
 </header>

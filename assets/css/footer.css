@@ -8,15 +8,21 @@ ISAGO PREMIUM FOOTER
 
     background: var(--isago-footer-bg);
 
-    color:#fff;
+    color:#ebfbfe;
 
     overflow:hidden;
+position:relative;
 
+    isolation:isolate;
 }
 
-.isago-footer .container{
 
-    padding:65px 0 0;
+
+
+
+.isago-footer {
+
+    padding-top:65px;
 
 }
 
@@ -73,25 +79,31 @@ BRAND
 
 }
 
-.footer-logo span{
+.footer-logo-text{
 
     font-family:"Manrope",sans-serif;
 
-    font-size:42px;
+    font-size:44px;
 
     font-weight:900;
 
     line-height:1;
 
-    color:#fff;
+    color:#ebfbfe;
 
     letter-spacing:-1px;
 
 }
 
+.footer-logo-dot{
+font-size: 56px;
+    color:var(--isago-primary);
+
+}
+
 .footer-description{
 
-    color:#94a3b8;
+    color:var(--isago-date);
 
     font-size:14px;
 
@@ -127,7 +139,7 @@ BRAND
 
     justify-content:center;
 
-    color:#fff;
+    color:#ebfbfe;
 
     transition:.25s;
 
@@ -139,7 +151,7 @@ BRAND
 
     border-color:var(--isago-primary);
 
-    color:#fff;
+    color:#ebfbfe;
 
     transform:translateY(-2px);
 
@@ -163,7 +175,7 @@ MENU COLUMNS
 
     letter-spacing:.18em;
 
-    color:#fff;
+    color:#ebfbfe;
 
 }
 
@@ -193,7 +205,7 @@ MENU COLUMNS
 
     display:inline-block;
 
-    color:#cbd5e1;
+    color: var(--isago-muted);
 
     font-size:14px;
 
@@ -223,7 +235,7 @@ NEWSLETTER
 
 .footer-newsletter p{
 
-    color:#94a3b8;
+    color:var(--isago-date);
 
     font-size:14px;
 
@@ -249,13 +261,12 @@ NEWSLETTER
 
     padding:0 14px;
 
-    border:none;
+   border:1px solid var(--isago-secondary);
 
-    outline:none;
 
     background:var(--isago-bg);
 
-    color:var(--isago-text);
+    color:#ebfbfe;
 
     font-size:13px;
 
@@ -279,7 +290,7 @@ NEWSLETTER
 
     background:var(--isago-primary);
 
-    color:#fff;
+    color:#ebfbfe;
 
     font-size:13px;
 
@@ -297,7 +308,7 @@ NEWSLETTER
 
     background:var(--isago-secondary);
 
-    color:var(--isago-text);
+    color:#ebfbfe;
 
 }
 
@@ -305,7 +316,7 @@ NEWSLETTER
 
     display:block;
 
-    color:#94a3b8;
+    color:var(--isago-date);
 
     font-size:11px;
 
@@ -339,7 +350,7 @@ BOTTOM
 
     font-size:13px;
 
-    color:#94a3b8;
+    color:var(--isago-date);
 
 }
 
@@ -379,7 +390,7 @@ BOTTOM
 
     content:"•";
 
-    color:#64748b;
+    color:var(--isago-muted);
 
     margin:0 14px;
 
@@ -387,7 +398,7 @@ BOTTOM
 
 .footer-bottom-menu a{
 
-    color:#cbd5e1;
+    color:var(--isago-date);
 
     font-size:13px;
 
@@ -400,6 +411,77 @@ BOTTOM
     color:var(--isago-primary);
 
 }
+
+
+.footer-banner{
+    margin-bottom: 100px;
+}
+
+
+
+
+/* =========================================================
+NEWSLETTER MESSAGES
+========================================================= */
+
+.newsletter-message{
+
+    margin:18px 0;
+
+    padding:10px 12px;
+
+    border-radius:8px;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
+
+.newsletter-success{  
+
+    background:#ecfdf5;
+
+    color:#047857;
+ font-weight: bold;
+    border:1px solid #a7f3d0;
+
+}
+
+
+.newsletter-info{
+
+    background:#eff6ff;
+    font-weight: bold;
+
+    color:#0096c0;
+
+    border:1px solid #bfdbfe;
+
+}
+
+
+.newsletter-error{
+
+    background:#fef2f2;
+
+    color:#b91c1c;
+
+    border:1px solid #fecaca;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /*=========================================================
 TABLET
@@ -444,6 +526,7 @@ margin-top:70px;
 
 }
 
+   
 .isago-footer .container{
 
 padding-top:50px;
@@ -489,7 +572,11 @@ grid-template-columns:1fr;
 gap:38px;
 
 }
+  .footer-logo-text{
 
+        font-size:44px;
+
+    }
 .footer-brand,
 
 .footer-column,
@@ -556,11 +643,7 @@ SMALL MOBILE
 
 @media(max-width:480px){
 
-.footer-logo span{
 
-font-size:36px;
-
-}
 
 .footer-description{
 
@@ -593,5 +676,51 @@ width:32px;
 height:32px;
 
 }
+
+}
+
+@media(max-width:380px){
+
+    .footer-logo-text{
+
+        font-size:30px;
+
+    }
+
+}
+
+
+
+
+
+
+
+/*=========================================================
+COOKIE SETTINGS
+=========================================================*/
+
+.isago-cookie-settings-link{
+
+    border:0;
+
+    padding:0;
+
+    background:transparent;
+
+    color:#cbd5e1;
+
+    font-family:inherit;
+
+    font-size:14px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.isago-cookie-settings-link:hover{
+
+    color:var(--isago-primary);
 
 }

@@ -178,11 +178,6 @@ Advertisements
 
 </option>
 
-<option value="seo">
-
-SEO
-
-</option>
 
 <option value="performance">
 
@@ -197,7 +192,7 @@ Everything
 </option>
 
 </select>
-
+ 
 <br><br>
 
 <?php submit_button(

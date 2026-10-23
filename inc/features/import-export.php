@@ -28,10 +28,7 @@ function isago_export_settings()
             []
         ),
 
-        'seo' => get_option(
-            'isago_seo_settings',
-            []
-        ),
+  
 
         'performance' => get_option(
             'isago_performance_settings',
@@ -179,15 +176,8 @@ function isago_reset_settings()
                 'isago_ads_settings'
             );
 
-        break;
-
-        case 'seo':
-
-            delete_option(
-                'isago_seo_settings'
-            );
-
-        break;
+   
+        break; 
 
         case 'performance':
 
@@ -211,9 +201,6 @@ function isago_reset_settings()
                 'isago_ads_settings'
             );
 
-            delete_option(
-                'isago_seo_settings'
-            );
 
             delete_option(
                 'isago_performance_settings'

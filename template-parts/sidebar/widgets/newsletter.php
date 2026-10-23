@@ -10,48 +10,103 @@ if (!$settings['newsletter_enable']) {
     return;
 }
 
+$status = isset($_GET['newsletter'])
+    ? sanitize_key($_GET['newsletter'])
+    : '';
+
+$message = isset($_GET['newsletter_message'])
+    ? sanitize_text_field(
+        rawurldecode($_GET['newsletter_message'])
+    )
+    : '';
+
 ?>
 
 <section class="sidebar-widget newsletter-widget">
 
-<h3>
+    <h3 class="isago-editorial-post-title">
 
-<?php echo esc_html(
-$settings['newsletter_title']
-); ?>
+        <?php echo esc_html(
+            $settings['newsletter_title']
+        ); ?>
 
-</h3>
+    </h3>
 
-<p>
 
-<?php echo esc_html(
-$settings['newsletter_text']
-); ?>
+    <p class="isago-excerpt">
 
-</p>
+        <?php echo esc_html(
+            $settings['newsletter_text']
+        ); ?>
 
-<form>
+    </p>
 
-<input
 
-type="email"
+    <?php if ($status === 'success') : ?>
 
-placeholder="Enter your email">
+        <div class="newsletter-message newsletter-success">
+            <?php echo esc_html($message); ?>
+        </div>
 
-<button>
+    <?php elseif ($status === 'exists') : ?>
 
-<?php echo esc_html(
-$settings['newsletter_button']
-); ?>
+        <div class="newsletter-message newsletter-info">
+            <?php echo esc_html($message); ?>
+        </div>
 
-</button>
+    <?php elseif ($status === 'error') : ?>
 
-</form>
+        <div class="newsletter-message newsletter-error">
+            <?php echo esc_html($message); ?>
+        </div>
 
-<small>
+    <?php endif; ?>
 
-No spam. Unsubscribe anytime.
 
-</small>
+    <form
+        method="post"
+        action="<?php echo esc_url(
+            admin_url('admin-post.php')
+        ); ?>"
+        class="isago-newsletter-form"
+    >
+
+        <input
+            type="hidden"
+            name="action"
+            value="isago_newsletter_subscribe"
+        >
+
+        <?php
+        wp_nonce_field(
+            'isago_newsletter_subscribe',
+            'isago_newsletter_nonce'
+        );
+        ?>
+
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            aria-label="Email address"
+            required
+        >
+
+
+        <button type="submit">
+
+            <?php echo esc_html(
+                $settings['newsletter_button']
+            ); ?>
+
+        </button>
+
+    </form>
+
+
+    <small>
+        No spam. Unsubscribe anytime.
+    </small>
 
 </section>

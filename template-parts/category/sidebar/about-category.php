@@ -4,15 +4,27 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+
 $category = get_queried_object();
+
 
 if (!$category) {
     return;
 }
 
-$count = (int) $category->count;
+
+/*
+|--------------------------------------------------------------------------
+| Recursive Category Count
+|--------------------------------------------------------------------------
+*/
+
+$count = isago_get_category_total_articles(
+    $category->term_id
+);
 
 ?>
+
 
 <section class="category-widget">
 
@@ -20,9 +32,12 @@ $count = (int) $category->count;
 
         About
 
-        <?php echo esc_html($category->name); ?>
+        <?php echo esc_html(
+            $category->name
+        ); ?>
 
     </h3>
+
 
     <p>
 
@@ -30,7 +45,9 @@ $count = (int) $category->count;
 
         echo !empty($category->description)
 
-            ? esc_html($category->description)
+            ? esc_html(
+                $category->description
+            )
 
             : 'Explore the latest articles from this category.';
 
@@ -38,15 +55,22 @@ $count = (int) $category->count;
 
     </p>
 
+
     <div class="category-widget-stat">
 
-        <span>Total Articles</span>
+        <span>
+            Total Articles
+        </span>
 
-        <strong>
+        (
+
+        <strong class="count-cat">
 
             <?php echo esc_html($count); ?>
 
         </strong>
+
+        )
 
     </div>
 

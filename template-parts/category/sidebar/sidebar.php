@@ -7,21 +7,12 @@ if (!defined('ABSPATH')) {
 ?>
 
 <aside class="category-sidebar">
-
+    <div class="sidebar-grid">
 <?php
-
-if (is_category()) {
 
     get_template_part(
         'template-parts/category/sidebar/about-category'
     );
-
-} elseif (is_tag()) {
-
-    get_template_part(
-        'template-parts/tag/about-tag'
-    );
-}
 
 get_template_part(
     'template-parts/category/sidebar/browse-category'
@@ -44,5 +35,5 @@ get_template_part(
 );
 
 ?>
-
+</div>
 </aside>

@@ -54,5 +54,12 @@ wp_nav_menu([
                
 
     </nav>
+<button
+    type="button"
+    class="isago-cookie-settings-link"
+    onclick="if(window.isagoCookie){window.isagoCookie.openPreferences();}">
 
+    Cookie Settings
+
+</button>
 </div>

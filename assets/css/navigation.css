@@ -4,24 +4,41 @@ EDITORIAL NAVIGATION
 
 .isago-navigation{
 
-    position:relative;
+      position: relative;
 
-   background:var(--isago-card);
+    z-index: 10001;
 
-    border-top:1px solid var(--isago-border);
+    background: var(--isago-card);
 
-    border-bottom:1px solid var(--isago-border);
+    border-top: 1px solid var(--isago-border);
+
+    border-bottom: 2px solid var(--isago-border);
 
 }
+
+
+   
+
+
 
 .isago-navigation .container{
 
+    width:100%;
+
+    max-width:var(--isago-container);
+
+    margin:0 auto;
+
+    padding:0 20px;
+
     display:flex;
-    padding: 0;
-margin: 0;
+
+    align-items:center;
+
     justify-content:center;
 
 }
+
 
 .isago-menu{
 
@@ -32,6 +49,10 @@ margin: 0;
     justify-content:center;
 
     gap:38px;
+
+    width:max-content;
+
+    max-width:100%;
 
     list-style:none;
 
@@ -121,7 +142,6 @@ margin: 0;
 /*==========================================
 Dropdown
 ==========================================*/
-
 .isago-dropdown{
 
     position:absolute;
@@ -132,7 +152,7 @@ Dropdown
 
     transform:translate(-50%,15px);
 
-   background:var(--isago-card);
+    background:var(--isago-card);
 
     border:1px solid var(--isago-border);
 
@@ -142,9 +162,9 @@ Dropdown
 
     width:max-content;
 
-    padding:10px 0;
+    max-width:calc(100vw - 30px);
 
-    list-style:none;
+    padding:0;
 
     opacity:0;
 
@@ -152,13 +172,75 @@ Dropdown
 
     pointer-events:none;
 
-    transition:all .25s ease;
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
 
     box-shadow:0 20px 45px rgba(0,0,0,.08);
 
     z-index:999;
 
 }
+/*==========================================
+Dropdown Scroll Area
+==========================================*/
+
+.isago-dropdown-scroll{
+
+    max-height:calc(100vh - 320px);
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    padding:10px 0;
+
+    margin:0;
+
+    list-style:none;
+
+    scrollbar-width:thin;
+
+    scrollbar-color:
+        var(--isago-date)
+        transparent;
+
+}
+
+
+/* Chrome / Edge / Safari */
+
+.isago-dropdown-scroll::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.isago-dropdown-scroll::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+.isago-dropdown-scroll::-webkit-scrollbar-thumb{
+
+    background:var(--isago-border);
+
+    border-radius:10px;
+
+}
+
+.isago-dropdown-scroll::-webkit-scrollbar-thumb:hover{
+
+    background:var(--isago-primary);
+
+}
+
+
+
+
+
 .isago-dropdown .current-menu-item > a,
 .isago-submenu .current-menu-item > a{
 

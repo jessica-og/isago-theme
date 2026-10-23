@@ -3,7 +3,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-
+  
 ?>
 
 <article class="grid-card">
@@ -12,9 +12,9 @@ if (!defined('ABSPATH')) {
 
         <?php
 
-        if (has_post_thumbnail()) {
+           echo isago_get_post_thumbnail(
 
-            the_post_thumbnail(
+    get_the_ID(),
 
                 'medium_large',
 
@@ -31,20 +31,6 @@ if (!defined('ABSPATH')) {
                 ]
 
             );
-
-        } else {
-
-        ?>
-
-            <img
-
-                src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/placeholder.png"
-
-                alt="<?php the_title_attribute(); ?>">
-
-        <?php
-
-        }
 
         ?>
 
@@ -73,7 +59,7 @@ if (!defined('ABSPATH')) {
                 <?php the_title(); ?>
 
             </a>
-
+  
         </h3>
 
         <p class="isago-excerpt">
@@ -82,15 +68,25 @@ if (!defined('ABSPATH')) {
 
         </p>
 
-        <div class="isago-post-meta">
+       <?php
 
-        <?php echo get_the_date(); ?>
+$theme = isago_get_theme_settings();
 
-            •
+$author_name = !empty($theme['author_name'])
+    ? $theme['author_name']
+    : 'Isago';
 
-            <?php the_author(); ?>
+?>
 
-        </div>
+<div class="isago-post-meta">
+
+    <?php echo esc_html(get_the_date()); ?>
+
+    <span aria-hidden="true">•</span>
+
+    <?php echo esc_html($author_name); ?>
+
+</div>
 
     </div>
 

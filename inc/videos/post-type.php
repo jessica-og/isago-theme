@@ -4,72 +4,103 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+
+/*=========================================================
+ISAGO VIDEO POST TYPE
+=========================================================*/
+
 function isago_register_video_post_type()
 {
 
-    register_post_type('isago_video',[
+    register_post_type(
+        'isago_video',
+        [
+  
+            'labels' => [
 
-        'labels'=>[
+                'name'          => 'Videos',
+                'singular_name' => 'Video',
+                'add_new'       => 'Add Video',
+                'add_new_item'  => 'Add New Video',
+                'edit_item'     => 'Edit Video',
+                'new_item'      => 'New Video',
+                'view_item'     => 'View Video',
+                'search_items'  => 'Search Videos',
+                'not_found'     => 'No videos found',
+                'menu_name'     => 'Videos'
 
-            'name'=>'Videos',
+            ],
 
-            'singular_name'=>'Video',
+            'public' => true,
 
-            'add_new'=>'Add Video',
+            'has_archive' => true,
 
-            'add_new_item'=>'Add New Video',
+            'rewrite' => [
 
-            'edit_item'=>'Edit Video'
+                'slug' => 'videos'
 
-        ],
+            ],
 
-        'public'=>true,
+            'show_in_rest' => true,
 
-        'has_archive'=>true,
+            'menu_icon' => 'dashicons-video-alt3',
 
-        'rewrite'=>[
+            'supports' => [
 
-            'slug'=>'videos'
+                'title',
+                'editor',
+                'thumbnail',
+                'excerpt'
 
-        ],
+            ],
 
-        'show_in_rest'=>true,
+            'taxonomies' => [
 
-        'menu_icon'=>'dashicons-video-alt3',
+                'category',
+                'post_tag',
+                'ai_platform'
 
-        'supports'=>[
-
-            'title',
-
-            'editor',
-
-            'thumbnail',
-
-            'excerpt'
-
-        ],
-
-        'taxonomies'=>[
-
-            'category',
-
-            'post_tag'
+            ]
 
         ]
+    );
 
-    ]);
+
+    /*=====================================================
+    CATEGORY
+    =====================================================*/
 
     register_taxonomy_for_object_type(
         'category',
         'isago_video'
     );
 
+
+    /*=====================================================
+    TAGS
+    =====================================================*/
+
     register_taxonomy_for_object_type(
         'post_tag',
         'isago_video'
     );
 
+
+    /*=====================================================
+    AI PLATFORM
+    =====================================================*/
+
+    register_taxonomy_for_object_type(
+        'ai_platform',
+        'isago_video'
+    );
+
 }
+
+
+/*=========================================================
+REGISTER
+=========================================================*/
 
 add_action(
     'init',

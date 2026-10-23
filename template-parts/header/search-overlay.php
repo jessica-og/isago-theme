@@ -26,7 +26,7 @@ if (!defined('ABSPATH')) {
 <form class="isago-search-form" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
 
     <div class="isago-search-field">
-
+ 
         <input
             class="isago-search-input"
             type="search"

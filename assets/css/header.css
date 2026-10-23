@@ -2,26 +2,18 @@
 ISAGO HEADER - TOP NAV
 ==========================================*/
 
-
-
-
-
-
-
-.isago-topbar,
-
 .isago-logo h1,
-
 .isago-logo h1::after,
-
 .isago-menu-button,
-
 .isago-search-button,
-
 .isago-dark-toggle{
-
-transition:all .3s ease;
-
+    transition:
+        transform .3s ease,
+        font-size .3s ease,
+        width .3s ease,
+        height .3s ease,
+        background .3s ease,
+        color .3s ease;
 }
 
 .isago-header-wrapper{
@@ -35,17 +27,17 @@ z-index:9999;
 background:var(--isago-bg);
 
 }
+
 .isago-header{
+   position: relative;
 
-background:var(--isago-bg);
+    z-index: 10002;
 
- 
+    background: var(--isago-bg);
 
-z-index:9999;
+    border-bottom: 1px solid var(--isago-border);
 
-border-bottom:1px solid var(--isago-border);
-
-transition:.35s;
+    transition: .35s;
 
 }
 
@@ -185,31 +177,6 @@ font-size:18px;
 line-height:1;
 
 }
-.subscribe-btn{
-
-background:var(--isago-primary);
-
-padding:14px 26px;
-
-border-radius:10px;
-
-font-weight:700;
-
-color:#fff;
-
-transition:.3s;
-
-}
-
-.subscribe-btn:hover{
-
-background:var(--isago-secondary);
-
-color:#111;
-
-transform:translateY(-2px);
-
-}
 
 
 
@@ -227,52 +194,57 @@ body.isago-search-open .isago-header-wrapper {
 Scrolled
 ==========================================*/
 
+
 .isago-header.scrolled{
 
-background: var(--isago-scrolled-bg);
+ position: relative;
 
-backdrop-filter:blur(18px);
+    z-index: 10002;
 
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+    background: var(--isago-scrolled-bg);
 
-border-bottom:1px solid var(--isago-border);
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+
+    border-bottom: 1px solid var(--isago-border);
 
 }
+
+
+
 .isago-header.scrolled .isago-topbar{
 
-height:72px;
-transition:height .3s ease;
- padding: 0 10px;
+    height:92px;
+
 }
+
+
 
 .isago-header.scrolled .isago-logo h1{
 
-font-size:44px;
-
-transition:.3s;
+    font-size:44px;
 
 }
 
 .isago-header.scrolled .isago-logo h1::after{
 
-font-size:56px;
+    font-size:56px;
 
 }
-.isago-header.scrolled
 
-.isago-menu-button,
 
-.isago-header.scrolled
 
-.isago-search-button,
 
-.isago-header.scrolled
+.isago-header.scrolled .isago-menu-button,
+.isago-header.scrolled .isago-search-button,
+.isago-header.scrolled .isago-dark-toggle{
 
-.isago-dark-toggle{
+    width:38px;
 
-width:38px;
-
-height:38px;
+    height:38px;
 
 }
 
@@ -343,132 +315,9 @@ transform:translateY(-2px);
 
 
 
-/*
-|--------------------------------------------------------------------------
-| Advertisement Label
-|--------------------------------------------------------------------------
-*/
-
-.header-ad-label {
-
-    width: 100%;
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-    padding: 7px 0 5px;
-
-    font-size: 9px;
-    font-weight: 700;
-
-    line-height: 1;
-
-    letter-spacing: 1.2px;
-
-    text-transform: uppercase;
-
-    color: #7b8494;
-
-    text-align: left;
-
-    box-sizing: border-box;
-}
 
 
-/*
-|--------------------------------------------------------------------------
-| Advertisement Container
-|--------------------------------------------------------------------------
-*/
 
-.header-ad-box {
-
-    width: 100%;
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-    padding: 0 20px 14px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    box-sizing: border-box;
-
-    /*
-     * Only exists when the advertisement
-     * is enabled because PHP controls it.
-     */
-    margin-bottom: 75px;
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| Banner Wrapper
-|--------------------------------------------------------------------------
-*/
-
-.header-ad-box .header-banner {
-
-    width: 728px;
-
-    max-width: 100%;
-
-    height: 90px;
-
-    margin: 0 auto;
-
-    overflow: hidden;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    box-sizing: border-box;
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| Banner Link
-|--------------------------------------------------------------------------
-*/
-
-.header-ad-box .header-banner a {
-
-    display: block;
-
-    width: 100%;
-    height: 100%;
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| Banner Image
-|--------------------------------------------------------------------------
-*/
-
-.header-ad-box .header-banner img {
-
-    display: block;
-
-    width: 100%;
-
-    height: 90px;
-
-    max-width: 728px;
-
-    object-fit: cover;
-
-    object-position: center;
-
-    margin: 0 auto;
-}
 
 
 /*=========================================================
@@ -497,49 +346,7 @@ TABLET
 
 
 }
-    .header-ad-label {
-
-        padding-left: 20px;
-        padding-right: 20px;
-
-    }
-
-
-    .header-ad-box {
-
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 12px;
-
-        margin-bottom: 50px;
-
-    }
-
-
-    .header-ad-box .header-banner {
-
-        width: 100%;
-
-        max-width: 728px;
-
-        height: auto;
-
-        aspect-ratio: 728 / 90;
-
-    }
-
-
-    .header-ad-box .header-banner img {
-
-        width: 100%;
-
-        height: auto;
-
-        aspect-ratio: 728 / 90;
-
-        object-fit: cover;
-
-    }
+ 
 
 
     .isago-logo h1 {
@@ -582,53 +389,7 @@ line-height:1;
 /*=========================================================
 MOBILE
 =========================================================*/
-
 @media (max-width: 600px) {
-
-    .header-ad-label {
-
-        padding: 6px 15px 4px;
-
-        font-size: 8px;
-
-    }
-
-
-    .header-ad-box {
-
-        padding: 0 15px 10px;
-
-        margin-bottom: 30px;
-
-    }
-
-
-    .header-ad-box .header-banner {
-
-        width: 100%;
-
-        height: auto;
-
-        aspect-ratio: 728 / 90;
-
-        border-radius: 4px;
-
-    }
-
-
-    .header-ad-box .header-banner img {
-
-        width: 100%;
-
-        height: auto;
-
-        aspect-ratio: 728 / 90;
-
-        object-fit: cover;
-
-    }
-
-
     .isago-logo img {
 
         max-width: 145px;
@@ -701,52 +462,1095 @@ MOBILE
 /*=========================================================
 VERY SMALL DEVICES
 =========================================================*/
+@media (max-width:400px){
 
-@media (max-width: 400px) {
+    .isago-logo h1{
+        font-size:28px;
+    }
 
-    .header-ad-box {
+    .isago-header.scrolled .isago-logo h1{
+        font-size:28px;
+    }
 
-        padding-left: 10px;
-        padding-right: 10px;
+    .isago-header.scrolled .isago-logo h1::after{
+        font-size:38px;
+    }
 
-        margin-bottom: 25px;
+    .isago-header.scrolled .isago-menu-button,
+    .isago-header.scrolled .isago-search-button,
+    .isago-header.scrolled .isago-dark-toggle{
+        width:28px;
+        height:28px;
+    }
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+ISAGO SOCIAL + AUTH HEADER CONTROLS
+=========================================================*/
+
+.isago-header-social-auth {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 18px;
+
+    position: relative;
+}
+
+
+/*=========================================================
+AUTH LINKS
+=========================================================*/
+
+.isago-header-auth {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.isago-header-auth-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 36px;
+
+    padding:
+        0
+        12px;
+
+border: 1px solid rgba(0, 212, 245, 0.4);
+border-radius: 8px;
+    background-color: var(--isago-card);
+    
+    font-size: 12px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease;
+}
+
+
+/*=========================================================
+SIGN IN
+=========================================================*/
+
+.isago-header-sign-in {
+
+    color:
+        var(
+            --isago-text );
+       border: 1px solid rgba(0, 212, 245, 0.4);
+border-radius: 8px;
+    background-color: var(--isago-card);
+}
+
+
+.isago-header-sign-in:hover {
+
+    color:
+        var(
+            --isago-primary
+        );
+}
+
+
+/*=========================================================
+SIGN UP
+=========================================================*/
+
+.isago-header-sign-up {
+
+    padding-left: 14px;
+
+    padding-right: 14px;
+
+    border:
+        1px solid
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+
+    background:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+    color:
+        var(
+            --isago-text );
+
+}
+
+
+.isago-header-sign-up:hover {
+
+    opacity: .86;
+
+       color:var( --isago-text );
+}
+
+
+/*=========================================================
+USER DROPDOWN
+=========================================================*/
+
+.isago-header-user {
+
+    position: relative;
+
+    display: flex;
+
+border: 1px solid rgba(0, 212, 245, 0.4);
+border-radius: 8px;
+    background-color: var(--isago-card);
+    align-items: center;
+}
+
+
+/*=========================================================
+USER TOGGLE
+=========================================================*/
+
+.isago-header-user-toggle {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    min-height: 36px;
+
+    padding: 0 10px;
+
+    border: 0;
+
+    background: transparent;
+
+    color:
+        var(
+            --isago-text,
+         
+        );
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+
+.isago-header-user-toggle:hover {
+
+    color:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+}
+
+
+.isago-header-user-toggle > i {
+
+    margin-left: 3px;
+
+    font-size: 9px;
+
+    transition:
+        transform .2s ease;
+}
+
+
+.isago-header-user-greeting {
+
+    font-weight: 500;
+
+    opacity: .75;
+}
+
+
+.isago-header-user-name {
+
+    max-width: 120px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/*=========================================================
+USER DROPDOWN
+=========================================================*/
+
+.isago-header-user-dropdown {
+
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    right: 0;
+
+    z-index: 99999;
+
+    width: 230px;
+
+    padding: 12px;
+
+    border:
+        1px solid rgba(0, 212, 245, .4);
+
+
+    border-radius: 12px;
+
+    background:
+        var(
+            --isago-card,
+        );
+
+    box-shadow:
+        0 15px 40px
+        rgba(
+            0,
+            0,
+            0,
+            .12
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(-5px);
+
+    pointer-events: none;
+
+    transition:
+        opacity .18s ease,
+        visibility .18s ease,
+        transform .18s ease;
+}
+
+
+/*=========================================================
+OPEN STATE
+=========================================================*/
+
+.isago-header-user.is-open
+.isago-header-user-dropdown {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+
+    pointer-events: auto;
+}
+
+
+.isago-header-user.is-open
+.isago-header-user-toggle
+> i {
+
+    transform:
+        rotate(180deg);
+}
+
+
+/*=========================================================
+INVISIBLE BRIDGE
+
+Prevents the mouse from falling through the small
+visual gap between the toggle and dropdown.
+=========================================================*/
+
+.isago-header-user-dropdown::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -8px;
+
+    right: 0;
+
+    width: 100%;
+
+    height: 8px;
+}
+
+
+/*=========================================================
+DROPDOWN USER NAME
+=========================================================*/
+
+.isago-header-user-dropdown-name {
+
+    padding:
+        5px
+        5px
+        2px;
+
+    color:
+        var(
+            --isago-heading,
+        
+        );
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/*=========================================================
+DROPDOWN EMAIL
+=========================================================*/
+
+.isago-header-user-dropdown-email {
+
+    padding:
+        0
+        5px
+        8px;
+
+    color:
+        var(
+            --isago-muted,
+          
+        );
+
+    font-size: 11px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/*=========================================================
+DIVIDER
+=========================================================*/
+
+.isago-header-user-dropdown-divider {
+
+    height: 1px;
+
+    margin:
+        3px
+        0
+        6px;
+
+    background:
+        var(
+            --isago-border,
+       
+        );
+}
+
+
+/*=========================================================
+LOGOUT
+=========================================================*/
+
+.isago-header-user-logout {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding:
+        9px 7px;
+
+    border-radius: 8px;
+
+    color:
+        var(
+            --isago-text
+        );
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.isago-header-user-logout:hover {
+
+    background:
+        rgba(
+            0,
+            212,
+            245,
+            .08
+        );
+
+    color:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+}
+
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width: 900px) {
+
+    .isago-header-social-auth {
+
+        gap: 10px;
     }
 
 
-    .isago-logo h1 {
+    .isago-header-auth {
 
-        font-size: 28px;
-
+        gap: 3px;
     }
 
-.isago-header.scrolled .isago-logo h1{
 
-font-size:34px;
+    .isago-header-auth-link {
 
-}
+        padding-left: 8px;
 
-.isago-header.scrolled .isago-logo h1::after{
+        padding-right: 8px;
+    }
 
-font-size:38px;
 
-}
-.isago-header.scrolled
+    .isago-header-user-name {
 
-.isago-menu-button,
-
-.isago-header.scrolled
-
-.isago-search-button,
-
-.isago-header.scrolled
-
-.isago-dark-toggle{
-
-width:28px;
-
-height:28px;
+        max-width: 80px;
+    }
 
 }
 
+
+@media (max-width: 600px) {
+
+    .isago-header-social-auth {
+
+        gap: 7px;
+    }
+
+
+    .isago-header-auth-link {
+
+        min-height: 32px;
+
+        padding:
+            0
+            7px;
+
+        font-size: 11px;
+    }
+
+
+    .isago-header-sign-up {
+
+        padding-left: 9px;
+
+        padding-right: 9px;
+    }
+
+
+    .isago-header-user-greeting {
+
+        display: none;
+    }
+
+
+    .isago-header-user-name {
+
+        max-width: 70px;
+    }
+
+
+    .isago-header-user-dropdown {
+
+        right: -5px;
+
+        width: 210px;
+    }
+
+}
+
+
+
+
+
+/*=========================================================
+DROPDOWN USER INFO
+=========================================================*/
+
+.isago-header-user-dropdown-name {
+
+    padding:
+        5px
+        5px
+        2px;
+
+    color:
+        var(
+            --isago-heading
+        );
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+.isago-header-user-dropdown-email {
+
+    padding:
+        0
+        5px
+        8px;
+
+    color:
+        var(
+            --isago-muted
+        );
+
+    font-size: 11px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/*=========================================================
+DIVIDER
+=========================================================*/
+
+.isago-header-user-dropdown-divider {
+
+    height: 1px;
+
+    margin:
+        3px
+        0
+        6px;
+
+    background:
+        var(
+            --isago-border
+        );
+}
+
+
+/*=========================================================
+LOGOUT
+=========================================================*/
+
+.isago-header-user-logout {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding:
+        9px 7px;
+
+    border-radius: 8px;
+
+    color:
+        var(
+            --isago-text
+        );
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.isago-header-user-logout:hover {
+
+    background:
+        rgba(
+            0,
+            212,
+            245,
+            .08
+        );
+
+    color:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+}
+
+/*=========================================================
+MY ACCOUNT DROPDOWN LINK
+=========================================================*/
+
+.isago-header-user-account {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding:
+        9px 7px;
+
+    border-radius: 8px;
+
+    color:
+        var(
+            --isago-text
+        );
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.isago-header-user-account:hover {
+
+    background:
+        rgba(
+            0,
+            212,
+            245,
+            .08
+        );
+
+    color:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+}
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width: 900px) {
+
+    .isago-header-social-auth {
+
+        gap: 10px;
+    }
+
+
+    .isago-header-auth {
+
+        gap: 3px;
+    }
+
+
+    .isago-header-auth-link {
+
+        padding-left: 8px;
+
+        padding-right: 8px;
+    }
+
+
+    .isago-header-user-name {
+
+        max-width: 80px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .isago-header-social-auth {
+
+        gap: 7px;
+    }
+
+
+    /*
+     * Keep the social icons visible,
+     * but make the authentication controls
+     * more compact on small screens.
+     */
+
+    .isago-header-auth-link {
+
+        min-height: 32px;
+
+        padding:
+            0
+            7px;
+
+        font-size: 11px;
+    }
+
+
+    .isago-header-sign-up {
+
+        padding-left: 9px;
+
+        padding-right: 9px;
+    }
+
+
+    .isago-header-user-greeting {
+
+        display: none;
+    }
+
+
+    .isago-header-user-name {
+
+        max-width: 70px;
+    }
+
+
+    .isago-header-user-dropdown {
+
+        right: -5px;
+
+        width: 210px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+/*=========================================================
+MOBILE AUTH LOCATION
+=========================================================*/
+
+/*
+ * Desktop/tablet:
+ * auth remains in the header.
+ */
+.isago-mobile-auth {
+    display: none;
+}
+
+
+/*
+ * Mobile:
+ * hide the header authentication controls.
+ */
+@media (max-width: 600px) {
+
+    .isago-header-right
+    .isago-header-social-auth {
+
+        display: none !important;
+    }
+
+
+    /*
+     * Show authentication inside
+     * the mobile menu.
+     */
+    .isago-mobile-auth {
+
+        display: block;
+
+        margin-top: 20px;
+
+        padding-top: 18px;
+
+        border-top:
+            1px solid
+            var(
+                --isago-border
+            );
+    }
+
+
+    /*
+     * Remove desktop social/auth layout.
+     */
+    .isago-mobile-auth
+    .isago-header-social-auth {
+
+        display: block;
+
+        width: 100%;
+    }
+
+
+    /*
+     * Logged-out buttons.
+     */
+    .isago-mobile-auth
+    .isago-header-auth {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        width: 100%;
+
+        gap: 10px;
+    }
+
+
+   .isago-mobile-auth
+.isago-header-auth-link {
+
+    width: 100%;
+
+    height: 36px;
+
+    min-height: 36px;
+
+    box-sizing: border-box;
+
+    justify-content: center;
+
+    padding:
+        0
+        16px;
+
+    font-size: 13px;
+}
+
+    /*
+     * Logged-in user button.
+     */
+    .isago-mobile-auth
+    .isago-header-user {
+
+        width: 100%;
+
+        display: block;
+
+        box-sizing: border-box;
+    }
+
+.isago-mobile-auth
+.isago-header-user-toggle {
+
+    width: 100%;
+
+    height: 36px;
+
+    min-height: 36px;
+
+    justify-content: space-between;
+
+    padding:
+        0
+        14px;
+
+    box-sizing: border-box;
+}
+
+
+    /*
+     * Logged-in dropdown becomes part
+     * of the mobile menu instead of
+     * floating outside it.
+     */
+
+
+    .isago-mobile-auth
+    .isago-header-user.is-open
+    .isago-header-user-dropdown {
+
+        transform: translateY(0);
+    }
+
+
+    /*
+     * The invisible desktop bridge is
+     * unnecessary inside the mobile menu.
+     */
+    .isago-mobile-auth
+    .isago-header-user-dropdown::before {
+
+        display: none;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   ISAGO — SCROLL HEADER BEHAVIOUR
+   Collapse the top bar and keep navigation visible.
+========================================================= */
+
+/* Keep the wrapper in the normal document flow */
+.isago-header-wrapper {
+    position: relative;
+    top: auto;
+    z-index: 9999;
+    background: var(--isago-bg);
+}
+
+/* Animate the top header */
+.isago-header {
+    position: relative;
+    max-height: 140px;
+    overflow: hidden;
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        max-height 0.3s ease,
+        opacity 0.2s ease,
+        transform 0.3s ease;
+}
+
+/* Collapse the top bar when scrolling down */
+body.isago-scrolling-down .isago-header {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    border-bottom: 0;
+    pointer-events: none;
+}
+
+/* Keep the navigation at the top while scrolling */
+.isago-navigation {
+    position: sticky;
+    top: 0;
+    z-index: 10001;
+    background: var(--isago-card);
+}
+
+/* Keep dropdowns above page content */
+.isago-navigation .isago-dropdown,
+.isago-navigation .isago-submenu {
+    z-index: 10002;
+}
+
+/* Keep the header visible while search is open */
+body.isago-search-open .isago-header {
+    max-height: 140px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .isago-header {
+        transition: none;
+    }
 }

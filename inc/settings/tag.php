@@ -16,7 +16,7 @@ function isago_get_tag_archive_settings()
 
         'sidebar' => true,
 
-        'posts' => 9,
+        'posts' => 9, 
 
         'columns' => 3
     ];

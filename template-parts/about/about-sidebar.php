@@ -1,7 +1,7 @@
 <?php if (!defined('ABSPATH')) exit; ?>
 
 <?php $settings = isago_get_theme_settings(); ?>
-
+    <div class="sidebar-grid">
 <div class="about-card">
 
     <h3><?php echo esc_html($settings['about_sidebar_title']); ?></h3>
@@ -50,7 +50,9 @@
 
     </div>
 
-    <!-- AD -->
-    <?php get_template_part('template-parts/sidebar/widgets/advertisement-300'); ?>
+    <div class="padding-top">
+  <?php get_template_part('template-parts/sidebar/widgets/advertisement-300'); ?>
 
-</div>
+    </div>
+  
+            </div>

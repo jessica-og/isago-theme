@@ -28,7 +28,7 @@ if (!$query->have_posts()) {
 
 <section class="sidebar-widget">
 
-<h3 class="sidebar-title">
+<h3 class="isago-section-title">
 
 LATEST
 
@@ -38,9 +38,9 @@ LATEST
 
 <article class="latest-item">
 
-    <div>
+    <div class="latest-contents">
 
-        <h4>
+        <h4 class="latest-sidebar-post-title">
 
             <a href="<?php the_permalink(); ?>">
 
@@ -52,7 +52,7 @@ LATEST
 
         <?php if ($settings['show_date']) : ?>
 
-            <div class="latest-date">
+            <div class="isago-post-meta">
 
                 <?php echo get_the_date(); ?>
 
@@ -66,7 +66,19 @@ LATEST
 
         <a class="latest-thumb" href="<?php the_permalink(); ?>">
 
-            <?php the_post_thumbnail('thumbnail'); ?>
+            <?php     echo isago_get_post_thumbnail(
+
+    get_the_ID(),
+                'medium_large',
+                [
+                    'loading' => 'lazy',
+                     'alt'     => the_title_attribute([
+                        'echo' => false
+                    ])
+                ]
+            );
+            
+            ?>
 
         </a>
 

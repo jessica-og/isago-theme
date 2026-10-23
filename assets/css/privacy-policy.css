@@ -14,15 +14,15 @@ font-size:42px;
 font-weight:900;
 margin-bottom:10px;
 }
-
+ 
 .policy-date{
-color:#888;
+color:var(--isago-date);
 margin-bottom:20px;
 }
 
 .policy-intro{
 font-size:16px;
-color:#444;
+color:var(--isago-post-text);
 margin-bottom:30px;
 }
 
@@ -31,7 +31,7 @@ margin-bottom:30px;
 display:flex;
 gap:18px;
 padding:22px 0;
-border-bottom:1px solid #eee;
+border-bottom:1px solid var(--isago-border);
 }
 
 .policy-item h3{
@@ -41,7 +41,7 @@ margin-bottom:6px;
 }
 
 .policy-item p{
-color:#555;
+color:var(--isago-post-text);
 font-size:14px;
 }
 
@@ -50,8 +50,8 @@ font-size:14px;
 width:48px;
 height:48px;
 border-radius:12px;
-background:#eef2ff;
-color:#2563eb;
+background:var(--isago-primary);
+color:var(--isago-text);
 display:flex;
 align-items:center;
 justify-content:center;
@@ -67,19 +67,32 @@ height:fit-content;
 }
 
 .policy-card{
-border:1px solid #eee;
+border:1px solid var(--isago-rgb-border);
 border-radius:12px;
 padding:25px;
+box-shadow: 2px 2px 12px #0002;
 text-align:center;
-background:#fff;
+ color: var(--isago-text);
+background:var(--isago-card);
+  transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
+.policy-card:hover {
+    transform: translateY(-4px);
 
+    border-color: var(--isago-primary);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.06);
+}
 .policy-card-icon{
 width:60px;
 height:60px;
 border-radius:50%;
-background:#eef2ff;
-color:#2563eb;
+background:var(--isago-primary);
+color:var(--isago-text);
 display:flex;
 align-items:center;
 justify-content:center;
@@ -110,7 +123,8 @@ justify-content:space-between;
 align-items:center;
 padding:25px;
 border-radius:12px;
-background:#f5f7ff;
+background:var(--isago-card);
+color: var(--isago-text);
 }
 
 .newsletter-left{
@@ -121,7 +135,7 @@ align-items:center;
 
 .newsletter-left i{
 font-size:24px;
-color:#2563eb;
+color:var(--isago-primary);
 }
 
 .newsletter-form{
@@ -131,13 +145,13 @@ gap:10px;
 
 .newsletter-form input{
 padding:10px;
-border:1px solid #ddd;
+border:1px solid var(--isago-border);
 border-radius:6px;
 }
 
 .newsletter-form button{
-background:#2563eb;
-color:#fff;
+background:var(--isago-primary);
+color:var(--isago-text);
 border:none;
 padding:10px 18px;
 border-radius:6px;
@@ -173,12 +187,12 @@ margin-bottom:10px;
 }
 
 .cookies-updated{
-color:#888;
+color:var(--isago-date);
 margin-bottom:20px;
 }
 
 .cookies-intro{
-color:#444;
+color:var(--isago-post-text);
 margin-bottom:35px;
 max-width:720px;
 line-height:1.6;
@@ -190,15 +204,15 @@ line-height:1.6;
 display:flex;
 gap:18px;
 padding:22px 0;
-border-bottom:1px solid #eee;
+border-bottom:1px solid var(--isago-border);
 }
 
 .cookies-icon{
 width:46px;
 height:46px;
 border-radius:12px;
-background:#eef2ff;
-color:#2563eb;
+background:var(--isago-primary);
+color:var(--isago-text);
 display:flex;
 align-items:center;
 justify-content:center;
@@ -216,22 +230,22 @@ font-weight:800;
 }
 
 .cookies-table{
-border:1px solid #eee;
+border:2px solid var(--isago-border);
 border-radius:12px;
 overflow:hidden;
-background:#fff;
+background:var(--isago-card);
 }
 
 .cookies-row{
 display:grid;
 grid-template-columns:1.3fr 2fr 1.5fr 1fr;
 padding:16px;
-border-bottom:1px solid #eee;
+border-bottom:2px solid var(--isago-border);
 font-size:14px;
 }
 
 .cookies-row.header{
-background:#f7f8fa;
+background:var(--isago-bg);
 font-weight:700;
 }
 
@@ -242,23 +256,34 @@ position:relative;
 }
 
 .cookies-hero-card{
-background:#f7f9fc;
-border:1px solid #e6eaf0;
+background:var(--isago-card);
+border:1px solid var(--isago-border);
 border-radius:14px;
 padding:25px;
 display:flex;
+box-shadow: 2px 2px 12px #0002;
 gap:15px;
 align-items:flex-start;
 position:sticky;
 top:100px;
+   transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
+.cookies-hero-card:hover {
+    transform: translateY(-4px);
 
+    border-color: rgba(0, 212, 245, 0.4) ;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.06);
+}
 .cookies-hero-icon{
 width:55px;
 height:55px;
 border-radius:50%;
-background:#eef2ff;
-color:#2563eb;
+color:var(--isago-primary);
 display:flex;
 align-items:center;
 justify-content:center;
@@ -272,7 +297,7 @@ margin-bottom:5px;
 
 .cookies-hero-content p{
 font-size:14px;
-color:#555;
+color:var(--isago-post-text);
 line-height:1.5;
 }
 
@@ -281,7 +306,7 @@ line-height:1.5;
 .cookies-link{
 display:inline-block;
 margin-top:8px;
-color:#2563eb;
+color:var(--isago-primary);
 font-weight:500;
 text-decoration:none;
 }

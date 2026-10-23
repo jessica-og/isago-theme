@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 |--------------------------------------------------------------------------
 */
 
-add_action(
+add_action(  
     'admin_init',
     'isago_register_theme_settings'
 );
@@ -20,6 +20,14 @@ function isago_register_theme_settings()
     register_setting(
         'isago_theme_options',
         'isago_theme_settings'
+    );  
+
+       register_setting(
+
+        'isago_theme_options',
+
+        'isago_cookie_settings'
+
     );
 }
 
@@ -60,7 +68,7 @@ function isago_theme_settings_page()
     $options = isago_get_option(
         'isago_theme_settings'
     );
-
+  
 ?>
 
 <div class="wrap isago-admin isago-theme-settings">
@@ -144,6 +152,63 @@ function isago_theme_settings_page()
                 </div>
 
             </section>
+
+
+<!-- =====================================================
+Author
+===================================================== -->
+
+<section class="isago-builder-card">
+
+    <button
+        type="button"
+        class="isago-builder-card-header"
+        aria-expanded="false"
+    >
+
+        <span class="isago-builder-card-title">
+
+            <span class="isago-builder-card-icon">
+
+                <i class="dashicons dashicons-admin-users"></i>
+
+            </span>
+
+            <span>
+                Author
+            </span>
+
+        </span>
+
+        <span class="isago-builder-toggle">
+
+            <i class="dashicons dashicons-arrow-down-alt2"></i>
+
+        </span>
+
+    </button>
+
+
+    <div class="isago-builder-card-content">
+
+        <table class="form-table">
+
+            <tbody>
+
+                <?php
+
+                require_once ISAGO_DIR .
+                    '/inc/admin/pages/theme-fields/author.php';
+
+                ?>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
 
 
             <!-- =====================================================
@@ -260,6 +325,12 @@ function isago_theme_settings_page()
                 </div>
 
             </section>
+
+
+
+
+
+            
 
 
             <!-- =====================================================
@@ -424,6 +495,66 @@ function isago_theme_settings_page()
 
                             require_once ISAGO_DIR .
                                 '/inc/admin/pages/theme-fields/contact.php';
+
+                            ?>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+
+    <!-- =====================================================
+            Cookie Consent Page
+            ===================================================== -->
+
+            <section class="isago-builder-card">
+
+                <button
+                    type="button"
+                    class="isago-builder-card-header"
+                    aria-expanded="false"
+                >
+
+                    <span class="isago-builder-card-title">
+
+                        <span class="isago-builder-card-icon">
+
+                            <i class="dashicons dashicons-sos"></i>
+
+                        </span>
+
+                        <span>
+                            Cookie Consent Page
+                        </span>
+
+                    </span>
+
+
+                    <span class="isago-builder-toggle">
+
+                        <i class="dashicons dashicons-arrow-down-alt2"></i>
+
+                    </span>
+
+                </button>
+
+
+                <div class="isago-builder-card-content">
+
+                    <table class="form-table">
+
+                        <tbody>
+
+                            <?php
+
+                            require_once ISAGO_DIR .
+                                '/inc/admin/pages/theme-fields/cookie-consent.php';
 
                             ?>
 

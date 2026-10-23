@@ -10,7 +10,7 @@ if (!$query || !$query->have_posts()) {
     return;
 }
 
-?>
+?>  
 
 <div
 class="category-post-grid"

@@ -17,6 +17,7 @@ inset:0;
 width:100%;
 height:100%;
 object-fit:cover;
+border-radius: 14px;
 }
 .hero-path{
 position:absolute;
@@ -39,7 +40,7 @@ max-width:1400px;
 margin:0 auto;
 }
 .contact-hero{
-background:#f9fbff;
+background:var(--isago-bg);
 padding:70px 0;
 margin-bottom:50px;
 }
@@ -60,7 +61,7 @@ margin:10px 0;
 }
 
 .contact-lead{
-color:#555;
+color: var(--isago-post-text);
 max-width:520px;
 }
 
@@ -102,121 +103,387 @@ transform:translateY(0px) rotate(0deg);
 
 
 
-/* ==============================
-CARDS
-============================== */
+/* =========================================================
+CONTACT CARDS
+========================================================= */
+
 .contact-cards{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:20px;
+    margin-top:30px;
 }
 
-/* CARD */
+
+/* =========================================================
+CARD
+========================================================= */
+
 .contact-card{
-position:relative;
-display:flex;
-align-items:center;
-gap:15px;
-background:#fff;
-border-radius:14px;
-padding:18px 20px;
-z-index:1;
-transition:.3s;
 
-/* remove old border */
-border:1px solid transparent;
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:var(--isago-card);
+
+    box-shadow:2px 2px 12px #0002;
+
+    border-radius:14px;
+
+    padding:18px 20px;
+
+    z-index:1;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    border:1px solid transparent;
+
+    overflow:hidden;
 }
+
+
+/* =========================================================
+GRADIENT BORDER
+========================================================= */
+
 .contact-card::before{
-content:"";
-position:absolute;
-inset:0;
-border-radius:14px;
-padding:1px;
 
-/* gradient border */
-background:linear-gradient(120deg,#2563eb,var(--isago-secondary));
+    content:"";
 
-/* mask to show only border */
--webkit-mask:
-linear-gradient(#fff 0 0) content-box,
-linear-gradient(#fff 0 0);
--webkit-mask-composite:xor;
-mask-composite:exclude;
+    position:absolute;
 
-opacity:0;
-transition:.3s;
+    inset:0;
+
+    border-radius:14px;
+
+    padding:1px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(0,212,245,.4),
+            var(--isago-primary)
+        );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
+
+    opacity:0;
+
+    transition:opacity .3s ease;
+
+    /*
+     IMPORTANT:
+     This prevents the pseudo-element
+     from blocking clicks.
+    */
+    pointer-events:none;
+
+    z-index:0;
 }
+
+
 .contact-card:hover::before{
-opacity:1;
+    opacity:1;
 }
+
 
 .contact-card:hover{
-transform:translateY(-6px);
-box-shadow:0 20px 40px rgba(0,0,0,0.06);
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.06);
 }
 
-/* ICON */
+
+/* =========================================================
+CARD ICON
+========================================================= */
+
 .card-icon{
-width:50px;
-height:50px;
-min-width:50px;
-border-radius:50%;
-background:#2563eb;
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:18px;
+
+    position:relative;
+
+    z-index:2;
+
+    width:50px;
+
+    height:50px;
+
+    min-width:50px;
+
+    border-radius:50%;
+
+    background:var(--isago-primary);
+
+    color:var(--isago-text);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
 }
 
-/* TEXT */
+
+/* =========================================================
+CARD CONTENT
+========================================================= */
+
 .card-content{
-flex:1;
+
+    position:relative;
+
+    z-index:2;
+
+    flex:1;
+
+    min-width:0;
 }
+
 
 .card-content h4{
-margin:0;
-font-size:15px;
-font-weight:700;
-color:#111;
+
+    margin:0;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:var(--isago-text);
 }
+
 
 .card-content p{
-margin:4px 0;
-font-size:14px;
-color:#333;
+
+    margin:4px 0;
+
+    font-size:14px;
+
+    color:var(--isago-post-text);
+
+    word-break:break-word;
 }
+
 
 .card-content span{
-font-size:12px;
-color:#777;
+
+    font-size:12px;
+
+    color:var(--isago-date);
 }
 
-/* SOCIAL */
+
+/* =========================================================
+SOCIAL ICONS
+========================================================= */
+
 .contact-social{
-display:flex;
-gap:10px;
-margin-top:6px;
+
+    position:relative;
+
+    z-index:5;
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:8px;
 }
+
 
 .contact-social a{
-width:30px;
-height:30px;
-border-radius:50%;
-background:#f3f6fb;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#2563eb;
-font-size:13px;
-transition:.3s;
+
+    position:relative;
+
+    z-index:10;
+
+    width:30px;
+
+    height:30px;
+
+    min-width:30px;
+
+    border-radius:50%;
+
+    box-shadow:2px 2px 12px #0002;
+
+    background:var(--isago-bg);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--isago-text);
+
+    font-size:13px;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
 }
 
+
 .contact-social a:hover{
-background:#2563eb;
-color:#fff;
+
+    background:var(--isago-primary);
+
+    color:var(--isago-text);
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.12);
 }
+
+
+.contact-social a:focus-visible{
+
+    outline:2px solid var(--isago-primary);
+
+    outline-offset:3px;
+}
+
+
+/* =========================================================
+SOCIAL ICON
+========================================================= */
+
+.contact-social a i{
+
+    position:relative;
+
+    z-index:11;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media(max-width:1100px){
+
+    .contact-cards{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+    }
+
+}
+
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .contact-cards{
+
+        grid-template-columns:1fr;
+
+        gap:16px;
+
+    }
+
+    .contact-card{
+
+        padding:17px;
+
+    }
+
+}
+
+
+/* =========================================================
+SMALL MOBILE
+========================================================= */
+
+@media(max-width:400px){
+
+    .contact-card{
+
+        gap:12px;
+
+        padding:15px;
+
+    }
+
+    .card-icon{
+
+        width:44px;
+
+        height:44px;
+
+        min-width:44px;
+
+        font-size:16px;
+
+    }
+
+    .card-content h4{
+
+        font-size:14px;
+
+    }
+
+    .card-content p{
+
+        font-size:13px;
+
+    }
+
+    .contact-social{
+
+        gap:6px;
+
+    }
+
+    .contact-social a{
+
+        width:28px;
+
+        height:28px;
+
+        min-width:28px;
+
+        font-size:12px;
+
+    }
+
+}
+
+
 
 
 
@@ -230,11 +497,12 @@ FORM + MAP
 margin-top:40px;
 }
 .form-success{
-background:#e6fffa;
+background:var(--isago-muted);
 color:#065f46;
 padding:12px;
 border-radius:8px;
-margin-bottom:15px;
+margin-bottom:20px;
+margin-top: 20px;
 }
 .contact-grid{
 display:grid;
@@ -245,10 +513,12 @@ gap:30px;
 border-radius:10px;
 }
 .contact-box{
-background:#fff;
-border:1px solid #eee;
+background:var(--isago-card);
+border:2px solid var(--isago-border);
 padding:25px;
 border-radius:12px;
+box-shadow: 2px 2px 12px #0002;
+
 }
 
 .form-row{
@@ -262,13 +532,13 @@ gap:10px;
 width:100%;
 padding:12px;
 margin-bottom:12px;
-border:1px solid #ddd;
+border:2px solid var(--isago-border);
 border-radius:8px;
 }
 
 .contact-box button{
-background:#2563eb;
-color:#fff;
+background:var(--isago-primary);
+color:var(--isago-text);
 padding:12px;
 border:none;
 border-radius:8px;
@@ -296,7 +566,7 @@ margin:0;
 }
 
 .checkbox span{
-color:#555;
+color:var(--isago-date);
 }
 
 
@@ -331,8 +601,10 @@ gap:20px;
 
 /* CARD */
 .faq-item{
-background:#fff;
-border:1px solid #e5e7eb;
+background:var(--isago-card);
+box-shadow: 2px 2px 12px #0002;
+
+border:2px solid var(--isago-border);
 border-radius:12px;
 padding:18px 20px;
 transition:all .25s ease;
@@ -340,8 +612,11 @@ transition:all .25s ease;
 
 /* HOVER */
 .faq-item:hover{
-border-color:#d1d5db;
-box-shadow:0 8px 25px rgba(0,0,0,0.05);
+box-shadow: 2px 2px 12px #0002;
+
+  border-color: rgba(0, 212, 245, 0.4);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
 /* HEADER */
@@ -359,7 +634,7 @@ cursor:pointer;
 width:22px;
 height:22px;
 border-radius:50%;
-border:1px solid #ccc;
+border:1px solid var(--isago-border);
 display:flex;
 align-items:center;
 justify-content:center;
@@ -372,7 +647,7 @@ transition:.3s;
 .faq-item span::after{
 content:'';
 position:absolute;
-background:#333;
+background:var(--isago-text);
 transition:.3s;
 }
 
@@ -391,7 +666,7 @@ height:10px;
 max-height:0;
 overflow:hidden;
 transition:max-height .35s ease;
-color:#555;
+color:var(--isago-post-text);
 font-size:14px;
 line-height:1.6;
 margin-top:10px;
@@ -399,11 +674,19 @@ margin-top:10px;
 
 /* ACTIVE */
 .faq-item.active{
-border-color:#2563eb;
+box-shadow: 2px 2px 12px #0002;
+
+  border-color: rgba(0, 212, 245, 0.4);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
 .faq-item.active span{
-border-color:#2563eb;
+box-shadow: 2px 2px 12px #0002;
+
+  border-color: rgba(0, 212, 245, 0.4);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
 .faq-item.active span::after{

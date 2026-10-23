@@ -1,0 +1,456 @@
+
+/*=========================================================
+FULL PAGE
+=========================================================*/
+
+
+
+body.isago-payment-result {
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    background:
+        var(
+            --isago-body-bg
+        );
+
+    color:
+        var(
+            --isago-text
+        );
+
+ 
+
+}
+
+
+/*=========================================================
+PAYMENT RESULT MAIN
+=========================================================*/
+
+.isago-payment-result-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        80px
+        20px;
+
+    background:
+        var(
+            --isago-body-bg
+        );
+
+}
+
+
+/*=========================================================
+RESULT CONTAINER
+=========================================================*/
+
+.isago-payment-result-card {
+
+    width: 100%;
+
+    max-width: 720px;
+
+    padding:
+        55px
+        40px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        var(
+            --isago-border,
+           
+        );
+
+    border-radius: 20px;
+
+    background:
+        var(
+            --isago-card-gradient,
+           
+        );
+
+    box-shadow:var(
+            --isago-card-shadow,
+           
+        );
+
+}
+
+
+/*=========================================================
+RESULT ICON
+=========================================================*/
+
+.isago-payment-result-icon {
+
+    width: 64px;
+
+    height: 64px;
+
+    margin:
+        0
+        auto
+        24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        var(
+            --isago-primary
+        );
+
+    color:
+        #071014;
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+}
+
+
+/*=========================================================
+PENDING ICON
+=========================================================*/
+
+.isago-payment-result-icon.is-pending {
+
+    background:
+        rgba(
+            255,
+            193,
+            7,
+            .14
+        );
+
+    color:
+        #ffc107;
+
+}
+
+
+/*=========================================================
+ERROR ICON
+=========================================================*/
+
+.isago-payment-result-icon.is-error {
+
+    background:
+        rgba(
+            220,
+            70,
+            70,
+            .14
+        );
+
+    color:
+        #ff7777;
+
+}
+
+
+/*=========================================================
+TITLE
+=========================================================*/
+
+.isago-payment-result-title {
+
+    margin:
+        0
+        0
+        12px;
+
+    color:
+        var(
+            --isago-heading
+        );
+
+ 
+
+    font-size: 36px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+}
+
+
+/*=========================================================
+MESSAGE
+=========================================================*/
+
+.isago-payment-result-message {
+
+    max-width: 620px;
+
+    margin:
+        0
+        auto;
+
+    color:
+        var(
+            --isago-text
+        );
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+}
+
+
+/*=========================================================
+TRANSACTION REFERENCE
+=========================================================*/
+
+.isago-payment-result-reference {
+
+    margin-top: 18px;
+
+    color:
+        var(
+            --isago-muted
+        );
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+.isago-payment-result-reference strong {
+
+    color:
+        var(
+            --isago-text
+        );
+
+    font-weight: 700;
+
+    word-break: break-word;
+
+}
+
+
+/*=========================================================
+ACTIONS
+=========================================================*/
+
+.isago-payment-result-actions {
+
+    margin-top: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+}
+
+
+/*=========================================================
+BUTTON
+=========================================================*/
+
+.isago-payment-result-button {
+
+    min-height: 46px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        0
+        22px;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    background:
+        var(
+            --isago-button-bg
+          
+        );
+
+    color:
+        var(
+            --isago-button-text
+        );
+
+
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.isago-payment-result-button:hover {
+
+    opacity: .90;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 22px
+        rgba(
+            0,
+            212,
+            245,
+            .16
+        );
+
+}
+
+
+.isago-payment-result-button:focus-visible {
+
+    outline:
+        2px solid
+        var(
+            --isago-primary
+        );
+
+    outline-offset: 3px;
+
+}
+
+
+/*=========================================================
+SECONDARY BUTTON
+=========================================================*/
+
+.isago-payment-result-button-secondary {
+
+    border:
+        1px solid
+        var(
+            --isago-rgb-border
+          
+        );
+
+    background:
+        transparent;
+
+    color:
+        var(
+            --isago-text
+        );
+
+}
+
+
+.isago-payment-result-button-secondary:hover {
+
+    background:
+        var(
+            --isago-hover-bg
+        );
+
+}
+
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width: 600px) {
+
+    .isago-payment-result-page {
+
+        min-height: 100vh;
+
+        padding:
+            45px
+            15px;
+
+    }
+
+
+    .isago-payment-result-card {
+
+        padding:
+            40px
+            22px;
+
+        border-radius: 16px;
+
+    }
+
+
+    .isago-payment-result-title {
+
+        font-size: 28px;
+
+    }
+
+
+    .isago-payment-result-message {
+
+        font-size: 15px;
+
+    }
+
+
+    .isago-payment-result-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .isago-payment-result-button {
+
+        width: 100%;
+
+    }
+
+}

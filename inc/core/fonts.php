@@ -41,6 +41,78 @@ function isago_enqueue_fonts()
         'Outfit' =>
             'https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap',
 
+        'Space Grotesk' =>
+            'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap',
+
+        'Sora' =>
+            'https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap',
+
+        'Archivo' =>
+            'https://fonts.googleapis.com/css2?family=Archivo:wght@100..900&display=swap',
+
+        'Archivo Black' =>
+            'https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap',
+
+        'Plus Jakarta Sans' =>
+            'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap',
+
+        'Red Hat Display' =>
+            'https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap',
+
+        'Barlow' =>
+            'https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap',
+
+        'Barlow Condensed' =>
+            'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap',
+
+        'Bebas Neue' =>
+            'https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap',
+
+        'Oswald' =>
+            'https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap',
+
+        'Anton' =>
+            'https://fonts.googleapis.com/css2?family=Anton&display=swap',
+
+        'League Spartan' =>
+            'https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap',
+
+        'Urbanist' =>
+            'https://fonts.googleapis.com/css2?family=Urbanist:wght@100..900&display=swap',
+
+        'Albert Sans' =>
+            'https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100..900&display=swap',
+
+        'IBM Plex Sans' =>
+            'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap',
+
+        'Public Sans' =>
+            'https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900&display=swap',
+
+        'Work Sans' =>
+            'https://fonts.googleapis.com/css2?family=Work+Sans:wght@100..900&display=swap',
+
+        'Figtree' =>
+            'https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap',
+
+        'Rubik' =>
+            'https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap',
+
+        'Exo 2' =>
+            'https://fonts.googleapis.com/css2?family=Exo+2:wght@100..900&display=swap',
+
+        'Rajdhani' =>
+            'https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap',
+
+        'Titillium Web' =>
+            'https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap',
+
+        'Lexend' =>
+            'https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap',
+
+        'Noto Sans' =>
+            'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&display=swap',
+
         'Lora' =>
             'https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap',
 

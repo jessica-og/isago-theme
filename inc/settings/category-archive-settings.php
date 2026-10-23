@@ -25,7 +25,7 @@ return [
 $options['posts'] ?? 9
 ),
 
-'columns' => absint(
+'columns' => absint(  
 $options['columns'] ?? 3
 ),
 

@@ -1,0 +1,2739 @@
+
+
+/*=========================================================
+ROOT / GENERAL
+=========================================================*/
+
+.isago-saved-prompts-section,
+.isago-prompt-collections-section,
+.isago-collection-view {
+
+    width: 100%;
+
+    color:
+        var(--isago-text);
+}
+
+
+/*=========================================================
+SAVE PROMPT BUTTON
+Used on AI Prompt cards
+=========================================================*/
+
+.ai-platform-card {
+    position: relative;
+}
+
+
+.isago-save-prompt-button {
+
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    z-index: 20;
+
+    width: 40px;
+    height: 40px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid var(--isago-border);
+
+    border-radius: 50%;
+
+    background:var(--isago-card);
+
+    color:
+        var(--isago-text);
+
+    box-shadow:
+        0 5px 16px
+        rgba(0, 0, 0, .16);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    cursor: pointer;
+opacity: .5;
+    transition:
+        transform .22s ease,
+        background .22s ease,
+        border-color .22s ease,
+        color .22s ease,
+        box-shadow .22s ease;
+}
+
+
+.isago-save-prompt-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        var(--isago-primary);
+
+    border-color:
+        var(--isago-primary);
+
+    color:
+        var(--isago-text);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 212, 245, .24);
+}
+
+
+.isago-save-prompt-button:focus-visible {
+
+    outline:
+        2px solid
+        var(--isago-primary);
+
+    outline-offset:
+        3px;
+}
+
+
+.isago-save-prompt-button.is-saved {
+
+    background:
+        var(--isago-primary);
+
+    border-color:
+        var(--isago-primary);
+
+    color:
+        var(--isago-text);
+
+    box-shadow:
+        0 7px 20px
+        rgba(0, 212, 245, .20);
+}
+
+
+.isago-save-prompt-button:disabled {
+
+    opacity: .55;
+
+    cursor:
+        wait;
+
+    transform:
+        none;
+}
+
+
+/*=========================================================
+ACCOUNT SAVED PROMPTS
+=========================================================*/
+
+.isago-saved-prompts-section {
+
+    margin-top:
+        34px;
+}
+
+
+.isago-prompt-collections-section {
+
+    margin-top:
+        42px;
+}
+
+
+/*=========================================================
+SECTION HEADINGS
+=========================================================*/
+
+.isago-saved-prompts-heading {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 18px;
+
+    margin-bottom:
+        18px;
+}
+
+
+.isago-saved-prompts-heading h2 {
+
+    margin: 0;
+
+    color:
+        var(--isago-heading);
+
+    font-size:
+        21px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.3;
+
+    letter-spacing:
+        -.015em;
+}
+
+
+.isago-saved-prompts-heading > span {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width:
+        31px;
+
+    height:
+        28px;
+
+    padding:
+        0 9px;
+
+    border:
+        1px solid
+        rgba(0, 212, 245, .18);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(0, 212, 245, .08);
+
+    color:
+        var(--isago-link);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1;
+}
+
+
+/*=========================================================
+SAVED PROMPT LIST
+=========================================================*/
+
+.isago-saved-prompts-list {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        10px;
+}
+
+
+/*=========================================================
+SAVED PROMPT CARD
+=========================================================*/
+
+.isago-saved-prompt-item {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    min-width: 0;
+
+    padding:
+        18px 20px;
+
+    border:
+        1px solid
+         rgba(0, 212, 245, .28);
+
+    border-radius:
+        14px;
+
+    background:
+        var(--isago-card);
+
+    box-shadow:
+        0 2px 8px
+        rgba(15, 23, 42, .025);
+
+    transition:
+        border-color .22s ease,
+        background .22s ease,
+        box-shadow .22s ease,
+        transform .22s ease;
+}
+
+
+.isago-saved-prompt-item:hover {
+
+    border-color:
+        rgba(0, 212, 245, .28);
+
+    background:
+        var(--isago-card);
+
+    box-shadow:
+        0 10px 28px
+        rgba(15, 23, 42, .07);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/*=========================================================
+SAVED PROMPT INFORMATION
+=========================================================*/
+
+.isago-saved-prompt-info {
+
+    min-width:
+        0;
+
+    flex:
+        1 1 auto;
+}
+
+
+.isago-saved-prompt-info h3 {
+
+    margin:
+        0 0 6px;
+
+    color:
+        var(--isago-heading);
+
+    font-size:
+        16px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.45;
+
+    letter-spacing:
+        -.01em;
+}
+
+
+.isago-saved-prompt-info h3 a {
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+
+    transition:
+        color .2s ease;
+}
+
+
+.isago-saved-prompt-info h3 a:hover {
+
+    color:
+        var(--isago-link);
+}
+
+.isago-account-card{
+    background: var(--isago-card);
+}
+.isago-account-title{
+    color: var(--isago-heading);
+}
+.isago-account-description{
+    color: var(--isago-post-text);
+}
+
+.isago-saved-prompt-info h3 a:focus-visible {
+
+    outline:
+        2px solid
+        var(--isago-primary);
+
+    outline-offset:
+        3px;
+
+    border-radius:
+        3px;
+}
+
+
+.isago-saved-prompt-info span {
+
+    display:
+        block;
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.5;
+}
+
+
+/*=========================================================
+SAVED PROMPT ACTIONS
+=========================================================*/
+
+.isago-saved-prompt-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        7px;
+
+    flex:
+        0 0 auto;
+
+    flex-wrap:
+        wrap;
+}
+
+
+/*=========================================================
+MOVE TO COLLECTION
+=========================================================*/
+
+.isago-move-prompt-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    min-height:
+        37px;
+
+    padding:
+        0 12px;
+
+    border:
+        1px solid
+        rgba(0, 212, 245, .30);
+
+    border-radius:
+        8px;
+
+    background:
+        rgba(0, 212, 245, .055);
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        12px;
+
+    font-weight:
+        650;
+
+    line-height:
+        1;
+
+    white-space:
+        nowrap;
+
+    cursor:
+        pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.isago-move-prompt-button:hover {
+
+    border-color:
+        var(--isago-primary);
+
+    background:
+        rgba(0, 212, 245, .11);
+
+    color:
+        var(--isago-link);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.isago-move-prompt-button:focus-visible {
+
+    outline:
+        2px solid
+        var(--isago-primary);
+
+    outline-offset:
+        2px;
+}
+
+
+.isago-move-prompt-button:disabled {
+
+    opacity:
+        .55;
+
+    cursor:
+        wait;
+
+    transform:
+        none;
+}
+
+
+/*=========================================================
+REMOVE SAVED PROMPT
+=========================================================*/
+
+.isago-saved-prompt-remove {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+    justify-content:
+        center;
+
+    gap:
+        6px;
+
+    min-height:
+        37px;
+
+    padding:
+        0 11px;
+
+    border:
+        1px solid
+        var(--isago-rgb-border);
+
+    border-radius:
+        8px;
+
+    background:
+        transparent;
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1;
+
+    white-space:
+        nowrap;
+
+    cursor:
+        pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.isago-saved-prompt-remove:hover {
+
+    border-color:
+        rgba(214, 54, 56, .32);
+
+    background:
+        rgba(214, 54, 56, .055);
+
+    color:
+        #d63638;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.isago-saved-prompt-remove:focus-visible {
+
+    outline:
+        2px solid
+        var(--isago-primary);
+
+    outline-offset:
+        2px;
+}
+
+
+.isago-saved-prompt-remove:disabled {
+
+    opacity:
+        .55;
+
+    cursor:
+        wait;
+
+    transform:
+        none;
+}
+
+
+/*=========================================================
+REMOVE FROM COLLECTION
+=========================================================*/
+
+.isago-remove-from-collection-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        6px;
+
+    min-height:
+        34px;
+
+    padding:
+        0 10px;
+
+    border:
+        1px solid
+        var(--isago-border);
+
+    border-radius:
+        7px;
+
+    background:
+        transparent;
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        11px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1;
+
+    white-space:
+        nowrap;
+
+    cursor:
+        pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.isago-remove-from-collection-button i {
+
+    font-size:
+        11px;
+
+    opacity:
+        .65;
+
+    transition:
+        opacity .2s ease;
+}
+
+
+.isago-remove-from-collection-button:hover {
+
+    border-color:
+        rgba(214, 54, 56, .32);
+
+    background:
+        rgba(214, 54, 56, .055);
+
+    color:
+        #d63638;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.isago-remove-from-collection-button:hover i {
+
+    opacity:
+        1;
+}
+
+
+.isago-remove-from-collection-button:focus-visible {
+
+    outline:
+        2px solid
+        var(--isago-primary);
+
+    outline-offset:
+        2px;
+}
+
+
+.isago-remove-from-collection-button:disabled {
+
+    opacity:
+        .55;
+
+    cursor:
+        wait;
+
+    transform:
+        none;
+}
+
+
+/*=========================================================
+COLLECTION LIST
+=========================================================*/
+
+.isago-prompt-collections-list {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        10px;
+}
+
+
+/*=========================================================
+COLLECTION CARD
+=========================================================*/
+
+.isago-prompt-collection-item {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        18px;
+
+    min-height:
+        72px;
+
+    padding:
+        13px 15px;
+
+    border:
+        1px solid
+        var(--isago-border);
+
+    border-radius:
+        14px;
+
+    background:
+        var(--isago-card);
+
+    box-shadow:
+        0 2px 8px
+        rgba(15, 23, 42, .025);
+
+    cursor:
+        pointer;
+
+    user-select:
+        none;
+
+    transition:
+        border-color .22s ease,
+        background .22s ease,
+        box-shadow .22s ease,
+        transform .22s ease;
+}
+
+
+.isago-prompt-collection-item:hover {
+
+    border-color:
+        rgba(0, 212, 245, .30);
+
+    background:
+        var(--isago-card);
+
+    box-shadow:
+        0 10px 28px
+        rgba(15, 23, 42, .065);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.isago-prompt-collection-item:focus-visible {
+
+    outline:
+        2px solid
+        var(--isago-primary);
+
+    outline-offset:
+        3px;
+}
+
+
+/*=========================================================
+COLLECTION INFORMATION
+=========================================================*/
+
+.isago-prompt-collection-info {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        13px;
+
+    min-width:
+        0;
+
+    flex:
+        1 1 auto;
+}
+
+
+.isago-prompt-collection-icon {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex:
+        0 0 auto;
+
+    border:
+        1px solid
+        rgba(0, 212, 245, .16);
+
+    border-radius:
+        11px;
+
+    background:
+        rgba(0, 212, 245, .075);
+
+    color:
+        var(--isago-link);
+
+    font-size:
+        16px;
+}
+
+
+.isago-prompt-collection-info h3 {
+
+    min-width:
+        0;
+
+    margin:
+        0 0 4px;
+
+    overflow:
+        hidden;
+
+    color:
+        var(--isago-heading);
+
+    font-size:
+        15px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.35;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
+}
+
+
+.isago-prompt-collection-info span {
+
+    display:
+        block;
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.4;
+}
+
+
+/*=========================================================
+COLLECTION ACTIONS
+=========================================================*/
+
+.isago-prompt-collection-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        5px;
+
+    flex:
+        0 0 auto;
+}
+
+
+.isago-collection-open-icon {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        12px;
+
+    opacity:
+        .45;
+
+    transition:
+        color .2s ease,
+        opacity .2s ease,
+        transform .2s ease;
+}
+
+
+.isago-prompt-collection-item:hover
+.isago-collection-open-icon {
+
+    color:
+        var(--isago-link);
+
+    opacity:
+        .9;
+
+    transform:
+        translateX(2px);
+}
+
+
+/*=========================================================
+DELETE COLLECTION
+=========================================================*/
+
+.isago-delete-collection-button {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        0;
+
+    border:
+        1px solid
+        transparent;
+
+    border-radius:
+        8px;
+
+    background:
+        transparent;
+
+    color:
+        var(--isago-muted);
+
+    cursor:
+        pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.isago-delete-collection-button:hover {
+
+    border-color:
+        rgba(214, 54, 56, .20);
+
+    background:
+        rgba(214, 54, 56, .06);
+
+    color:
+        #d63638;
+}
+
+
+.isago-delete-collection-button:focus-visible {
+
+    outline:
+        2px solid
+        var(--isago-primary);
+
+    outline-offset:
+        2px;
+}
+
+
+/*=========================================================
+CREATE COLLECTION BUTTON
+=========================================================*/
+
+.isago-create-collection-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    min-height:
+        38px;
+
+    padding:
+        0 13px;
+
+    border:
+        1px solid
+        rgba(0, 212, 245, .25);
+
+    border-radius:
+        8px;
+
+    background:
+        rgba(0, 212, 245, .045);
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        12px;
+
+    font-weight:
+        650;
+
+    line-height:
+        1;
+
+    cursor:
+        pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.isago-create-collection-button:hover {
+
+    border-color:
+        var(--isago-primary);
+
+    background:
+        rgba(0, 212, 245, .10);
+
+    color:
+        var(--isago-link);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.isago-create-collection-button:focus-visible {
+
+    outline:
+        2px solid
+        var(--isago-primary);
+
+    outline-offset:
+        2px;
+}
+
+
+/*=========================================================
+CREATE COLLECTION FORM
+=========================================================*/
+
+.isago-create-collection-form {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+
+    margin:
+        0 0 16px;
+}
+
+
+.isago-create-collection-input {
+
+    flex:
+        1 1 240px;
+
+    min-width:
+        0;
+
+    min-height:
+        40px;
+
+    padding:
+        0 12px;
+
+    border:
+        1px solid
+        var(--isago-border);
+
+    border-radius:
+        8px;
+
+    outline:
+        none;
+
+    background:
+        var(--isago-card);
+
+    color:
+        var(--isago-text);
+
+    font-family:
+        var(--isago-font, sans-serif);
+
+    font-size:
+        13px;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.isago-create-collection-input::placeholder {
+
+    color:
+        var(--isago-muted);
+
+    opacity:
+        .7;
+}
+
+
+.isago-create-collection-input:focus {
+
+    border-color:
+        var(--isago-primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(0, 212, 245, .10);
+}
+
+
+.isago-confirm-create-collection {
+
+    min-height:
+        40px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid
+        var(--isago-rgb-border);
+
+    border-radius:
+        8px;
+
+    background:
+        var(--isago-card);
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.isago-confirm-create-collection:hover {
+
+    transform:
+        translateY(-1px);
+ border-color:
+        var(--isago-primary);
+    box-shadow:
+        0 6px 16px
+        rgba(0, 212, 245, .18);
+}
+
+
+.isago-cancel-create-collection {
+
+    min-height:
+        40px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid
+        var(--isago-rgb-border);
+
+    border-radius:
+        8px;
+
+    background:
+        transparent;
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease;
+}
+
+
+.isago-cancel-create-collection:hover {
+
+    border-color:
+        var(--isago-primary);
+
+    background:
+        rgba(0, 212, 245, .05);
+}
+
+
+/*=========================================================
+COLLECTION AJAX VIEW
+=========================================================*/
+
+.isago-collection-view {
+
+    margin-top:
+        4px;
+}
+
+
+.isago-collection-view[hidden] {
+
+    display:
+        none !important;
+}
+
+
+/*=========================================================
+BACK TO SAVED PROMPTS
+=========================================================*/
+
+.isago-back-to-saved-prompts {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    margin:
+        0 0 12px;
+
+    padding:
+        0;
+
+    border:
+        0;
+
+    background:
+        transparent;
+
+    color:
+        var(--isago-link);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.4;
+
+    cursor:
+        pointer;
+
+    transition:
+        color .2s ease;
+}
+
+
+.isago-back-to-saved-prompts:hover {
+
+    color:
+        var(--isago-link-hover);
+
+    text-decoration:
+        underline;
+}
+
+
+.isago-back-to-saved-prompts:focus-visible {
+
+    outline:
+        2px solid
+        var(--isago-primary);
+
+    outline-offset:
+        3px;
+
+    border-radius:
+        3px;
+}
+
+
+/*=========================================================
+ACTIVE COLLECTION HEADER
+=========================================================*/
+
+.isago-active-collection-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        16px;
+
+    margin:
+        0 0 18px;
+}
+
+
+.isago-active-collection-name {
+
+    margin:
+        0;
+
+    color:
+        var(--isago-heading);
+
+    font-size:
+        22px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.3;
+
+    letter-spacing:
+        -.02em;
+}
+
+
+.isago-active-collection-count {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        27px;
+
+    padding:
+        0 9px;
+
+    border:
+        1px solid
+        rgba(0, 212, 245, .16);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(0, 212, 245, .07);
+
+    color:
+        var(--isago-link);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+}
+
+
+/*=========================================================
+COLLECTION PROMPT LIST
+=========================================================*/
+
+[data-collection-prompts-list] {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        10px;
+}
+
+
+/*=========================================================
+COLLECTION PROMPT ITEM
+=========================================================*/
+
+.isago-collection-prompt-item {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        18px;
+
+    padding:
+        16px 18px;
+
+    border:
+        1px solid
+        var(--isago-border);
+
+    border-radius:
+        13px;
+
+    background:
+        var(--isago-card);
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease;
+}
+
+
+.isago-collection-prompt-item:hover {
+
+    border-color:
+        rgba(0, 212, 245, .25);
+
+    box-shadow:
+        0 8px 24px
+        rgba(15, 23, 42, .055);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.isago-collection-prompt-info {
+
+    min-width:
+        0;
+
+    flex:
+        1 1 auto;
+}
+
+
+.isago-collection-prompt-info h3 {
+
+    margin:
+        0 0 5px;
+
+    color:
+        var(--isago-heading);
+
+    font-size:
+        15px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.4;
+}
+
+
+.isago-collection-prompt-info h3 a {
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+
+    transition:
+        color .2s ease;
+}
+
+
+.isago-collection-prompt-info h3 a:hover {
+
+    color:
+        var(--isago-link);
+}
+
+
+.isago-collection-prompt-info span {
+
+    display:
+        block;
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        11px;
+}
+
+
+/*=========================================================
+COLLECTION LOADING
+=========================================================*/
+
+.isago-collection-loading {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        9px;
+
+    min-height:
+        130px;
+
+    padding:
+        28px;
+
+    border:
+        1px solid
+        var(--isago-border);
+
+    border-radius:
+        13px;
+
+    background:
+        var(--isago-card);
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        13px;
+}
+
+
+/*=========================================================
+EMPTY COLLECTION / EMPTY SAVED STATE
+=========================================================*/
+
+.isago-saved-prompts-empty,
+.isago-prompt-collections-empty {
+
+    padding:
+        34px 24px;
+
+    border:
+        1px dashed
+        var(--isago-border);
+
+    border-radius:
+        14px;
+
+    background:
+        var(--isago-card);
+
+    color:
+        var(--isago-muted);
+
+    text-align:
+        center;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.65;
+}
+
+
+/*=========================================================
+MODAL
+=========================================================*/
+
+body.isago-modal-open {
+
+    overflow:
+        hidden;
+}
+
+
+.isago-prompt-collection-modal {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        999999;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+}
+
+
+.isago-prompt-collection-modal[hidden] {
+
+    display:
+        none !important;
+}
+
+
+/*=========================================================
+MODAL OVERLAY
+=========================================================*/
+
+.isago-prompt-collection-modal-overlay {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        rgba(15, 23, 42, .66);
+
+    backdrop-filter:
+        blur(5px);
+
+    -webkit-backdrop-filter:
+        blur(5px);
+}
+
+
+/*=========================================================
+MODAL CONTENT
+=========================================================*/
+
+.isago-prompt-collection-modal-content {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    width:
+        min(100%, 500px);
+
+    max-height:
+        calc(100vh - 40px);
+
+    overflow-y:
+        auto;
+
+    padding:
+        28px;
+
+    border:
+        1px solid
+        var(--isago-border);
+
+    border-radius:
+        17px;
+
+    background:
+        var(--isago-card);
+
+    color:
+        var(--isago-text);
+
+    box-shadow:
+        0 24px 70px
+        rgba(15, 23, 42, .28);
+}
+
+
+.isago-prompt-collection-modal-content h2 {
+
+    margin:
+        0 40px 7px 0;
+
+    color:
+        var(--isago-heading);
+
+    font-size:
+        20px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.3;
+}
+
+
+.isago-prompt-collection-modal-content > p {
+
+    margin:
+        0 0 20px;
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+}
+
+
+/*=========================================================
+MODAL CLOSE
+=========================================================*/
+
+.isago-prompt-collection-modal-close {
+
+    position:
+        absolute;
+
+    top:
+        14px;
+
+    right:
+        14px;
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        0;
+
+    border:
+        1px solid
+        transparent;
+
+    border-radius:
+        8px;
+
+    background:
+        transparent;
+
+    color:
+        var(--isago-muted);
+
+    cursor:
+        pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease;
+}
+
+
+.isago-prompt-collection-modal-close:hover {
+
+    border-color:
+        var(--isago-border);
+
+    background:
+        var(--isago-hover-bg, #e8ecec);
+
+    color:
+        var(--isago-text);
+}
+
+
+.isago-prompt-collection-modal-close:focus-visible {
+
+    outline:
+        2px solid
+        var(--isago-primary);
+
+    outline-offset:
+        2px;
+}
+
+
+/*=========================================================
+MODAL COLLECTION LIST
+=========================================================*/
+
+.isago-prompt-collection-modal-list {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        7px;
+}
+
+
+/*=========================================================
+MODAL SAVE / COLLECTION OPTION
+=========================================================*/
+
+.isago-modal-save-only,
+.isago-modal-collection-option {
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    min-height:
+        52px;
+
+    padding:
+        11px 13px;
+
+    border:
+        1px solid
+        var(--isago-border);
+
+    border-radius:
+        10px;
+
+    background:
+        transparent;
+
+    color:
+        var(--isago-text);
+
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.isago-modal-save-only:hover,
+.isago-modal-collection-option:hover {
+
+    border-color:
+        rgba(0, 212, 245, .34);
+
+    background:
+        rgba(0, 212, 245, .06);
+
+    color:
+        var(--isago-link);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.isago-modal-save-only:focus-visible,
+.isago-modal-collection-option:focus-visible {
+
+    outline:
+        2px solid
+        var(--isago-primary);
+
+    outline-offset:
+        2px;
+}
+
+
+.isago-modal-save-only i,
+.isago-modal-collection-option i {
+
+    width:
+        20px;
+
+    flex:
+        0 0 20px;
+
+    color:
+        var(--isago-primary);
+
+    text-align:
+        center;
+}
+
+
+.isago-modal-collection-option span {
+
+    min-width:
+        0;
+
+    flex:
+        1 1 auto;
+}
+
+
+.isago-modal-collection-option small {
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        10px;
+}
+
+
+/*=========================================================
+MODAL HEADING
+=========================================================*/
+
+.isago-modal-collection-heading {
+
+    margin:
+        17px 0 7px;
+
+    color:
+        var(--isago-muted);
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.4;
+
+    letter-spacing:
+        .08em;
+
+    text-transform:
+        uppercase;
+}
+
+
+/*=========================================================
+MODAL CREATE COLLECTION
+=========================================================*/
+
+.isago-modal-create-collection {
+
+    margin-top:
+        17px;
+
+    padding-top:
+        17px;
+
+    border-top:
+        1px solid
+        var(--isago-border);
+}
+
+
+.isago-modal-create-collection-button {
+
+    width:
+        100%;
+
+    min-height:
+        43px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px dashed
+        rgba(0, 212, 245, .30);
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(0, 212, 245, .035);
+
+    color:
+        var(--isago-link);
+
+    font-size:
+        12px;
+
+    font-weight:
+        650;
+
+    cursor:
+        pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease;
+}
+
+
+.isago-modal-create-collection-button:hover {
+
+    border-color:
+        var(--isago-primary);
+
+    background:
+        rgba(0, 212, 245, .075);
+}
+
+
+/*=========================================================
+MODAL CREATE FORM
+=========================================================*/
+
+.isago-modal-create-collection-form {
+
+    display:
+        flex;
+
+    gap:
+        7px;
+
+    margin-top:
+        10px;
+}
+
+
+.isago-modal-create-collection-input {
+
+    min-width:
+        0;
+
+    flex:
+        1 1 auto;
+
+    min-height:
+        39px;
+
+    padding:
+        0 11px;
+
+    border:
+        1px solid
+        var(--isago-border);
+
+    border-radius:
+        8px;
+
+    outline:
+        none;
+
+    background:
+        var(--isago-bg, #fafafa);
+
+    color:
+        var(--isago-text);
+
+    font-family:
+        var(--isago-font, sans-serif);
+
+    font-size:
+        12px;
+}
+
+
+.isago-modal-create-collection-input:focus {
+
+    border-color:
+        var(--isago-primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(0, 212, 245, .09);
+}
+
+
+.isago-modal-confirm-create-collection,
+.isago-modal-cancel-create-collection {
+
+    min-height:
+        39px;
+
+    padding:
+        0 12px;
+
+    border-radius:
+        8px;
+
+    font-size:
+        11px;
+
+    font-weight:
+        650;
+
+    cursor:
+        pointer;
+}
+
+
+.isago-modal-confirm-create-collection {
+
+    border:
+        1px solid
+        var(--isago-primary);
+
+    background:
+        var(--isago-bg);
+
+    color:
+        var(--isago-text);
+}
+
+
+.isago-modal-cancel-create-collection {
+
+    border:
+        1px solid
+        var(--isago-border);
+
+    background:
+        transparent;
+
+    color:
+        var(--isago-text);
+}
+
+
+.isago-modal-cancel-create-collection:hover {
+
+    background:
+        var(--isago-hover-bg, #e8ecec);
+}
+
+
+/*=========================================================
+MODAL ERROR / LOADING
+=========================================================*/
+
+.isago-modal-error,
+.isago-prompt-collection-modal-loading {
+
+    padding:
+        18px;
+
+    border:
+        1px solid
+        var(--isago-border);
+
+    border-radius:
+        10px;
+
+    background:
+        var(--isago-bg, #fafafa);
+
+    color:
+        var(--isago-muted);
+
+    text-align:
+        center;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.6;
+}
+
+
+
+/*=========================================================
+TABLET
+=========================================================*/
+
+@media (max-width: 900px) {
+
+    .isago-saved-prompt-item {
+
+        gap:
+            16px;
+
+        padding:
+            16px 17px;
+    }
+
+
+    .isago-saved-prompt-actions {
+
+        gap:
+            6px;
+    }
+
+
+    .isago-move-prompt-button,
+    .isago-saved-prompt-remove {
+
+        min-height:
+            36px;
+
+        padding:
+            0 10px;
+    }
+}
+
+
+/*=========================================================
+MOBILE
+=========================================================*/
+
+@media (max-width: 600px) {
+
+    .isago-saved-prompts-section {
+
+        margin-top:
+            26px;
+    }
+
+
+    .isago-prompt-collections-section {
+
+        margin-top:
+            32px;
+    }
+
+
+    /*-----------------------------------------------
+    Heading
+    -----------------------------------------------*/
+
+    .isago-saved-prompts-heading {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            9px;
+
+        margin-bottom:
+            14px;
+    }
+
+
+    .isago-saved-prompts-heading h2 {
+
+        font-size:
+            19px;
+    }
+
+
+    /*-----------------------------------------------
+    Saved prompt card
+    -----------------------------------------------*/
+
+    .isago-saved-prompt-item {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            14px;
+
+        padding:
+            15px;
+    }
+
+
+    .isago-saved-prompt-info {
+
+        width:
+            100%;
+    }
+
+
+    .isago-saved-prompt-info h3 {
+
+        font-size:
+            15px;
+    }
+
+
+    /*-----------------------------------------------
+    Saved prompt actions
+    -----------------------------------------------*/
+
+    .isago-saved-prompt-actions {
+
+        width:
+            100%;
+
+        justify-content:
+            flex-start;
+    }
+
+
+    .isago-move-prompt-button {
+
+        flex:
+            1 1 auto;
+    }
+
+
+    .isago-saved-prompt-remove {
+
+        flex:
+            0 0 auto;
+    }
+
+
+    /*-----------------------------------------------
+    Collections
+    -----------------------------------------------*/
+
+    .isago-prompt-collection-item {
+
+        min-height:
+            64px;
+
+        padding:
+            11px 12px;
+
+        border-radius:
+            12px;
+    }
+
+
+    .isago-prompt-collection-info {
+
+        gap:
+            10px;
+    }
+
+
+    .isago-prompt-collection-icon {
+
+        width:
+            37px;
+
+        height:
+            37px;
+
+        border-radius:
+            9px;
+
+        font-size:
+            14px;
+    }
+
+
+    .isago-prompt-collection-info h3 {
+
+        font-size:
+            14px;
+    }
+
+
+    .isago-collection-open-icon {
+
+        display:
+            none;
+    }
+
+
+    /*-----------------------------------------------
+    Collection view
+    -----------------------------------------------*/
+
+    .isago-active-collection-header {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            8px;
+    }
+
+
+    .isago-active-collection-name {
+
+        font-size:
+            19px;
+    }
+
+
+    .isago-collection-prompt-item {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            12px;
+
+        padding:
+            14px;
+    }
+
+
+    .isago-remove-from-collection-button {
+
+        width:
+            auto;
+    }
+
+
+    /*-----------------------------------------------
+    Create collection
+    -----------------------------------------------*/
+
+    .isago-create-collection-form {
+
+        align-items:
+            stretch;
+
+        flex-direction:
+            column;
+    }
+
+
+    .isago-create-collection-input {
+
+        width:
+            100%;
+
+        flex:
+            0 0 auto;
+    }
+
+
+    .isago-confirm-create-collection,
+    .isago-cancel-create-collection {
+
+        width:
+            100%;
+    }
+
+
+    /*-----------------------------------------------
+    Modal
+    -----------------------------------------------*/
+
+    .isago-prompt-collection-modal {
+
+        padding:
+            12px;
+    }
+
+
+    .isago-prompt-collection-modal-content {
+
+        width:
+            100%;
+
+        max-height:
+            calc(100vh - 24px);
+
+        padding:
+            21px;
+
+        border-radius:
+            14px;
+    }
+
+
+    .isago-prompt-collection-modal-content h2 {
+
+        font-size:
+            18px;
+    }
+
+
+    .isago-modal-create-collection-form {
+
+        flex-wrap:
+            wrap;
+    }
+
+
+    .isago-modal-create-collection-input {
+
+        flex:
+            1 1 100%;
+    }
+
+
+    .isago-modal-confirm-create-collection,
+    .isago-modal-cancel-create-collection {
+
+        flex:
+            1 1 calc(50% - 4px);
+    }
+}
+
+
+/*=========================================================
+VERY SMALL MOBILE
+=========================================================*/
+
+@media (max-width: 380px) {
+
+    .isago-saved-prompt-actions {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+    }
+
+
+    .isago-move-prompt-button,
+    .isago-saved-prompt-remove {
+
+        width:
+            100%;
+    }
+
+
+    .isago-remove-from-collection-button {
+
+        width:
+            100%;
+    }
+
+
+    .isago-prompt-collection-actions {
+
+        gap:
+            2px;
+    }
+
+
+    .isago-delete-collection-button {
+
+        width:
+            31px;
+
+        height:
+            31px;
+    }
+}

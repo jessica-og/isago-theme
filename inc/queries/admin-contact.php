@@ -1,4 +1,3 @@
-
 <?php
 
 if (!defined('ABSPATH')) {
@@ -7,7 +6,7 @@ if (!defined('ABSPATH')) {
 //add_action('init', 'isago_create_contact_table');
 add_action('after_switch_theme', 'isago_create_contact_table');
 
-function isago_create_contact_table(){
+function isago_create_contact_table(){  
 
 global $wpdb;
 

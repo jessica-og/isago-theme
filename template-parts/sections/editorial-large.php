@@ -2,13 +2,24 @@
 
     <a href="<?php the_permalink(); ?>">
 
-        <?php the_post_thumbnail('large'); ?>
+        <?php   echo isago_get_post_thumbnail(
 
+    get_the_ID(),
+                'large',
+                [
+                    'loading' => 'lazy',
+                     'alt'     => the_title_attribute([
+                        'echo' => false
+                    ])
+                ]
+            );
+            ?>
+  
     </a>
 
     <div class="editorial-content">
 
-        <div class="grid-category">
+        <div class="category-text cat-margin">
 
             <?php
 
@@ -20,7 +31,7 @@
 
         </div>
 
-        <h2>
+        <h2 class="isago-big-post-title">
 
             <a href="<?php the_permalink(); ?>">
 
@@ -30,7 +41,7 @@
 
         </h2>
 
-        <p>
+        <p class="isago-excerpt">
 
             <?php
 
@@ -43,15 +54,25 @@
 
         </p>
 
-        <div class="editorial-meta">
+       <?php
 
-            <?php echo get_the_date(); ?>
+$theme = isago_get_theme_settings();
 
-            •
+$author_name = !empty($theme['author_name'])
+    ? $theme['author_name']
+    : 'Isago';
 
-            <?php the_author(); ?>
+?>
 
-        </div>
+<div class="isago-post-meta">
+
+    <?php echo esc_html(get_the_date()); ?>
+
+    <span aria-hidden="true">•</span>
+
+    <?php echo esc_html($author_name); ?>
+
+</div>
 
     </div>
 

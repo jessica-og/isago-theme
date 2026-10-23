@@ -1,0 +1,620 @@
+/*=========================================================
+ISAGO COOKIE CONSENT
+=========================================================*/
+
+.isago-cookie-consent{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:100000;
+
+    pointer-events:none;
+
+}
+
+.isago-cookie-consent[hidden]{
+
+    display:none;
+
+}
+
+
+/*=========================================================
+BANNER
+=========================================================*/
+
+.isago-cookie-banner{
+
+    position:fixed;
+
+    left:24px;
+
+    right:24px;
+
+    bottom:24px;
+
+    max-width:1180px;
+
+    margin:auto;
+
+    background:#ffffff;
+
+    color:#111827;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:14px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.18);
+
+    pointer-events:auto;
+
+    padding:24px;
+
+}
+
+.isago-cookie-content{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+}
+
+.isago-cookie-copy{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+.isago-cookie-copy h2{
+
+    margin:0 0 7px;
+
+    font-size:18px;
+
+    line-height:1.3;
+
+    font-weight:900;
+
+}
+
+.isago-cookie-copy p{
+
+    margin:0;
+
+    color:#64748b;
+
+    font-size:14px;
+
+    line-height:1.65;
+
+}
+
+.isago-cookie-copy p a{
+
+    color:var(--isago-primary);
+
+    font-weight:700;
+
+    text-decoration:underline;
+
+}
+
+
+/*=========================================================
+ACTIONS
+=========================================================*/
+
+.isago-cookie-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+    flex-shrink:0;
+
+}
+
+.isago-cookie-button{
+
+    min-height:42px;
+
+    padding:0 17px;
+
+    border-radius:8px;
+
+    border:1px solid #dbe1e8;
+
+    background:#fff;
+
+    color:#111827;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+}
+
+.isago-cookie-button:hover{
+
+    transform:translateY(-1px);
+
+}
+
+.isago-cookie-accept{
+
+    background:var(--isago-primary);
+
+    border-color:var(--isago-primary);
+
+    color:#fff;
+
+}
+
+.isago-cookie-accept:hover{
+
+    opacity:.9;
+
+}
+
+.isago-cookie-reject:hover,
+.isago-cookie-manage:hover{
+
+    border-color:var(--isago-primary);
+
+    color:var(--isago-primary);
+
+}
+
+
+/*=========================================================
+PREFERENCES
+=========================================================*/
+
+.isago-cookie-preferences{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:100001;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(15,23,42,.65);
+
+    backdrop-filter:blur(5px);
+
+    pointer-events:auto;
+
+}
+
+.isago-cookie-preferences[hidden]{
+
+    display:none;
+
+}
+
+.isago-cookie-preferences-inner{
+
+    width:min(620px,100%);
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    background:#fff;
+
+    color:#111827;
+
+    border-radius:16px;
+
+    padding:30px;
+
+    box-shadow:0 30px 90px rgba(0,0,0,.25);
+
+}
+
+.isago-cookie-preferences-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+    margin-bottom:18px;
+
+}
+
+.isago-cookie-eyebrow{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    color:var(--isago-primary);
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+
+}
+
+.isago-cookie-preferences-header h2{
+
+    margin:0;
+
+    font-size:25px;
+
+    line-height:1.25;
+
+    font-weight:900;
+
+}
+
+.isago-cookie-close{
+
+    width:38px;
+
+    height:38px;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    color:#475569;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.25s;
+
+}
+
+.isago-cookie-close:hover{
+
+    color:var(--isago-primary);
+
+    border-color:var(--isago-primary);
+
+}
+
+.isago-cookie-preferences-intro{
+
+    color:#64748b;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    margin:0 0 20px;
+
+}
+
+
+/*=========================================================
+COOKIE OPTIONS
+=========================================================*/
+
+.isago-cookie-option{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:25px;
+
+    padding:20px 0;
+
+    border-top:1px solid #edf0f3;
+
+}
+
+.isago-cookie-option-copy{
+
+    flex:1;
+
+}
+
+.isago-cookie-option h3{
+
+    margin:0 0 5px;
+
+    font-size:15px;
+
+    font-weight:900;
+
+}
+
+.isago-cookie-option p{
+
+    margin:0;
+
+    color:#64748b;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+
+/*=========================================================
+TOGGLE
+=========================================================*/
+
+.isago-cookie-switch{
+
+    position:relative;
+
+    display:inline-flex;
+
+    flex-shrink:0;
+
+}
+
+.isago-cookie-switch input{
+
+    position:absolute;
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+.isago-cookie-switch span{
+
+    position:relative;
+
+    display:block;
+
+    width:46px;
+
+    height:26px;
+
+    border-radius:30px;
+
+    background:#cbd5e1;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.isago-cookie-switch span::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:20px;
+
+    height:20px;
+
+    top:3px;
+
+    left:3px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:0 2px 5px rgba(0,0,0,.15);
+
+    transition:.25s;
+
+}
+
+.isago-cookie-switch input:checked + span{
+
+    background:var(--isago-primary);
+
+}
+
+.isago-cookie-switch input:checked + span::after{
+
+    transform:translateX(20px);
+
+}
+
+.isago-cookie-switch input:disabled + span{
+
+    opacity:.75;
+
+    cursor:not-allowed;
+
+}
+
+
+/*=========================================================
+PREFERENCES FOOTER
+=========================================================*/
+
+.isago-cookie-preferences-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding-top:22px;
+
+}
+
+.isago-cookie-preferences-footer a{
+
+    color:#64748b;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    text-decoration:underline;
+
+}
+
+.isago-cookie-preferences-footer a:hover{
+
+    color:var(--isago-primary);
+
+}
+
+
+/*=========================================================
+DARK MODE
+=========================================================*/
+
+body.dark-mode .isago-cookie-banner,
+body.dark-mode .isago-cookie-preferences-inner{
+
+    background:#172033;
+
+    color:#f8fafc;
+
+    border-color:#263244;
+
+}
+
+body.dark-mode .isago-cookie-copy p,
+body.dark-mode .isago-cookie-option p,
+body.dark-mode .isago-cookie-preferences-intro{
+
+    color:#cbd5e1;
+
+}
+
+body.dark-mode .isago-cookie-button,
+body.dark-mode .isago-cookie-close{
+
+    background:#172033;
+
+    color:#f8fafc;
+
+    border-color:#334155;
+
+}
+
+body.dark-mode .isago-cookie-option{
+
+    border-color:#263244;
+
+}
+
+
+/*=========================================================
+MOBILE
+=========================================================*/
+
+@media(max-width:768px){
+
+    .isago-cookie-banner{
+
+        left:12px;
+
+        right:12px;
+
+        bottom:12px;
+
+        padding:20px;
+
+        border-radius:12px;
+
+    }
+
+    .isago-cookie-content{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:18px;
+
+    }
+
+    .isago-cookie-actions{
+
+        display:grid;
+
+        grid-template-columns:1fr;
+
+    }
+
+    .isago-cookie-button{
+
+        width:100%;
+
+    }
+
+    .isago-cookie-preferences{
+
+        padding:12px;
+
+    }
+
+    .isago-cookie-preferences-inner{
+
+        padding:22px;
+
+        max-height:94vh;
+
+    }
+
+    .isago-cookie-option{
+
+        align-items:flex-start;
+
+    }
+
+    .isago-cookie-preferences-footer{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+}

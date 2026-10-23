@@ -10,13 +10,16 @@ if (!defined('ABSPATH')) {
 
     <?php the_content(); ?>
 
+
     <?php
 
     wp_link_pages([
 
-        'before' => '<div class="post-pages">',
+        'before' =>
+            '<div class="post-pages">',
 
-        'after'  => '</div>'
+        'after' =>
+            '</div>'
 
     ]);
 

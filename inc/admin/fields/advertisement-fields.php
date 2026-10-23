@@ -17,17 +17,24 @@ if (!defined('ABSPATH')) {
         <span class="isago-builder-card-title">
 
             <span class="isago-builder-card-icon">
+
                 <i class="dashicons dashicons-megaphone"></i>
+
             </span>
 
             <span>
+
                 Sidebar Advertisement
+
             </span>
 
         </span>
 
+
         <span class="isago-builder-toggle">
+
             <i class="dashicons dashicons-arrow-down-alt2"></i>
+
         </span>
 
     </button>
@@ -39,41 +46,85 @@ if (!defined('ABSPATH')) {
 
             <tbody>
 
+
+                <!-- =================================================
+                ADVERTISEMENT IMAGE
+                ================================================= -->
+
                 <tr>
 
                     <th>
+
                         Advertisement Image
+
                     </th>
+
 
                     <td>
 
+                        <?php
+
+                        $sidebar_ad_image_id = absint(
+                            $options['sidebar_ad_image'] ?? 0
+                        );
+
+                        $sidebar_ad_image_url = '';
+
+                        if ($sidebar_ad_image_id) {
+
+                            $sidebar_ad_image_url =
+                                wp_get_attachment_image_url(
+                                    $sidebar_ad_image_id,
+                                    'medium'
+                                );
+
+                        }
+
+                        ?>
+
                         <input
                             type="hidden"
-                            class="isago-image-url"
+                            id="isago-sidebar-ad-image"
+                            class="isago_image_id"
                             name="isago_home_settings[sidebar_ad_image]"
                             value="<?php echo esc_attr(
-                                $options['sidebar_ad_image'] ?? ''
+                                $sidebar_ad_image_id
                             ); ?>"
                         >
 
+
                         <img
+                            id="isago-sidebar-ad-image-preview"
                             class="isago-preview"
                             src="<?php echo esc_url(
-                                $options['sidebar_ad_image'] ?? ''
+                                $sidebar_ad_image_url
                             ); ?>"
                             style="
                                 max-width:240px;
-                                display:block;
+                                width:100%;
+                                height:auto;
+                                display:<?php
+                                    echo !empty(
+                                        $sidebar_ad_image_url
+                                    )
+                                        ? 'block'
+                                        : 'none';
+                                ?>;
                                 margin-bottom:12px;
                             "
-                            alt=""
+                            alt="Advertisement preview"
                         >
+
 
                         <button
                             type="button"
                             class="button isago-upload-button"
+                            data-target="#isago-sidebar-ad-image"
+                            data-type="image"
                         >
+
                             Upload Image
+
                         </button>
 
                     </td>
@@ -81,11 +132,18 @@ if (!defined('ABSPATH')) {
                 </tr>
 
 
+                <!-- =================================================
+                ADVERTISEMENT LINK
+                ================================================= -->
+
                 <tr>
 
                     <th>
+
                         Advertisement Link
+
                     </th>
+
 
                     <td>
 
@@ -103,11 +161,18 @@ if (!defined('ABSPATH')) {
                 </tr>
 
 
+                <!-- =================================================
+                ENABLE ADVERTISEMENT
+                ================================================= -->
+
                 <tr>
 
                     <th>
+
                         Enable Advertisement
+
                     </th>
+
 
                     <td>
 
@@ -130,6 +195,7 @@ if (!defined('ABSPATH')) {
                     </td>
 
                 </tr>
+
 
             </tbody>
 

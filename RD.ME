@@ -1,3 +1,19 @@
+:root {
+
+    --isago-date: #94a3b8;
+
+}
+
+body.dark-mode {
+
+    --isago-date: #64748b;
+
+}
+
+--isago-date:#858585;
+--isago-date:#6b7280;
+
+
 
 --isago-bg:#0f172a;
 
@@ -13,6 +29,30 @@
 
 h2- big
 h3- small
+
+
+
+
+<a
+    href="<?php the_permalink(); ?>"
+    class="sidebar-video-thumb"
+>
+
+
+
+<?php $url = get_permalink(get_the_ID()); ?>
+
+<?php var_dump($url); ?>
+
+<a
+    href="<?php echo esc_url($url); ?>"
+    class="sidebar-video-thumb"
+>
+
+
+
+
+
 
 
 category-text
@@ -60,8 +100,10 @@ post-text - 20
 cat- 8
 
 
-align-items: center;
+.editorial-content{
+    align-items: center;
 width: 100%;
+}
 
   .editorial-large .editorial-content{
         text-align:center;
@@ -69,12 +111,16 @@ width: 100%;
         margin-left:auto;
         margin-right:auto;
     }
- .editorial-large h2,
+
+
+    .editorial-large h2,
     .editorial-large p,
     .editorial-large .editorial-meta{
         text-align:center;
     }
 
+
+    
 
 <tr>
     <th>Hero Image</th>
@@ -98,20 +144,6 @@ width: 100%;
     </td>
 </tr>
 
-
-
-
-$image = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
-
-if (!$image) {
-    $image = isago_get_youtube_thumbnail(get_the_ID());
-}
-
-if (!$image) {
-    $image = get_template_directory_uri() . '/assets/images/placeholder.png';
-}
-
-'image' => $image,
 
 
 

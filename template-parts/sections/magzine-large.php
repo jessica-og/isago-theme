@@ -12,11 +12,11 @@ if (!defined('ABSPATH')) {
         class="magzine-large-image"
         href="<?php the_permalink(); ?>">
 
-        <?php
+        <?php  
 
-        if (has_post_thumbnail()) {
+    echo isago_get_post_thumbnail(
 
-            the_post_thumbnail(
+    get_the_ID(),
                 'large', 
                 [
                     'loading' => 'lazy',
@@ -26,21 +26,7 @@ if (!defined('ABSPATH')) {
                 ]
             );
 
-        } else {
-
-            ?>
-
-            <img
-                src="<?php echo esc_url(
-                    get_template_directory_uri()
-                    . '/assets/images/placeholder.png'
-                ); ?>"
-                alt="<?php the_title_attribute(); ?>"
-                loading="lazy">
-
-            <?php
-
-        }
+      
 
         ?>
 
@@ -49,7 +35,7 @@ if (!defined('ABSPATH')) {
 
     <div class="magzine-large-content">
 
-        <div class="category-text">
+        <div class="category-text cat-margin ">
 
             <?php
 
@@ -79,7 +65,7 @@ if (!defined('ABSPATH')) {
         </h2>
 
 
-        <p>
+        <p class="isago-excerpt">
 
             <?php
 
@@ -92,22 +78,30 @@ if (!defined('ABSPATH')) {
 
         </p>
 
+              <?php
 
-        <div class="magzine-meta">
+$theme = isago_get_theme_settings();
 
-            <span>
-                <?php echo esc_html(get_the_date()); ?>
-            </span>
+$author_name = !empty($theme['author_name'])
+    ? $theme['author_name']
+    : 'Isago';
 
-            <span class="magzine-meta-separator">
-                •
-            </span>
+?>
+      <div class="isago-post-meta">
 
-            <span>
-                <?php echo esc_html(get_the_author()); ?>
-            </span>
+    <span>
+        <?php echo esc_html(get_the_date()); ?>
+    </span>
 
-        </div>
+    <span class="magzine-meta-separator">
+        •
+    </span>
+
+    <span>
+        <?php echo esc_html(isago_get_author_name()); ?>
+    </span>
+
+</div>
 
     </div>
 

@@ -1,54 +1,266 @@
-.wrap h1{
+/*=========================================================
+ISAGO TAXONOMY ACCORDION
+=========================================================*/
 
-font-size:32px;
+.isago-accordion {
 
-font-weight:800;
+    width: 100%;
+  
+    margin: 0 0 8px;
 
-margin-bottom:35px;
+    border: 1px solid #dcdcde;
 
-}
+    border-radius: 8px;
 
-.wrap h2{
+    overflow: hidden;
 
-margin:35px 0 15px;
+    background: #fff;
 
-font-size:22px;
-
-font-weight:700;
-
-}
-
-.form-table th{
-
-width:240px;
-
-font-weight:700;
+    box-sizing: border-box;
 
 }
 
-.form-table td{
 
-padding:18px 10px;
+/*=========================================================
+ACCORDION TOGGLE
+=========================================================*/
+
+.isago-accordion-toggle {
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    width: 100%;
+
+    min-height: 44px;
+
+    margin: 0;
+
+    padding: 8px 12px;
+
+    border: 0;
+
+    border-radius: 0;
+
+    background: #f6f7f7;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    color: #1d2327;
+
+    box-sizing: border-box;
+
+    box-shadow: none;
 
 }
 
-.isago-preview{
 
-border-radius:8px;
+.isago-accordion-toggle:hover {
 
-border:1px solid #ddd;
-
-background:#fafafa;
-
-padding:6px;
-
-max-width:240px;
-
-height:auto;
-
-display:block;
+    background: #f0f0f1;
 
 }
+
+
+.isago-accordion-toggle:active {
+
+    background: #e9e9ea;
+
+}
+
+
+.isago-accordion-toggle:focus {
+
+    outline: 2px solid #2271b1;
+
+    outline-offset: -2px;
+
+    box-shadow: none;
+
+}
+
+
+/*=========================================================
+TITLE
+=========================================================*/
+
+.isago-accordion-title {
+
+    flex: 1;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+}
+
+.dashicons {
+
+color: #3858e9;
+
+
+}
+/*=========================================================
+ARROW
+=========================================================*/
+
+.isago-accordion-toggle > .dashicons {
+
+    width: 20px;
+
+    height: 20px;
+
+    margin-left: auto;
+
+    font-size: 18px;
+
+    line-height: 20px;
+
+    flex-shrink: 0;
+color: #3858e9;
+    transition: transform .2s ease;
+
+}
+
+
+.isago-accordion-toggle.is-open > .dashicons {
+
+    transform: rotate(180deg);
+
+}
+
+
+/*=========================================================
+PANEL
+=========================================================*/
+
+.isago-accordion-panel {
+
+    display: none;
+
+    width: 100%;
+
+    padding: 8px 12px 10px;
+
+    border-top: 1px solid #e5e7eb;
+
+    background: #fff;
+
+    box-sizing: border-box;
+
+}
+
+
+/*=========================================================
+CATEGORY / PLATFORM ITEM
+=========================================================*/
+
+.isago-category-level {
+
+    padding: 5px 0;
+
+}
+
+
+.isago-category-level label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    min-height: 24px;
+
+    margin: 0;
+
+    padding: 0;
+
+    line-height: 1.4;
+
+    cursor: pointer;
+
+}
+
+
+.isago-category-level input[type="checkbox"] {
+
+    margin: 0;
+
+    flex-shrink: 0;
+
+}
+
+
+/*=========================================================
+VIDEO CATEGORY WRAPPER
+=========================================================*/
+
+.isago-video-categories {
+
+    margin-top: 25px;
+
+}
+
+
+.isago-video-categories > h3 {
+
+    margin: 0 0 12px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+/*=========================================================
+MOBILE
+=========================================================*/
+
+@media (max-width: 782px) {
+
+    .isago-accordion-toggle {
+
+        min-height: 46px;
+
+        padding: 9px 10px;
+
+    }
+
+
+    .isago-accordion-panel {
+
+        padding: 8px 10px;
+
+    }
+
+}
+
+
 
 
 
@@ -57,714 +269,1247 @@ display:block;
 
 
 /*=========================================================
-ISAGO ADMIN PAGE
+ISAGO ADMIN
 =========================================================*/
 
-.isago-admin{
-    max-width:1100px;
+.isago-admin {
+    max-width: 1200px;
+    box-sizing: border-box;
 }
+
+.isago-admin *,
+.isago-admin *::before,
+.isago-admin *::after {
+    box-sizing: border-box;
+}
+
 
 /*=========================================================
-ADMIN SETTINGS CARD
+ISAGO BUILDER SECTIONS
 =========================================================*/
 
-.isago-admin .form-table{
-
-    width:100%;
-
-    margin:25px 0 0;
-
-    background:#fff;
-
-    border:1px solid #e5e7eb;
-
-    border-radius:12px;
-
-    border-collapse:separate;
-
-    border-spacing:0;
-
-    overflow:hidden;
-
+.isago-builder-sections {
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px 0 0;
 }
+
 
 /*=========================================================
-TABLE CELLS
+BUILDER CARD
 =========================================================*/
 
-.isago-admin .form-table th,
-.isago-admin .form-table td{
-
-    padding:20px 28px;
-
-    vertical-align:middle;
-
+.isago-builder-card {
+    width: 100%;
+    margin: 0 0 12px;
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-/* Left labels */
-
-.isago-admin .form-table th{
-
-    width:240px;
-
-    font-weight:700;
-
-    color:#172033;
-
-}
-
-/* Field area */
-
-.isago-admin .form-table td{
-
-    color:#374151;
-
-}
 
 /*=========================================================
-SECTION HEADINGS
+BUILDER CARD HEADER
 =========================================================*/
 
-.isago-admin .form-table th[colspan="2"]{
+.isago-builder-card-header {
+    appearance: none;
+    -webkit-appearance: none;
 
-    width:auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    padding:0 28px;
+    width: 100%;
+    min-height: 52px;
 
+    margin: 0;
+    padding: 10px 14px;
+
+    border: 0;
+    border-radius: 0;
+
+    background: #f6f7f7;
+
+    color: #1d2327;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+
+    box-shadow: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
-/* Section divider */
 
-.isago-admin .form-table th[colspan="2"] hr{
-
-    margin:32px 0 20px;
-
-    border:0;
-
-    border-top:1px solid #e5e7eb;
-
+.isago-builder-card-header:hover {
+    background: #f0f0f1;
 }
 
-/* First section divider */
 
-.isago-admin .form-table tbody tr:first-child th[colspan="2"] hr{
-
-    margin-top:0;
-
+.isago-builder-card-header:active {
+    background: #e9e9ea;
 }
 
-/* Section title */
 
-.isago-admin .form-table th[colspan="2"] h2{
-
-    margin:0 0 18px;
-
-    padding:0;
-
-    font-size:22px;
-
-    line-height:1.3;
-
-    font-weight:800;
-
-    color:#172033;
-
+.isago-builder-card-header:focus {
+    outline: 2px solid #2271b1;
+    outline-offset: -2px;
+    box-shadow: none;
 }
+
 
 /*=========================================================
-FORM INPUTS
+BUILDER CARD TITLE
 =========================================================*/
 
-.isago-admin .form-table input[type="text"],
-.isago-admin .form-table input[type="url"],
-.isago-admin .form-table input[type="number"],
-.isago-admin .form-table input[type="email"],
-.isago-admin .form-table select,
-.isago-admin .form-table textarea{
+.isago-builder-card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-    max-width:650px;
-
+    min-width: 0;
+    flex: 1;
 }
 
+
 /*=========================================================
-IMAGE PREVIEW
+BUILDER CARD SYMBOL
 =========================================================*/
 
-.isago-preview{
+.isago-builder-card-symbol {
+    width: 20px;
+    height: 20px;
 
-    display:block;
+    margin: 0;
 
-    width:280px;
+    font-size: 18px;
+    line-height: 20px;
 
-    max-width:100%;
-
-    min-height:80px;
-
-    object-fit:cover;
-
-    margin-bottom:10px;
-
-    border-radius:8px;
-
-    border:1px solid #ddd;
-
-    background:#fafafa;
-
+    flex-shrink: 0;
 }
-
-/*=========================================================
-UPLOAD BUTTON
-=========================================================*/
-
 
 
 /*
-IMPORTANT:
-Do NOT use display:flex on the upload button itself.
-*/
+ * Supports the alternative markup used by the
+ * Homepage Builder hero fields.
+ */
 
-.isago-upload-button{
+.isago-builder-card-icon {
+    flex-shrink: 0;
+}
 
-    display:inline-flex;
 
-    align-items:center;
+/*=========================================================
+BUILDER TOGGLE ICON
+=========================================================*/
 
-    justify-content:center;
+.isago-builder-card-header > .isago-builder-card-icon,
+.isago-builder-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    gap:8px;
+    width: 24px;
+    height: 24px;
+color: #1757c0;
+    margin-left: auto;
+
+    flex-shrink: 0;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+/*
+ * Homepage Builder markup:
+ *
+ * .isago-builder-toggle
+ *     .dashicons
+ */
+
+.isago-builder-toggle .dashicons {
+    width: 20px;
+    height: 20px;
+
+    margin: 0;
+color: #1757c0;
+    font-size: 18px;
+    line-height: 20px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+/*
+ * SEO / settings markup:
+ *
+ * .isago-builder-card-icon
+ */
+
+.isago-builder-card-header.is-open
+.isago-builder-card-icon {
+    transform: rotate(180deg);
+}
+
+
+.isago-builder-card.is-open
+.isago-builder-toggle
+.dashicons {
+    transform: rotate(180deg);
+}
+
+
+/*=========================================================
+BUILDER CARD CONTENT
+=========================================================*/
+
+.isago-builder-card-content {
+    display: none;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 18px 18px 20px;
+
+    border-top: 1px solid #e5e7eb;
+
+    background: #fff;
+}
+
+
+/*
+ * When JS opens the card.
+ */
+
+.isago-builder-card.is-open
+.isago-builder-card-content {
+    display: block;
+}
+
+
+/*=========================================================
+FORM TABLE INSIDE BUILDER
+=========================================================*/
+
+.isago-builder-card-content
+.form-table {
+    width: 100%;
+    margin: 0;
+}
+
+
+.isago-builder-card-content
+.form-table th {
+    width: 180px;
+
+    padding: 16px 16px 16px 0;
+
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d2327;
+
+    vertical-align: top;
+}
+
+
+.isago-builder-card-content
+.form-table td {
+    padding: 12px 0;
+
+    vertical-align: top;
+}
+
+
+/*=========================================================
+BUILDER INPUTS
+=========================================================*/
+
+.isago-builder-card-content
+input[type="text"],
+.isago-builder-card-content
+input[type="number"],
+.isago-builder-card-content
+input[type="url"],
+.isago-builder-card-content
+select,
+.isago-builder-card-content
+textarea {
+    max-width: 100%;
+}
+
+
+.isago-builder-card-content
+select {
+    min-width: 240px;
+}
+
+
+/*=========================================================
+BUILDER DESCRIPTION
+=========================================================*/
+
+.isago-builder-card-content
+.description {
+    margin-top: 6px;
+}
+
+
+/*=========================================================
+BUILDER SUBMIT
+=========================================================*/
+
+.isago-builder-submit {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 20px 0 30px;
+    padding: 0;
+}
+
+
+.isago-builder-submit
+.submit {
+    margin: 0;
+}
+
+
+/*=========================================================
+ISAGO ADMIN PAGE HEADER
+=========================================================*/
+
+.isago-admin > h1 {
+    margin-bottom: 8px;
+}
+
+
+.isago-admin > p {
+    max-width: 800px;
+}
+
+
+/*=========================================================
+ISAGO BUILDER IMAGE PREVIEW
+=========================================================*/
+
+.isago-builder-card-content
+.isago-preview {
+    display: block;
+
+    max-width: 220px;
+    width: auto;
+    height: auto;
+
+    margin: 0 0 10px;
+
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+}
+
+
+/*=========================================================
+WORDPRESS BUTTON SPACING
+=========================================================*/
+
+.isago-builder-card-content
+.button {
+    margin-right: 6px;
+}
+
+
+/*=========================================================
+CHECKBOX / RADIO
+=========================================================*/
+
+.isago-builder-card-content
+input[type="checkbox"],
+.isago-builder-card-content
+input[type="radio"] {
+    margin-right: 6px;
+}
+
+
+/*=========================================================
+MOBILE ADMIN
+=========================================================*/
+
+@media (max-width: 782px) {
+
+    .isago-builder-sections {
+        margin-top: 16px;
+    }
+
+
+    .isago-builder-card {
+        margin-bottom: 10px;
+        border-radius: 7px;
+    }
+
+
+    .isago-builder-card-header {
+        min-height: 50px;
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+
+    .isago-builder-card-content {
+        padding: 12px;
+    }
+
+
+    .isago-builder-card-content
+    .form-table,
+    .isago-builder-card-content
+    .form-table tbody,
+    .isago-builder-card-content
+    .form-table tr,
+    .isago-builder-card-content
+    .form-table th,
+    .isago-builder-card-content
+    .form-table td {
+        display: block;
+        width: 100%;
+    }
+
+
+    .isago-builder-card-content
+    .form-table th {
+        padding: 12px 0 6px;
+    }
+
+
+    .isago-builder-card-content
+    .form-table td {
+        padding: 0 0 12px;
+    }
+
+
+    .isago-builder-card-content
+    select {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+    .isago-builder-card-content
+    input.large-text,
+    .isago-builder-card-content
+    input.regular-text,
+    .isago-builder-card-content
+    textarea {
+        width: 100%;
+    }
 
 }
 
+
+
+
+
+
+
 /*=========================================================
-TEXTAREA
+IMAGEKIT MEDIA STATUS
 =========================================================*/
 
-.isago-admin textarea{
+.isago-imagekit-selector {
+    margin-top: 8px;
+}
 
-    width:100%;
+.isago-imagekit-selector label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
 
-    max-width:650px;
+.isago-imagekit-selector select {
+    max-width: 260px;
+}
+
+.isago-imagekit-status {
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.isago-imagekit-status.isago-imagekit-success {
+    color: #008a20;
+}
+
+.isago-imagekit-status.isago-imagekit-error {
+    color: #b32d2e;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+ISAGO GUTENBERG RIGHT SIDEBAR EXPANDER
+=========================================================*/
+
+/*
+ * Expand button.
+ */
+
+.isago-editor-sidebar-toggle {
+    display: inline-flex !important;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    min-height: 36px;
+
+    margin-left: 8px;
+
+    padding-left: 10px !important;
+
+    padding-right: 10px !important;
+
+    white-space: nowrap;
+}
+
+
+.isago-editor-sidebar-toggle .dashicons {
+    width: 18px;
+
+    height: 18px;
+
+    font-size: 18px;
+
+    line-height: 18px;
+}
+
+
+/*
+ * Expanded Gutenberg sidebar.
+ *
+ * We use flex-basis as well as width because
+ * Gutenberg's editor skeleton uses flex sizing.
+ */
+
+.interface-interface-skeleton__sidebar.isago-editor-sidebar-expanded {
+    width: 500px !important;
+
+    min-width: 500px !important;
+
+    max-width: 500px !important;
+
+    flex: 0 0 500px !important;
+
+    flex-basis: 500px !important;
+}
+
+
+/*
+ * Gutenberg complementary area.
+ */
+
+.interface-interface-skeleton__sidebar.isago-editor-sidebar-expanded
+.interface-complementary-area {
+    width: 500px !important;
+
+    min-width: 500px !important;
+
+    max-width: 500px !important;
+}
+
+
+/*
+ * Fill the available sidebar area.
+ */
+
+.interface-interface-skeleton__sidebar.isago-editor-sidebar-expanded
+.interface-complementary-area__fill {
+    width: 100% !important;
+
+    max-width: none !important;
+}
+
+
+/*
+ * Gutenberg panel content.
+ */
+
+.interface-interface-skeleton__sidebar.isago-editor-sidebar-expanded
+.components-panel {
+    width: 100%;
+}
+
+
+/*
+ * Make the Isago button comfortable inside
+ * the wider header.
+ */
+
+.interface-interface-skeleton__sidebar.isago-editor-sidebar-expanded
+.isago-editor-sidebar-toggle {
+    min-width: 100px;
+}
+
+
+/*
+ * Smaller screens.
+ */
+
+@media (max-width: 782px) {
+
+    .interface-interface-skeleton__sidebar.isago-editor-sidebar-expanded {
+
+        width: 100vw !important;
+
+        min-width: 100vw !important;
+
+        max-width: 100vw !important;
+
+        flex: 0 0 100vw !important;
+
+        flex-basis: 100vw !important;
+
+    }
+
+
+    .interface-interface-skeleton__sidebar.isago-editor-sidebar-expanded
+    .interface-complementary-area {
+
+        width: 100vw !important;
+
+        min-width: 100vw !important;
+
+        max-width: 100vw !important;
+
+    }
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=========================================================
-ADMIN CARDS
+ISAGO BROKEN SOCIAL VIDEOS
 =========================================================*/
 
-.isago-admin-grid{
+.isago-broken-social-videos-page {
+    max-width: 1400px;
+}
 
-    display:grid;
+.isago-broken-social-videos-page > h1 {
+    margin-bottom: 8px;
+}
+
+.isago-broken-social-videos-page > p {
+    max-width: 950px;
+}
+
+
+/*=========================================================
+TOOLBAR
+=========================================================*/
+
+.isago-broken-video-toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0 14px;
+}
+
+.isago-broken-video-toolbar select {
+    min-width: 180px;
+}
+
+.isago-broken-video-progress {
+    font-size: 13px;
+    font-weight: 600;
+    color: #50575e;
+    margin-left: 4px;
+}
+
+
+/*=========================================================
+NOTICE
+=========================================================*/
+
+.isago-broken-video-notice {
+    margin: 10px 0 14px;
+}
+
+
+/*=========================================================
+SUMMARY
+=========================================================*/
+
+.isago-broken-video-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 14px;
+}
+
+.isago-broken-count {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 0 10px;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    background: #fff;
+    color: #1d2327;
+    font-size: 12px;
+}
+
+.isago-broken-count strong {
+    margin-left: 4px;
+}
+
+
+/*=========================================================
+TABLE
+=========================================================*/
+
+.isago-broken-video-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.isago-broken-video-table th,
+.isago-broken-video-table td {
+    vertical-align: top;
+}
+
+.isago-broken-video-table .column-title {
+    width: 18%;
+}
+
+.isago-broken-video-table .column-type {
+    width: 11%;
+}
+
+.isago-broken-video-table .column-platform {
+    width: 10%;
+}
+
+.isago-broken-video-table .column-url {
+    width: 31%;
+}
+
+.isago-broken-video-table .column-status {
+    width: 15%;
+}
+
+.isago-broken-video-table .column-actions {
+    width: 15%;
+}
+
+.isago-broken-video-table a {
+    word-break: break-word;
+}
+
+
+/*=========================================================
+SOURCE LABEL
+=========================================================*/
+
+.isago-broken-video-source-label {
+    margin-top: 5px;
+    color: #646970;
+    font-size: 11px;
+}
+
+
+/*=========================================================
+PROVIDER BADGE
+=========================================================*/
+
+.isago-broken-provider-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 0 8px;
+    border: 1px solid #dcdcde;
+    border-radius: 999px;
+    background: #f6f7f7;
+    color: #1d2327;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/*=========================================================
+STATUS BADGES
+=========================================================*/
+
+.isago-broken-video-status-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 0 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    border: 1px solid transparent;
+}
+
+.isago-broken-video-status-badge.status-not_checked {
+    background: #f6f7f7;
+    color: #50575e;
+    border-color: #dcdcde;
+}
+
+.isago-broken-video-status-badge.status-working {
+    background: #edfaef;
+    color: #006d1b;
+    border-color: #a7d7b0;
+}
+
+.isago-broken-video-status-badge.status-broken {
+    background: #fcecec;
+    color: #b32d2e;
+    border-color: #e3a6a6;
+}
+
+.isago-broken-video-status-badge.status-unknown {
+    background: #fff8e5;
+    color: #8a5a00;
+    border-color: #e5c76b;
+}
+
+.isago-broken-video-status-badge.status-invalid {
+    background: #f0f0f1;
+    color: #50575e;
+    border-color: #c3c4c7;
+}
+
+.isago-broken-video-status-message {
+    margin-top: 6px;
+    color: #646970;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+
+/*=========================================================
+URL EDITOR
+=========================================================*/
+
+.isago-broken-video-editor {
+    margin-top: 10px;
+}
+
+.isago-broken-video-editor .isago-broken-video-url-input {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 7px;
+}
+
+.isago-broken-video-editor .button {
+    margin-right: 5px;
+}
+
+.isago-broken-video-current-url {
+    display: block;
+    line-height: 1.45;
+}
+
+
+/*=========================================================
+ACTIONS
+=========================================================*/
+
+.isago-broken-video-table .column-actions .button {
+    margin: 0 4px 5px 0;
+}
+
+
+/*=========================================================
+FOOTNOTE
+=========================================================*/
+
+.isago-broken-video-footnote {
+    max-width: 950px;
+    margin-top: 14px;
+}
+
+
+/*=========================================================
+MOBILE
+=========================================================*/
+
+@media (max-width: 782px) {
+
+    .isago-broken-video-toolbar {
+        align-items: stretch;
+    }
+
+    .isago-broken-video-toolbar .button,
+    .isago-broken-video-toolbar select {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .isago-broken-video-progress {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .isago-broken-video-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .isago-broken-video-table th,
+    .isago-broken-video-table td {
+        min-width: 160px;
+    }
+
+}
+
+
+
+/*=========================================================
+AI PROMPT ACCESS
+=========================================================*/
+
+.isago-ai-prompt-access-box {
+
+    margin-bottom: 30px;
+
+    padding: 22px;
+
+    border:
+        1px solid
+        #dcdcde;
+
+    border-radius: 10px;
+
+    background:
+        #fff;
+}
+
+
+.isago-ai-prompt-access-heading {
+
+    margin-bottom: 8px;
+}
+
+
+.isago-ai-prompt-access-label {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    color:
+        #00a8c4;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .08em;
+}
+
+
+.isago-ai-prompt-access-heading h3 {
+
+    margin:
+        0;
+
+    font-size: 18px;
+
+    line-height: 1.3;
+}
+
+
+.isago-ai-prompt-access-options {
+
+    display: grid;
 
     grid-template-columns:
-        repeat(auto-fit,minmax(320px,1fr));
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
 
-    gap:24px;
+    gap: 10px;
 
-    margin-top:35px;
-
-}
-
-.isago-card{
-
-    background:#fff;
-
-    border:1px solid #e5e7eb;
-
-    border-radius:12px;
-
-    padding:24px;
-
-    box-shadow:0 8px 24px rgba(0,0,0,.04);
-
-}
-
-.isago-card h2{
-
-    margin:0 0 12px;
-
-    font-size:22px;
-
-}
-
-.isago-card p{
-
-    color:#666;
-
-    margin-bottom:20px;
-
-}
-
-/*=========================================================
-MESSAGE CARD
-=========================================================*/
-
-.isago-message-card{
-
-    background:#fff;
-
-    border-radius:12px;
-
-    padding:25px;
-
-    margin-top:20px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,0.05);
-
-    max-width:800px;
-
-}
-
-.isago-message-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:15px;
-
-    border-bottom:1px solid #eee;
-
-    padding-bottom:10px;
-
-}
-
-.isago-message-header h2{
-
-    margin:0;
-
-    font-size:22px;
-
-}
-
-.isago-message-date{
-
-    font-size:13px;
-
-    color:#777;
-
-}
-
-.isago-message-meta{
-
-    display:flex;
-
-    gap:30px;
-
-    margin-bottom:20px;
-
-    font-size:14px;
-
-    color:#444;
-
-}
-
-.isago-message-body{
-
-    background:#f9fafb;
-
-    padding:15px;
-
-    border-radius:8px;
-
-    line-height:1.6;
-
-    color:#333;
-
-}
-
-.isago-message-actions{
-
-    margin-top:20px;
-
-    display:flex;
-
-    gap:10px;
-
+    margin-top: 18px;
 }
 
 
+.isago-ai-prompt-access-option {
 
+    display: flex;
 
+    align-items: flex-start;
 
+    gap: 10px;
 
+    padding: 15px;
 
+    border:
+        1px solid
+        #dcdcde;
 
+    border-radius: 9px;
 
+    background:
+        #fff;
 
-
-
-
-
-
-
-
-/*=========================================================
-ISAGO HOMEPAGE BUILDER
-=========================================================*/
-
-.isago-home-builder{
-
-    max-width:1100px;
-
-}
-
-.isago-home-builder-form{
-
-    margin-top:25px;
-
-}
-
-.isago-builder-sections{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:14px;
-
-}
-
-
-/*=========================================================
-Builder Card
-=========================================================*/
-
-.isago-builder-card{
-
-    background:#fff;
-
-    border:1px solid #dcdcde;
-
-    border-radius:10px;
-
-    overflow:hidden;
-
-    box-shadow:0 1px 2px rgba(0,0,0,.03);
-
-}
-
-
-/*=========================================================
-Header
-=========================================================*/
-
-.isago-builder-card-header{
-
-    width:100%;
-
-    min-height:68px;
-
-    padding:0 20px;
-
-    border:0;
-
-    background:#fff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    cursor:pointer;
-
-    text-align:left;
+    cursor: pointer;
 
     transition:
-
-        background .2s ease,
-
-        color .2s ease;
-
-}
-
-.isago-builder-card-header:hover{
-
-    background:#f8fafc;
-
-}
-
-
-/*=========================================================
-Title
-=========================================================*/
-
-.isago-builder-card-title{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    font-size:16px;
-
-    font-weight:700;
-
-    color:#1d2327;
-
-}
-
-
-/*=========================================================
-Icon
-=========================================================*/
-
-.isago-builder-card-icon{
-
-    width:36px;
-
-    height:36px;
-
-    border-radius:8px;
-
-    background:#f1f5f9;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:#2271b1;
-
-}
-
-.isago-builder-card-icon .dashicons{
-
-    font-size:19px;
-
-    width:19px;
-
-    height:19px;
-
-}
-
-
-/*=========================================================
-Toggle
-=========================================================*/
-
-.isago-builder-toggle{
-
-    width:32px;
-
-    height:32px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:6px;
-
-    color:#646970;
-
-    transition:
-
-        transform .25s ease,
-
+        border-color .2s ease,
         background .2s ease;
-
-}
-
-.isago-builder-card-header:hover
-.isago-builder-toggle{
-
-    background:#f1f5f9;
-
 }
 
 
-/*=========================================================
-Content
-=========================================================*/
+.isago-ai-prompt-access-option:hover {
 
-.isago-builder-card-content{
+    border-color:
+        #00d4f5;
 
-    display:none;
-
-    border-top:1px solid #e5e7eb;
-
-    padding:10px 24px 20px;
-
+    background:
+        rgba(
+            0,
+            212,
+            245,
+            .04
+        );
 }
 
 
-/*
----------------------------------------------------------
-Open State
----------------------------------------------------------
-*/
+.isago-ai-prompt-access-option
+input {
 
-.isago-builder-card.is-open
-.isago-builder-card-content{
-
-    display:block;
-
-}
-
-.isago-builder-card.is-open
-.isago-builder-toggle{
-
-    transform:rotate(180deg);
-
+    margin-top: 3px;
 }
 
 
-/*=========================================================
-Inner Form Table
-=========================================================*/
+.isago-ai-prompt-access-option
+input:checked
++ .isago-ai-prompt-access-option-content {
 
-.isago-builder-card .form-table{
-
-    margin-top:0;
-
-    margin-bottom:0;
-
-}
-
-.isago-builder-card .form-table th{
-
-    width:240px;
-
-    padding-left:0;
-
-}
-
-.isago-builder-card .form-table td{
-
-    padding-right:0;
-
+    color:
+        #111;
 }
 
 
-/*=========================================================
-Submit
-=========================================================*/
+.isago-ai-prompt-access-option-content {
 
-.isago-builder-submit{
+    display: flex;
 
-    margin-top:25px;
+    flex-direction: column;
 
-    padding-bottom:30px;
-
+    gap: 4px;
 }
 
 
+.isago-ai-prompt-access-option-content strong {
 
-
-
-/*=========================================================
-ISAGO BUILDER ACCORDION ICONS
-=========================================================*/
-
-.isago-builder-card-title{
-    display:flex;
-    align-items:center;
-    gap:12px;
+    font-size: 13px;
 }
 
 
-/*=========================================================
-LEFT ICON
-=========================================================*/
+.isago-ai-prompt-access-option-content small {
 
-.isago-builder-card-symbol{
+    color:
+        #777;
 
-    width:34px;
-    height:34px;
+    font-size: 12px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    line-height: 1.5;
+}
 
-    border-radius:8px;
 
-    background:#eef2ff;
+.isago-ai-prompt-price-row {
 
-    color:#4f46e5;
+    margin-top: 20px;
 
-    font-size:20px;
+    padding-top: 20px;
 
-    line-height:34px;
+    border-top:
+        1px solid
+        #e2e2e2;
+}
 
-    flex-shrink:0;
 
+.isago-ai-prompt-price-row label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+}
+
+
+.isago-ai-prompt-price-input-wrap {
+
+    max-width: 250px;
+}
+
+
+.isago-ai-prompt-price-input-wrap
+input {
+
+    width: 100%;
+
+    min-height: 42px;
+
+    padding:
+        0
+        12px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        #dcdcde;
+
+    border-radius: 7px;
 }
 
 
 /*=========================================================
-RIGHT CHEVRON
+DARK ADMIN SCREENS
 =========================================================*/
 
-.isago-builder-card-icon{
+body.admin-color-scheme-midnight
+.isago-ai-prompt-access-box,
 
-    width:30px;
-    height:30px;
+body.admin-color-scheme-blue
+.isago-ai-prompt-access-box {
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:#4f46e5;
-
-    font-size:18px;
-
-    line-height:30px;
-
-    flex-shrink:0;
-
-    transition:
-        transform .25s ease,
-        color .25s ease;
-
+    background:
+        #1d2327;
 }
 
 
-/*=========================================================
-OPEN STATE
-=========================================================*/
+@media (max-width: 650px) {
 
-.isago-builder-card.is-open
-.isago-builder-card-icon{
+    .isago-ai-prompt-access-options {
 
-    transform:rotate(180deg);
-
-    color:#00a8c8;
-
-}
-
-
-
-
-/*=========================================================
-Mobile
-=========================================================*/
-
-@media(max-width:782px){
-
-    .isago-builder-card-content{
-
-        padding:8px 15px 18px;
-
-    }
-
-    .isago-builder-card .form-table th{
-
-        width:auto;
-
-    }
-
-    .isago-builder-card-header{
-
-        padding:0 15px;
-
+        grid-template-columns:
+            1fr;
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+AI PROMPT CATEGORY TREE
+=========================================================*/
+
+.isago-prompt-category-tree-container {
+    max-height: 320px;
+    overflow-y: auto;
+    padding: 12px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    box-sizing: border-box;
+}
+
+.isago-prompt-category-tree {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.isago-prompt-category-tree .isago-prompt-category-tree {
+    margin: 4px 0 4px 22px;
+    padding-left: 12px;
+    border-left: 1px solid #dcdcde;
+}
+
+.isago-prompt-category-item {
+    margin: 0;
+    padding: 4px 0;
+}
+
+.isago-prompt-category-item > label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 0;
+    padding: 4px 6px;
+    cursor: pointer;
+    line-height: 1.45;
+}
+
+.isago-prompt-category-item > label:hover {
+    background: #f0f0f1;
+}
+
+.isago-prompt-category-item input[type="checkbox"] {
+    flex: 0 0 auto;
+    margin: 3px 0 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

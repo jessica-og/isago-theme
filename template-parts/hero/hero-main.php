@@ -25,9 +25,8 @@ $categories = get_the_category();
 
         <?php
 
-        if (has_post_thumbnail()) {
-
-            the_post_thumbnail(
+          echo isago_get_post_thumbnail(
+    get_the_ID(),
                 'large',
                 [
                     'loading' => 'eager',
@@ -35,7 +34,7 @@ $categories = get_the_category();
                 ]
             );
 
-        }
+        
 
         ?>
 
@@ -92,15 +91,25 @@ $categories = get_the_category();
         <?php endif; ?>
 
 
-        <div class="isago-post-meta">
+      <?php
 
-            <?php echo esc_html(get_the_date()); ?>
+$theme = isago_get_theme_settings();
 
-            <span aria-hidden="true">•</span>
+$author_name = !empty($theme['author_name'])
+    ? $theme['author_name']
+    : 'Isago';
 
-            <?php the_author(); ?>
+?>
 
-        </div>
+<div class="isago-post-meta">
+
+    <?php echo esc_html(get_the_date()); ?>
+
+    <span aria-hidden="true">•</span>
+
+    <?php echo esc_html($author_name); ?>
+
+</div>
 
     </div>
 

@@ -8,8 +8,10 @@ if (!defined('ABSPATH')) {
 Category Query
 =========================================================*/
 
-function isago_get_category_posts($category_slug = '', $args = [])
-{
+function isago_get_category_posts(
+    $category_slug = '',
+    $args = []
+) {
 
     if (!is_array($args)) {
 
@@ -21,14 +23,21 @@ function isago_get_category_posts($category_slug = '', $args = [])
 
     }
 
+    $args['post_type'] = [
+
+        'post',
+        'isago_video'
+
+    ];
+
     if (!empty($category_slug)) {
 
-        $args['category_name'] = sanitize_title($category_slug);
+        $args['category_name'] = sanitize_title(
+            $category_slug
+        );
 
     }
 
     return isago_query($args);
 
 }
-
-

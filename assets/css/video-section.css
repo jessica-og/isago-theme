@@ -1,0 +1,1000 @@
+/*=========================================================
+HOMEPAGE VIDEO
+=========================================================*/
+
+.homepage-video-section{
+
+    position:relative;
+
+    width:100%;
+
+    margin:70px 0 0;
+
+    isolation:isolate;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Background Glow
+|--------------------------------------------------------------------------
+*/
+
+.homepage-video-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-250px;
+
+    transform:translateX(-50%);
+
+    width:90%;
+
+    max-width:1400px;
+
+    height:430px;
+
+ background:
+        radial-gradient(
+            ellipse at center,
+
+            rgba(
+                var(--isago-footer-glow-cyan-rgb),
+                var(--isago-footer-glow-opacity)
+            ) 0%,
+
+            rgba(
+                var(--isago-footer-glow-blue-rgb),
+                var(--isago-footer-glow-medium-opacity)
+            ) 22%,
+
+            rgba(
+                var(--isago-footer-glow-cyan-rgb),
+                var(--isago-footer-glow-soft-opacity)
+            ) 42%,
+
+            rgba(
+                var(--isago-footer-glow-blue-rgb),
+                var(--isago-footer-glow-faint-opacity)
+            ) 58%,
+
+            transparent 76%
+        );
+    filter:blur(40px);
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Video Grid
+|--------------------------------------------------------------------------
+*/
+
+.homepage-video-grid{
+
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    gap:20px;
+
+    width:100%;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Video Card
+|--------------------------------------------------------------------------
+*/
+
+.homepage-video-card{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-width:0;
+
+    height:100%;
+
+    overflow:hidden;
+
+    background:var(--isago-card);
+
+    border:1px solid var(--isago-border);
+
+    border-radius:10px;
+box-shadow: 2px 2px 12px #0002;
+
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Card Hover
+|--------------------------------------------------------------------------
+*/
+
+.homepage-video-card:hover{
+
+    transform:translateY(-4px);
+
+       border-color: rgba(0, 212, 245, 0.3);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.06);
+
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Thumbnail
+|--------------------------------------------------------------------------
+*/
+
+.homepage-video-thumb{
+
+    position:relative;
+
+    display:block;
+
+    width:100%;
+
+    overflow:hidden;
+
+    background:var(--isago-card);
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Thumbnail Image
+|--------------------------------------------------------------------------
+*/
+
+.homepage-video-thumb img{
+
+    display:block;
+
+    width:100%;
+
+    aspect-ratio:16 / 9;
+
+    object-fit:cover;
+
+    transition:
+        transform .45s ease;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Image Zoom
+|--------------------------------------------------------------------------
+*/
+
+.homepage-video-card:hover
+.homepage-video-thumb img{
+
+    transform:scale(1.05);
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Image Overlay
+|--------------------------------------------------------------------------
+*/
+
+.homepage-video-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.05) 55%,
+            transparent
+        );
+
+    pointer-events:none;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Play Button
+|--------------------------------------------------------------------------
+*/
+
+.homepage-video-play{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width:52px;
+
+    height:52px;
+
+    padding:0;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:
+        var(--isago-card);
+
+    color:
+        var(--isago-text);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    z-index:5;
+
+box-shadow: 2px 2px 12px #0002;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Play Hover
+|--------------------------------------------------------------------------
+*/
+
+
+.homepage-video-card:hover
+.homepage-video-play{
+
+    background:
+        var(--isago-primary);
+
+    color:
+        var(--isago-text);
+
+    transform:
+        translate(-50%,-50%) scale(1.08);
+
+}
+
+.homepage-video-card:hover .isago-small-post-title a{
+    color:var(--isago-primary);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Video Content
+|--------------------------------------------------------------------------
+*/
+
+.homepage-video-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+    padding:16px 16px 18px;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Video Label
+|--------------------------------------------------------------------------
+*/
+
+.homepage-video-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    width:max-content;
+
+    padding:5px 9px;
+
+    margin-bottom:10px;
+
+    background:#e53935;
+
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    line-height:1;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    border-radius:3px;
+
+}
+
+
+
+
+
+
+
+/*=========================================================
+VIDEO LIGHTBOX
+=========================================================*/
+
+#isago-video-lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    background: rgba(0, 0, 0, .92);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+
+    z-index: 999999;
+
+}
+
+
+#isago-video-lightbox.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| BACKDROP
+|--------------------------------------------------------------------------
+*/
+
+.isago-video-backdrop {
+
+    position: absolute;
+
+    inset: 0;
+
+    cursor: pointer;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| MODAL
+|--------------------------------------------------------------------------
+*/
+
+.isago-video-modal {
+
+    position: relative;
+
+    width: min(
+        1200px,
+        94vw
+    );
+
+    aspect-ratio: 16 / 9;
+
+    background: #000;
+
+    border-radius: 10px;
+
+    overflow: visible;
+
+    box-shadow:
+        0 20px 80px rgba(0, 0, 0, .55);
+
+    z-index: 2;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| PLAYER STAGE
+|--------------------------------------------------------------------------
+*/
+
+#isago-video-player {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #000;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| ALL NORMAL PLAYERS
+|--------------------------------------------------------------------------
+*/
+
+#isago-video-player > iframe,
+
+#isago-video-player > video,
+
+#isago-video-player iframe.isago-lightbox-youtube,
+
+#isago-video-player iframe.isago-lightbox-tiktok,
+
+#isago-video-player iframe.isago-lightbox-vimeo,
+
+#isago-video-player video.isago-lightbox-video {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    min-width: 0;
+
+    min-height: 0;
+
+    max-width: none;
+
+    max-height: none;
+
+    border: 0;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| DIRECT / IMAGEKIT VIDEO
+|--------------------------------------------------------------------------
+*/
+
+#isago-video-player
+.isago-lightbox-video {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    background: #000;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| YOUTUBE
+|--------------------------------------------------------------------------
+*/
+
+#isago-video-player
+.isago-lightbox-youtube {
+
+    width: 100%;
+
+    height: 100%;
+
+    background: #000;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| TIKTOK
+|--------------------------------------------------------------------------
+*/
+
+#isago-video-player
+.isago-lightbox-tiktok {
+
+    width: 100%;
+
+    height: 100%;
+
+    background: #000;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| VIMEO
+|--------------------------------------------------------------------------
+*/
+
+#isago-video-player
+.isago-lightbox-vimeo {
+
+    width: 100%;
+
+    height: 100%;
+
+    background: #000;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| INSTAGRAM WRAPPER
+|--------------------------------------------------------------------------
+*/
+
+#isago-video-player
+.isago-lightbox-instagram-wrapper {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: auto;
+
+    background: #000;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| INSTAGRAM EMBED
+|--------------------------------------------------------------------------
+*/
+
+#isago-video-player
+.isago-lightbox-instagram {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 658px;
+
+    height: 100%;
+
+    min-height: 0;
+
+    border: 0;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| PINTEREST WRAPPER
+|--------------------------------------------------------------------------
+*/
+
+#isago-video-player
+.isago-lightbox-pinterest-wrapper {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: auto;
+
+    background: #000;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| PINTEREST PIN
+|--------------------------------------------------------------------------
+*/
+
+#isago-video-player
+.isago-lightbox-pinterest {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 900px;
+
+    min-height: 600px;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| PINTEREST GENERATED CONTENT
+|--------------------------------------------------------------------------
+*/
+
+#isago-video-player
+.isago-lightbox-pinterest-wrapper
+span {
+
+    max-width: 100% !important;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| PINTEREST GENERATED IFRAME
+|--------------------------------------------------------------------------
+*/
+
+#isago-video-player
+.isago-lightbox-pinterest-wrapper
+iframe {
+
+    display: block;
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    border: 0;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| CLOSE BUTTON
+|--------------------------------------------------------------------------
+*/
+
+.isago-video-close {
+
+    position: absolute;
+
+    top: -52px;
+
+    right: 0;
+
+    width: 42px;
+
+    height: 42px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: var(--isago-bg);
+
+    color: var(--isago-text);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+
+}
+
+
+.isago-video-close:hover {
+
+    background:
+        var(--isago-primary);
+
+    color:
+        var(--isago-text);
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| BODY LOCK
+|--------------------------------------------------------------------------
+*/
+
+body.isago-video-open {
+
+    overflow: hidden;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| TABLET / MOBILE
+|--------------------------------------------------------------------------
+*/
+
+@media (
+    max-width: 768px
+) {
+
+    #isago-video-lightbox {
+
+        padding: 15px;
+
+    }
+
+
+    .isago-video-modal {
+
+        width: 96vw;
+
+        aspect-ratio: 16 / 9;
+
+    }
+
+
+    .isago-video-close {
+
+        top: -48px;
+
+        right: 0;
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 21px;
+
+    }
+
+
+    #isago-video-player
+    .isago-lightbox-instagram {
+
+        max-width: 100%;
+
+    }
+
+
+    #isago-video-player
+    .isago-lightbox-pinterest {
+
+        max-width: 100%;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width:1100px){
+
+    .homepage-video-grid{
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+    }
+
+}
+
+
+@media (max-width:991px){
+
+    .homepage-video-grid{
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap:18px;
+
+    }
+
+}
+
+
+@media (max-width:768px){
+
+    .homepage-video-grid{
+
+        grid-template-columns:
+            1fr;
+
+        gap:20px;
+
+    }
+
+}
+
+
+@media (max-width:640px){
+
+    .homepage-video-grid{
+
+        grid-template-columns:
+            1fr;
+
+        gap:18px;
+
+    }
+
+
+    .homepage-video-play{
+
+        width:50px;
+
+        height:50px;
+
+        font-size:17px;
+
+    }
+
+
+    .isago-video-modal{
+
+        width:94vw;
+
+        border-radius:7px;
+
+    }
+
+
+    .isago-video-close{
+
+        top:-48px;
+
+        width:38px;
+
+        height:38px;
+
+        font-size:21px;
+
+    }
+
+}
+
+
+@media (max-width:480px){
+
+    .homepage-video-grid{
+
+        grid-template-columns:
+            1fr;
+
+        gap:16px;
+
+    }
+
+
+    .homepage-video-content{
+
+        padding:
+            14px 14px 16px;
+
+    }
+
+}
+

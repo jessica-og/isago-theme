@@ -4,136 +4,225 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+
+/*=========================================================
+CURRENT FILTER / SORT
+=========================================================*/
+
 $current_filter = sanitize_key(
-    $_GET['filter'] ?? 'latest'
+    $_GET['filter']
+    ??
+    $_POST['filter']
+    ??
+    'latest'
 );
 
 $current_sort = sanitize_key(
-    $_GET['sort'] ?? 'latest'
+    $_GET['sort']
+    ??
+    $_POST['sort']
+    ??
+    'latest'
 );
 
-$filters = [
 
-    'latest'   => 'Latest',
+/*=========================================================
+CURRENT CATEGORY ID
+=========================================================*/
 
-    'popular'  => 'Popular',
-
-    'trending' => 'Trending'
-
-];
-
-?>
-
-<div class="category-toolbar">
-
-    <div class="category-tabs">
-
-        <?php foreach ($filters as $slug => $label) : ?>
-<?php
-
-$category = absint(
+$category_id = absint(
 
     $_POST['category']
-
     ??
-
     get_queried_object_id()
 
 );
 
-$url = add_query_arg(
 
-    [
 
-        'filter'=>$slug,
 
-        'sort'=>$current_sort
 
-    ],
 
-    get_category_link($category)
+/*=========================================================
+FILTERS
+=========================================================*/
 
-);
+$filters = [
+
+    'latest'  => 'Latest',
+
+    'popular' => 'Popular',
+    'trending' => 'Trending'
+
+];
+
+
+
+
 
 ?>
-       <a
 
-href="<?php echo esc_url($url); ?>"
 
-data-filter="<?php echo esc_attr($slug); ?>"
+<div
+    class="category-toolbar"
+   
+>
 
-data-sort="<?php echo esc_attr($current_sort); ?>"
 
-class="<?php
+    <!--=====================================================
+    FILTER TABS
+    =====================================================-->
 
-echo $current_filter === $slug
-? 'active'
-: '';
+    <div class="category-tabs">
 
-?>">
+
+        <?php foreach (
+            $filters as $slug => $label
+        ) : ?>
+
+
+            <?php
+
+            $url = add_query_arg(
+
+                [
+
+                    'filter' =>
+                        $slug,
+
+                    'sort' =>
+                        $current_sort
+
+                ],
+
+                get_category_link(
+                    $category_id
+                )
+
+            );
+
+            ?>
+
+
+            <a
+
+                href="<?php echo esc_url($url); ?>"
+
+                data-filter="<?php
+                echo esc_attr($slug);
+                ?>"
+
+                data-sort="<?php
+                echo esc_attr($current_sort);
+                ?>"
 
                
+
+            >
+
                 <?php echo esc_html($label); ?>
 
             </a>
 
+
         <?php endforeach; ?>
+
+
+       
+
 
     </div>
 
+
+    <!--=====================================================
+    SORT
+    =====================================================-->
+
     <div class="category-toolbar-right">
 
-        <label>
+
+        <label
+            for="category-sort"
+        >
 
             Sort by:
 
         </label>
 
-    <select
 
-id="category-sort"
+        <select
 
-data-filter="<?php
+            id="category-sort"
 
-echo esc_attr($current_filter);
+            
 
-?>">
+        >
+
 
             <option
                 value="latest"
-                <?php selected($current_sort, 'latest'); ?>>
+
+                <?php selected(
+                    $current_sort,
+                    'latest'
+                ); ?>
+
+            >
 
                 Latest
 
             </option>
 
+
             <option
                 value="oldest"
-                <?php selected($current_sort, 'oldest'); ?>>
+
+                <?php selected(
+                    $current_sort,
+                    'oldest'
+                ); ?>
+
+            >
 
                 Oldest
 
             </option>
 
+
             <option
                 value="title"
-                <?php selected($current_sort, 'title'); ?>>
+
+                <?php selected(
+                    $current_sort,
+                    'title'
+                ); ?>
+
+            >
 
                 Title A-Z
 
             </option>
 
+
             <option
                 value="title-desc"
-                <?php selected($current_sort, 'title-desc'); ?>>
+
+                <?php selected(
+                    $current_sort,
+                    'title-desc'
+                ); ?>
+
+            >
 
                 Title Z-A
 
             </option>
 
+
         </select>
+
 
     </div>
 
-</div>
 
+</div>

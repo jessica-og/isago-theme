@@ -1,0 +1,750 @@
+/*=========================================================
+ISAGO AUTHENTICATION
+=========================================================*/
+
+
+/*=========================================================
+AUTH PAGE WRAPPER
+=========================================================*/
+
+.isago-auth-wrapper {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        70px
+        20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        var(
+            --isago-body-bg
+        );
+
+    color:
+        var(
+            --isago-text
+        );
+
+}
+
+
+/*=========================================================
+AUTH CARD
+=========================================================*/
+
+.isago-auth-card {
+
+    width: 100%;
+
+    max-width: 470px;
+
+    padding: 42px;
+
+    border:
+        1px solid
+        var(--isago-rgb-border);
+
+    border-radius: 18px;
+
+    background:
+        var(
+            --isago-card-gradient,
+            var(
+                --isago-card
+            )
+        );
+
+    color:
+        var(
+            --isago-text
+        );
+
+    box-shadow: var(--isago-box-shadow);
+
+}
+
+
+/*=========================================================
+AUTH BRAND
+=========================================================*/
+
+.isago-auth-brand {
+
+    margin-bottom: 14px;
+
+    color:
+        var(
+            --isago-primary
+        );
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+}
+
+
+/*=========================================================
+AUTH TITLE
+=========================================================*/
+
+.isago-auth-title {
+
+    margin:
+        0
+        0
+        10px;
+
+    color:
+        var(
+            --isago-heading
+        );
+
+    font-family:
+        var(
+            --isago-font
+        );
+
+    font-size: 34px;
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+}
+
+
+/*=========================================================
+AUTH DESCRIPTION
+=========================================================*/
+
+.isago-auth-description {
+
+    margin:
+        0
+        0
+        28px;
+
+    color:
+        var(
+            --isago-muted
+        );
+
+    font-family:
+        var(
+            --isago-font
+        );
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+}
+
+
+/*=========================================================
+AUTH FORM
+=========================================================*/
+
+.isago-auth-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+
+/*=========================================================
+AUTH FIELD
+=========================================================*/
+
+.isago-auth-field {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+/*=========================================================
+AUTH LABEL
+=========================================================*/
+
+.isago-auth-field label {
+
+    color:
+        var(
+            --isago-heading
+        );
+
+    font-family:
+        var(
+            --isago-font
+        );
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+/*=========================================================
+AUTH INPUT
+=========================================================*/
+
+.isago-auth-field input {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    padding:
+        0
+        14px;
+
+    border:
+        1px solid
+        var(
+            --isago-border
+        );
+
+    border-radius: 10px;
+
+    background:
+        var(
+            --isago-bg
+        );
+
+    color:
+        var(
+            --isago-text
+        );
+
+    font-family:
+        var(
+            --isago-font
+        );
+
+    font-size: 14px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background-color .2s ease;
+
+}
+
+
+/*=========================================================
+INPUT PLACEHOLDER
+=========================================================*/
+
+.isago-auth-field input::placeholder {
+
+    color:
+        var(
+            --isago-muted
+        );
+
+    opacity: .75;
+
+}
+
+
+/*=========================================================
+INPUT FOCUS
+=========================================================*/
+
+.isago-auth-field input:focus {
+
+    border-color:
+        var(
+            --isago-primary
+        );
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            0,
+            212,
+            245,
+            .12
+        );
+
+}
+
+
+/*=========================================================
+AUTH HELP TEXT
+=========================================================*/
+
+.isago-auth-help {
+
+    color:
+        var(
+            --isago-muted
+        );
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+/*=========================================================
+AUTH ROW
+=========================================================*/
+
+.isago-auth-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+
+/*=========================================================
+REMEMBER ME
+=========================================================*/
+
+.isago-auth-checkbox {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color:
+        var(
+            --isago-muted
+        );
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+}
+
+
+/*=========================================================
+CHECKBOX
+=========================================================*/
+
+.isago-auth-checkbox input {
+
+    width: 15px;
+
+    height: 15px;
+
+    margin: 0;
+
+    accent-color:
+        var(
+            --isago-primary
+        );
+
+}
+
+
+/*=========================================================
+AUTH LINKS
+=========================================================*/
+
+.isago-auth-link {
+
+    color:
+        var(
+            --isago-link
+         
+        );
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        color .2s ease;
+
+}
+
+
+.isago-auth-link:hover {
+
+    color:
+        var(
+            --isago-link-hover,
+            var(
+                --isago-primary
+            )
+        );
+
+    text-decoration: underline;
+
+}
+
+
+/*=========================================================
+AUTH BUTTON
+=========================================================*/
+
+.isago-auth-button {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        0
+        18px;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    background:
+        var(
+            --isago-button-bg
+        );
+
+    color:
+        var(
+            --isago-button-text
+        );
+
+    font-family:
+        var(
+            --isago-font
+        );
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+/*=========================================================
+AUTH BUTTON HOVER
+=========================================================*/
+
+.isago-auth-button:hover {
+
+    opacity: .90;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 22px
+        rgba(
+            0,
+            212,
+            245,
+            .16
+        );
+
+}
+
+
+/*=========================================================
+AUTH BUTTON FOCUS
+=========================================================*/
+
+.isago-auth-button:focus-visible {
+
+    outline:
+        2px solid
+        var(
+            --isago-primary
+        );
+
+    outline-offset: 3px;
+
+}
+
+
+/*=========================================================
+AUTH SWITCH
+=========================================================*/
+
+.isago-auth-switch {
+
+    margin-top: 24px;
+
+    padding-top: 22px;
+
+    border-top:
+        1px solid
+        var(
+            --isago-border
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    flex-wrap: wrap;
+
+    color:
+        var(
+            --isago-muted
+        );
+
+    font-size: 13px;
+
+    text-align: center;
+
+}
+
+
+/*=========================================================
+AUTH SWITCH LINK
+=========================================================*/
+
+.isago-auth-switch a {
+
+    color:
+        var(
+            --isago-link
+        );
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition:
+        color .2s ease;
+
+}
+
+
+.isago-auth-switch a:hover {
+
+    color:
+        var(
+            --isago-link-hover
+        );
+
+    text-decoration: underline;
+
+}
+
+
+/*=========================================================
+AUTH MESSAGES
+=========================================================*/
+
+.isago-auth-message {
+
+    margin:
+        0
+        0
+        20px;
+
+    padding:
+        13px
+        15px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+}
+
+
+/*=========================================================
+ERROR MESSAGE
+=========================================================*/
+
+.isago-auth-message-error {
+
+    border:
+        1px solid
+        rgba(
+            190,
+            40,
+            40,
+            .25
+        );
+
+    background:
+        rgba(
+            190,
+            40,
+            40,
+            .08
+        );
+
+    color:
+        #d86666;
+
+}
+
+
+/*=========================================================
+SUCCESS MESSAGE
+=========================================================*/
+
+.isago-auth-message-success {
+
+    border:
+        1px solid
+        rgba(
+            30,
+            150,
+            80,
+            .25
+        );
+
+    background:
+        rgba(
+            30,
+            150,
+            80,
+            .08
+        );
+
+    color:
+        #63c98b;
+
+}
+
+
+/*=========================================================
+AUTH ACTIONS
+=========================================================*/
+
+.isago-auth-actions {
+
+    margin-top: 25px;
+
+}
+
+
+/*=========================================================
+AUTOFILL
+=========================================================*/
+
+.isago-auth-field input:-webkit-autofill,
+.isago-auth-field input:-webkit-autofill:hover,
+.isago-auth-field input:-webkit-autofill:focus {
+
+    -webkit-text-fill-color:
+        var(
+            --isago-text
+        );
+
+    -webkit-box-shadow:
+        0 0 0 1000px
+        var(
+            --isago-bg
+        )
+        inset;
+
+    transition:
+        background-color 5000s ease-in-out 0s;
+
+}
+
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width: 600px) {
+
+    .isago-auth-wrapper {
+
+        min-height: 100vh;
+
+        padding:
+            40px
+            15px;
+
+        align-items: flex-start;
+
+    }
+
+
+    .isago-auth-card {
+
+        padding:
+            28px
+            20px;
+
+        border-radius: 14px;
+
+    }
+
+
+    .isago-auth-title {
+
+        font-size: 28px;
+
+    }
+
+
+    .isago-auth-row {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+}

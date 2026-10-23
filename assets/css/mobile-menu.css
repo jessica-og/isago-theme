@@ -2,204 +2,439 @@
 ISAGO MOBILE MENU
 =========================================================*/
 
+
+/*=========================================================
+OVERLAY
+=========================================================*/
+
 .isago-mobile-overlay{
 
-position:fixed;
+    position:fixed;
 
-inset:0;
+    inset:0;
 
-background:rgba(0,0,0,.45);
+    background:rgba(0,0,0,.45);
 
-opacity:0;
+    opacity:0;
 
-visibility:hidden;
+    visibility:hidden;
 
-transition:.35s;
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
 
-z-index:99998;
+    z-index:99998;
 
 }
 
 .isago-mobile-overlay.active{
 
-opacity:1;
+    opacity:1;
 
-visibility:visible;
+    visibility:visible;
 
 }
 
-/*=========================================
-Drawer
-=========================================*/
+
+/*=========================================================
+DRAWER
+=========================================================*/
 
 .isago-mobile-menu{
 
-position:fixed;
+    position:fixed;
 
-top:0;
+    top:0;
 
-left:0;
+    left:0;
 
-width:320px;
+    width:320px;
 
-max-width:90vw;
+    max-width:90vw;
 
-height:100vh;
+    height:100vh;
 
-background:var(--isago-bg);
+    display:flex;
 
-overflow-y:auto;
+    flex-direction:column;
 
-transform:translateX(-100%);
+    background:var(--isago-bg);
 
-transition:.35s ease;
+    overflow:hidden;
 
-z-index:99999;
+    transform:translateX(-100%);
 
-padding:30px 15px;
+    transition:transform .35s ease;
 
-box-shadow:15px 0 40px rgba(0,0,0,.15);
+    z-index:99999;
+
+    padding:0;
+
+    box-shadow:
+        15px 0 40px rgba(0,0,0,.15);
 
 }
 
 .isago-mobile-menu.active{
 
-transform:translateX(0);
+    transform:translateX(0);
 
 }
 
-/*=========================================
-Close Button
-=========================================*/
+
+/*=========================================================
+CLOSE BUTTON
+=========================================================*/
 
 .isago-mobile-close{
 
-width:42px;
+    width:42px;
 
-height:42px;
+    height:42px;
 
-display:flex;
+    min-height:42px;
 
-align-items:center;
+    display:flex;
 
-justify-content:center;
+    align-items:center;
 
-margin:0 25px 30px auto;
+    justify-content:center;
 
-border:none;
+    margin:20px 25px 10px auto;
 
-background:none;
+    padding:0;
 
-cursor:pointer;
+    border:none;
 
-font-size:20px;
+    background:none;
 
-color:var(--isago-text);
+    cursor:pointer;
+
+    font-size:20px;
+
+    color:var(--isago-text);
+
+    flex-shrink:0;
 
 }
 
-/*=========================================
-Menu
-=========================================*/
+.isago-mobile-close:hover{
+
+    color:var(--isago-primary);
+
+}
+
+
+/*=========================================================
+SCROLL AREA
+=========================================================*/
+
+.isago-mobile-menu-scroll{
+
+    flex:1;
+
+    min-height:0;
+
+    width:100%;
+
+    overflow-y:scroll;
+
+    overflow-x:hidden;
+
+    padding:0 15px 30px;
+
+    scrollbar-width:auto;
+
+    scrollbar-color:
+        var(--isago-date)
+        var(--isago-bg);
+
+}
+
+
+/*=========================================================
+CHROME / EDGE / SAFARI SCROLLBAR
+=========================================================*/
+
+.isago-mobile-menu-scroll::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.isago-mobile-menu-scroll::-webkit-scrollbar-track{
+
+    background:var(--isago-bg);
+
+}
+
+.isago-mobile-menu-scroll::-webkit-scrollbar-thumb{
+
+    background:var(--isago-border);
+
+    border-radius:20px;
+
+}
+
+.isago-mobile-menu-scroll::-webkit-scrollbar-thumb:hover{
+
+    background:var(--isago-primary);
+
+}
+
+
+/*=========================================================
+MAIN MENU
+=========================================================*/
+
+.isago-mobile-nav{
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+.isago-mobile-nav > li{
+
+    position:relative;
+
+}
+
+
+/*=========================================================
+MENU ROW
+=========================================================*/
+
 .mobile-link-row{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-justify-content:space-between;
+    justify-content:space-between;
+
+    min-height:52px;
+
+    border-bottom:1px solid var(--isago-border);
 
 }
+
+
+/*=========================================================
+MAIN LINKS
+=========================================================*/
+
+.isago-mobile-menu a{
+
+    color:var(--isago-text);
+
+    text-decoration:none;
+
+}
+
+.mobile-link-row > a{
+
+    flex:1;
+
+    display:flex;
+
+    align-items:center;
+
+    min-height:52px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    transition:
+        color .25s ease,
+        background .25s ease;
+
+}
+
+.mobile-link-row > a:hover{
+
+    color:var(--isago-primary);
+
+}
+
+
+/*=========================================================
+ACTIVE MAIN PAGE
+=========================================================*/
+
+.isago-mobile-nav > li.current-menu-item
+> .mobile-link-row > a,
+
+.isago-mobile-nav > li.current_page_item
+> .mobile-link-row > a,
+
+.isago-mobile-nav > li.isago-active
+> .mobile-link-row > a{
+
+    color:var(--isago-primary);
+
+}
+
+
+/*=========================================================
+ACTIVE PARENT PAGE
+=========================================================*/
+
+.isago-mobile-nav > li.current-menu-parent
+> .mobile-link-row > a,
+
+.isago-mobile-nav > li.current-menu-ancestor
+> .mobile-link-row > a,
+
+.isago-mobile-nav > li.current_page_parent
+> .mobile-link-row > a,
+
+.isago-mobile-nav > li.current_page_ancestor
+> .mobile-link-row > a{
+
+    color:var(--isago-primary);
+
+}
+
+
+/*=========================================================
+TOGGLE
+=========================================================*/
 
 .mobile-toggle{
 
-width:48px;
+    width:48px;
 
-height:48px;
+    height:48px;
 
-display:flex;
+    min-width:48px;
 
-align-items:center;
+    display:flex;
 
-justify-content:center;
+    align-items:center;
 
-border:none;
+    justify-content:center;
 
-background:none;
+    border:none;
 
-cursor:pointer;
+    background:transparent;
 
-color:var(--isago-text);
+    cursor:pointer;
 
-font-size:14px;
+    color:var(--isago-text);
 
-transition:.3s;
-
-}
-
-.isago-mobile-menu  a:hover{
-
-    color:var(--isago-primary);
-  
+    font-size:14px;
 
 }
-
 
 .mobile-toggle:hover{
 
-color:var(--isago-primary);
+    color:var(--isago-primary);
 
 }
+
+
+/*=========================================================
+OPEN MENU COLOR
+=========================================================*/
+
+/*
+ * Works whether your JS uses:
+ *
+ * .open
+ * .active
+ *
+ */
+
+.mobile-item.open
+> .mobile-link-row > a,
+
+.mobile-item.active
+> .mobile-link-row > a{
+
+    color:var(--isago-primary);
+
+}
+
+
+/*=========================================================
+OPEN TOGGLE COLOR
+=========================================================*/
+
+.mobile-item.open
+> .mobile-link-row .mobile-toggle,
+
+.mobile-item.active
+> .mobile-link-row .mobile-toggle{
+
+    color:var(--isago-primary);
+
+}
+
+
+/*=========================================================
+SUBMENU
+=========================================================*/
 
 .mobile-submenu{
 
-display:none;
+    display:none;
 
-background:var(--isago-card);
+    margin:0;
 
-}
+    padding:0;
 
-.mobile-item.open>.mobile-submenu{
+    list-style:none;
 
-display:block;
-
-}
-
-.mobile-submenu a{
-
-display:block;
-
-padding:10px 40px;
-line-height: 1.2;
-
-font-size:14px;
-
-font-weight:600;
+    background:var(--isago-card);
 
 }
 
-.mobile-submenu-level2{
 
-display:block;
+/*
+ * Support both possible JS classes.
+ */
 
-background:rgba(255,255,255,.03);
+.mobile-item.open
+> .mobile-submenu,
 
-}
+.mobile-item.active
+> .mobile-submenu{
 
-.mobile-submenu-level2 a{
-
-padding-left:70px;
-
-font-size:13px;
-line-height: 1.2;
-
-opacity:.9;
+    display:block;
 
 }
 
-.mobile-submenu a:hover{
 
-    padding-left:24px;
+/*=========================================================
+SUBMENU LINKS
+=========================================================*/
+
+.mobile-submenu > li > a{
+
+    display:block;
+
+    padding:12px 20px 12px 40px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    line-height:1.3;
+
+    border-bottom:1px solid var(--isago-border);
+
+    transition:
+        color .25s ease,
+        background .25s ease;
+
+}
+
+.mobile-submenu > li > a:hover{
 
     color:var(--isago-primary);
 
@@ -207,58 +442,162 @@ opacity:.9;
 
 }
 
-/*=========================================
-Plus Icon
-=========================================*/
+
+/*=========================================================
+ACTIVE SUBMENU PAGE
+=========================================================*/
+
+.mobile-submenu > li.current-menu-item > a,
+
+.mobile-submenu > li.current_page_item > a,
+
+.mobile-submenu > li.isago-active > a{
+
+    color:var(--isago-primary);
+
+    background:var(--isago-hover-bg);
+
+    font-weight:700;
+
+}
+
+
+/*=========================================================
+ACTIVE SUBMENU PARENT
+=========================================================*/
+
+.mobile-submenu > li.current-menu-parent > a,
+
+.mobile-submenu > li.current-menu-ancestor > a{
+
+    color:var(--isago-primary);
+
+    background:var(--isago-hover-bg);
+
+    font-weight:700;
+
+}
+
+
+/*=========================================================
+LEVEL 2
+=========================================================*/
+
+.mobile-submenu-level2{
+
+    display:block;
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
+
+    background:rgba(255,255,255,.03);
+
+}
+
+.mobile-submenu-level2 a{
+
+    display:block;
+
+    padding:10px 20px 10px 70px;
+
+    font-size:13px;
+
+    line-height:1.3;
+
+    font-weight:500;
+
+    color:var(--isago-muted);
+
+    border-bottom:1px solid var(--isago-border);
+
+}
+
+.mobile-submenu-level2 a:hover{
+
+    color:var(--isago-primary);
+
+    background:var(--isago-hover-bg);
+
+}
+
+
+/*=========================================================
+ACTIVE LEVEL 2
+=========================================================*/
+
+.mobile-submenu-level2
+li.current-menu-item > a,
+
+.mobile-submenu-level2
+li.current_page_item > a,
+
+.mobile-submenu-level2
+li.isago-active > a{
+
+    color:var(--isago-primary);
+
+    background:var(--isago-hover-bg);
+
+    font-weight:700;
+
+}
+
+
+/*=========================================================
+PLUS / MINUS ICON
+=========================================================*/
 
 .isago-mobile-menu i{
 
-transition:.3s;
+    transition:
+        transform .25s ease,
+        color .25s ease;
 
-font-size:12px;
-
-}
-
-.isago-mobile-menu li.active>a i{
-
-transform:rotate(45deg);
+    font-size:12px;
 
 }
 
-/*=========================================
-Social Icons
-=========================================*/
 
-.isago-mobile-menu .isago-social-icons{
+/*
+ * Closed = plus
+ * Open = rotated plus
+ */
 
-display:flex;
+.mobile-item.open
+> .mobile-link-row
+> .mobile-toggle i,
 
-justify-content:center;
+.mobile-item.active
+> .mobile-link-row
+> .mobile-toggle i{
 
-gap:12px;
-
-padding:25px;
-
-border-top:1px solid var(--isago-border);
-
-margin-top:20px;
+    transform:rotate(45deg);
 
 }
 
-/*=========================================
-Scrollbar
-=========================================*/
 
-.isago-mobile-menu::-webkit-scrollbar{
+/*=========================================================
+SOCIAL ICONS
+=========================================================*/
 
-width:6px;
+.isago-mobile-menu
+.isago-social-icons{
 
-}
+    display:flex;
 
-.isago-mobile-menu::-webkit-scrollbar-thumb{
+    justify-content:center;
 
-background:#d9d9d9;
+    align-items:center;
 
-border-radius:20px;
+    gap:12px;
+
+    padding:25px;
+
+    border-top:1px solid var(--isago-border);
+
+    margin-top:20px;
 
 }

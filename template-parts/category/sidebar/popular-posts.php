@@ -4,15 +4,15 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$query = isago_popular_posts_query(5);
+$query = isago_get_sidebar_popular_posts(5);
 
 if (!$query->have_posts()) {
     return;
 }
 
-?>
+?>  
 
-<section class="category-widget">
+<section class="category-widget sidebar-popular-card">
 
     <h3>
 
@@ -30,21 +30,25 @@ if (!$query->have_posts()) {
                     class="category-popular-thumb"
                     href="<?php the_permalink(); ?>">
 
-                    <?php
+                        <?php
+  echo isago_get_post_thumbnail(
 
-                    if (has_post_thumbnail()) {
-
-                        the_post_thumbnail('thumbnail');
-
-                    }
-
-                    ?>
+    get_the_ID(),
+                'medium',
+                [
+                    'loading' => 'lazy',
+                     'alt'     => the_title_attribute([
+                        'echo' => false
+                    ])
+                ]
+            );
+        ?>
 
                 </a>
 
                 <div class="category-popular-content">
 
-                    <h4>
+                    <h4 class="isago-editorial-post-title">
 
                         <a href="<?php the_permalink(); ?>">
 
@@ -54,7 +58,7 @@ if (!$query->have_posts()) {
 
                     </h4>
 
-                    <span>
+                    <span class="isago-post-meta">
 
                         <?php echo get_the_date(); ?>
 

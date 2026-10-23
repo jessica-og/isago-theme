@@ -4,25 +4,15 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$settings = [
+$settings = isago_get_category_archive_settings();
 
-    'toolbar'  => true,
-    'featured' => true
-
-];
 ?>
 
-<section class="isago-category-page">
+<section class="isago-tag-page">
 
     <div class="container">
 
         <?php
-
-        /*  
-        ---------------------------------------------------------
-        category Header
-        ---------------------------------------------------------
-        */
 
         get_template_part(
             'template-parts/tag/tag-header'
@@ -36,75 +26,79 @@ $settings = [
 
                 <?php
 
+                if ($settings['toolbar']) {
 
-if ($settings['toolbar']) {
+                    get_template_part(
+                        'template-parts/tag/tag-toolbar'
+                    );
 
-    get_template_part(
-        'template-parts/category/category-toolbar'
-    );
+                }
 
-}
 
-                /*
-                ---------------------------------------------------------
-                Featured Post
-                ---------------------------------------------------------
-                */
+                if ($settings['featured']) {
 
-             if ($settings['featured']) {
+                    get_template_part(
+                        'template-parts/tag/tag-featured'
+                    );
 
-    get_template_part(
-        'template-parts/tag/tag-featured'
-    );
+                }
 
-}
-                /*
-                ---------------------------------------------------------
-                Posts Grid
-                ---------------------------------------------------------
-                */
 
-     $query = isago_get_tag_grid();
+                $query = isago_get_tag_grid();
 
-            set_query_var(
-                'category_query',
-                $query
-            );
-get_template_part(
-    'template-parts/category/category-grid'
-);
+                set_query_var(
+                    'tag_query',
+                    $query
+                );
 
-/*
----------------------------------------------------------
-Pagination
----------------------------------------------------------
-*/
+                get_template_part(  
+                    'template-parts/tag/tag-grid'
+                );
 
-      set_query_var(
-                'isago_pagination_query',
-                $query
-            );
 
-get_template_part(
-    'template-parts/category/category-pagination'
-);
+                set_query_var(
+                    'isago_pagination_query',
+                    $query
+                );
+
+                get_template_part(
+                    'template-parts/tag/tag-pagination'
+                );
+
                 ?>
 
             </main>
 
-   <?php
-  
 
+            <?php
 
-    get_template_part(
-        'template-parts/category/sidebar/sidebar'
-    );
+            if ($settings['sidebar']) {
 
+                get_template_part(
+                    'template-parts/tag/sidebar/sidebar'
+                );
 
+            }
 
-?>
+            ?>
 
         </div>
+
+    </div>
+
+</section>
+
+<section class="homepage-video-wrapper">
+
+    <div class="container">
+
+        <?php
+
+        get_template_part(
+            'template-parts/sections/video-section'
+        );
+
+        ?>
 
     </div>
 

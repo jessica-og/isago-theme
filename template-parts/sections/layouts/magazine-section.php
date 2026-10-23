@@ -4,68 +4,166 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$title = $args['title'] ?? '';
 
-$section_slug = $args['slug'] ?? '';
+$title =
+    $args['title']
+    ?? '';
 
-$link = $args['link'] ?? '#';
 
-$post_count = absint(
-    $args['posts'] ?? 5
-);
+$type =
+    sanitize_key(
+        $args['type']
+        ?? 'blog'
+    );
 
-/*
-|--------------------------------------------------------------------------
-| Magazine Query
-|--------------------------------------------------------------------------
-|
-| We need at least 5 posts:
-| 1 featured story
-| 4 smaller stories
-|
-*/
 
-$query = isago_get_category_posts(
-    $section_slug,
-    max(5, $post_count)
-);
+$slug =
+    $args['slug']
+    ?? '__all';
 
-if (!$query->have_posts()) {
+
+$link =
+    $args['link']
+    ?? '#';
+
+
+$post_count =
+    max(
+        5,
+        absint(
+            $args['posts']
+            ?? 5
+        )
+    );
+
+
+$content =
+    isago_get_home_section_content(
+
+        [
+
+            'type' =>
+                $type,
+
+            'slug' =>
+                $slug,
+'orderby' => $args['orderby'] ?? 'latest',
+        ],
+
+        $post_count
+
+    );
+
+
+$items =
+    $content['items']
+    ?? [];
+
+
+if (
+    isago_get_homepage_item_count(
+        $items
+    ) === 0
+) {
+
     return;
+
 }
 
 ?>
+
 
 <section class="isago-magzine-section">
 
     <?php
 
     get_template_part(
+
         'template-parts/sections/section-header',
+
         null,
+
         [
-            'title' => $title,
-            'link'  => $link
+
+            'title' =>
+                $title,
+
+            'link' =>
+                $link
+
         ]
+
     );
 
     ?>
 
+
     <div class="magzine-grid">
 
+
         <!-- =====================================================
-        FEATURED STORY
+        FEATURED
         ====================================================== -->
 
         <div class="magzine-featured">
 
             <?php
 
-            $query->the_post();
+            if (
+                $type === 'blog'
+            ) {
 
-            get_template_part(
-                'template-parts/sections/magzine-large'
-            );
+                $items->the_post();
+
+
+                get_template_part(
+
+                    'template-parts/sections/magzine-large'
+
+                );
+
+            }
+
+            elseif (
+                $type === 'ai_prompt'
+            ) {
+
+                $items->the_post();
+
+
+                isago_render_homepage_item(
+
+                    get_post(),
+
+                    'ai_prompt'
+
+                );
+
+            }
+
+            elseif (
+                $type === 'ai_tool'
+            ) {
+
+                $first =
+                    array_shift(
+                        $items
+                    );
+
+
+                if ($first) {
+
+                    isago_render_homepage_item(
+
+                        $first,
+
+                        'ai_tool'
+
+                    );
+
+                }
+
+            }
 
             ?>
 
@@ -80,15 +178,70 @@ if (!$query->have_posts()) {
 
             <?php
 
-            while ($query->have_posts()) :
+            if (
+                $type === 'blog'
+            ) {
 
-                $query->the_post();
+                while (
+                    $items->have_posts()
+                ) {
 
-                get_template_part(
-                    'template-parts/sections/magzine-small'
-                );
+                    $items->the_post();
 
-            endwhile;
+
+                    get_template_part(
+
+                        'template-parts/sections/magzine-small'
+
+                    );
+
+                }
+
+            }
+
+            elseif (
+                $type === 'ai_prompt'
+            ) {
+
+                while (
+                    $items->have_posts()
+                ) {
+
+                    $items->the_post();
+
+
+                    isago_render_homepage_item(
+
+                        get_post(),
+
+                        'ai_prompt'
+
+                    );
+
+                }
+
+            }
+
+            elseif (
+                $type === 'ai_tool'
+            ) {
+
+                foreach (
+                    $items
+                    as $platform
+                ) {
+
+                    isago_render_homepage_item(
+
+                        $platform,
+
+                        'ai_tool'
+
+                    );
+
+                }
+
+            }
 
             ?>
 
@@ -98,6 +251,13 @@ if (!$query->have_posts()) {
 
 </section>
 
+
 <?php
 
-wp_reset_postdata();
+if (
+    $items instanceof WP_Query
+) {
+
+    wp_reset_postdata();
+
+}

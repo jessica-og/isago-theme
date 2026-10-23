@@ -42,26 +42,54 @@ if (!defined('ABSPATH')) {
 
             <?php
 
-            $fonts = [
+       $fonts = [
 
-                'Inter',
-                'Nunito',
-                'Poppins',
-                'Roboto',
-                'Open Sans',
-                'Montserrat',
-                'Manrope',
-                'Outfit',
-                'Lora',
-                'Playfair Display',
-                'Merriweather',
-                'Cormorant Garamond',
-                'Libre Baskerville',
-                'Source Serif 4',
-                'Crimson Text',
-                'DM Serif Display'
+    'Inter',
+    'Nunito',
+    'Poppins',
+    'Roboto',
+    'Open Sans',
+    'Montserrat',
+    'Manrope',
+    'Outfit',
 
-            ];
+    // Modern / Bold
+    'Space Grotesk',
+    'Sora',
+    'Archivo',
+    'Archivo Black',
+    'Plus Jakarta Sans',
+    'Red Hat Display',
+    'Barlow',
+    'Barlow Condensed',
+    'Bebas Neue',
+    'Oswald',
+    'Anton',
+    'League Spartan',
+    'Urbanist',
+    'Albert Sans',
+    'IBM Plex Sans',
+    'Public Sans',
+    'Work Sans',
+    'Figtree',
+    'Rubik',
+    'Exo 2',
+    'Rajdhani',
+    'Titillium Web',
+    'Lexend',
+    'Noto Sans',
+
+    // Serif
+    'Lora',
+    'Playfair Display',
+    'Merriweather',
+    'Cormorant Garamond',
+    'Libre Baskerville',
+    'Source Serif 4',
+    'Crimson Text',
+    'DM Serif Display'
+
+];
 
             foreach ($fonts as $font) :
             ?>

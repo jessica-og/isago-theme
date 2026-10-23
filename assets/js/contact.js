@@ -8,7 +8,7 @@ item.addEventListener('click', () => {
 const parent = item.parentElement;
 parent.classList.toggle('active');
 });
-});
+});  
 
 /* =========================
 FORM SUBMIT LOADING

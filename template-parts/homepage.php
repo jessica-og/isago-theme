@@ -26,6 +26,7 @@ if (!defined('ABSPATH')) {
                     'template-parts/hero/hero'
                 );
 
+
                 /*
                 |--------------------------------------------------------------------------
                 | Homepage Builder
@@ -34,18 +35,108 @@ if (!defined('ABSPATH')) {
 
                 $sections = isago_get_home_sections();
 
-                foreach ($sections as $section) :
 
-                    $category = get_category_by_slug(
+                foreach (
+                    $sections
+                    as $section
+                ) :
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | SECTION TYPE
+                    |--------------------------------------------------------------------------
+                    */
+
+                    $section_type =
+                        sanitize_key(
+                            $section['type']
+                            ?? 'blog'
+                        );
+
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | SECTION SOURCE
+                    |--------------------------------------------------------------------------
+                    */
+
+                    $section_slug =
                         $section['slug']
-                    );
+                        ?? '__all';
 
-                    switch ($section['layout']) {
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | HOMEPAGE AD SLOT
+                    |--------------------------------------------------------------------------
+                    |
+                    | Use the original section number instead of the
+                    | loop index. This keeps ad slots stable when a
+                    | section is disabled.
+                    |
+                    */
+
+                    $section_number =
+                        absint(
+                            $section['number']
+                            ?? 0
+                        );
+
+
+                    if (
+                        $section_number > 0
+                    ) {
+
+                        $homepage_ad_slot =
+                            'homepage'
+                            . $section_number;
+
+                    } else {
+
+                        $homepage_ad_slot =
+                            'homepage1';
+
+                    }
+
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | SECTION LINK
+                    |--------------------------------------------------------------------------
+                    |
+                    | All View All URL logic is handled centrally by:
+                    |
+                    | isago_get_home_section_url()
+                    |
+                    */
+
+                    $section_link =
+                        isago_get_home_section_url(
+
+                            $section_type,
+
+                            $section_slug,
+                            
+
+                        );
+
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | LAYOUT
+                    |--------------------------------------------------------------------------
+                    */
+
+                    switch (
+                        $section['layout']
+                        ?? 'grid'
+                    ) {
+
 
                         /*
-                        ---------------------------------------------------------
-                        Editorial (4 Cards)
-                        ---------------------------------------------------------
+                        |--------------------------------------------------------------------------
+                        | Editorial
+                        |--------------------------------------------------------------------------
                         */
 
                         case 'editorial':
@@ -53,12 +144,13 @@ if (!defined('ABSPATH')) {
                             $template =
                                 'template-parts/sections/layouts/editorial-section';
 
-                        break;
+                            break;
+
 
                         /*
-                        ---------------------------------------------------------
-                        Magazine
-                        ---------------------------------------------------------
+                        |--------------------------------------------------------------------------
+                        | Magazine
+                        |--------------------------------------------------------------------------
                         */
 
                         case 'magazine':
@@ -66,12 +158,13 @@ if (!defined('ABSPATH')) {
                             $template =
                                 'template-parts/sections/layouts/magazine-section';
 
-                        break;
+                            break;
+
 
                         /*
-                        ---------------------------------------------------------
-                        List
-                        ---------------------------------------------------------
+                        |--------------------------------------------------------------------------
+                        | List
+                        |--------------------------------------------------------------------------
                         */
 
                         case 'list':
@@ -79,13 +172,27 @@ if (!defined('ABSPATH')) {
                             $template =
                                 'template-parts/sections/layouts/list-section';
 
-                        break;
+                            break;
 
-                     
+
                         /*
-                        ---------------------------------------------------------
-                        Default
-                        ---------------------------------------------------------
+                        |--------------------------------------------------------------------------
+                        | Grid
+                        |--------------------------------------------------------------------------
+                        */
+
+                        case 'grid':
+
+                            $template =
+                                'template-parts/sections/layouts/grid-section';
+
+                            break;
+
+
+                        /*
+                        |--------------------------------------------------------------------------
+                        | Default
+                        |--------------------------------------------------------------------------
                         */
 
                         default:
@@ -93,7 +200,16 @@ if (!defined('ABSPATH')) {
                             $template =
                                 'template-parts/sections/layouts/grid-section';
 
+                            break;
+
                     }
+
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | RENDER HOMEPAGE SECTION
+                    |--------------------------------------------------------------------------
+                    */
 
                     get_template_part(
 
@@ -103,30 +219,55 @@ if (!defined('ABSPATH')) {
 
                         [
 
-                            'title' => $section['title'],
+                            'title' =>
+                                $section['title']
+                                ?? '',
 
-                            'slug'  => $section['slug'],
+                            'type' =>
+                                $section_type,
 
-                            'posts' => $section['posts'],
+                            'slug' =>
+                                $section_slug,
 
-                            'link'  => $category
-                                ? get_category_link($category)
-                                : '#'
+                            'posts' =>
+                                absint(
+                                    $section['posts']
+                                    ?? 4
+                                ),
+                            'orderby' => $section['orderby'] ?? 'latest',
+                            'link' =>
+                                $section_link,
 
                         ]
 
                     );
 
+
                     /*
-                    ---------------------------------------------------------
-                    Advertisement
-                    ---------------------------------------------------------
+                    |--------------------------------------------------------------------------
+                    | ADVERTISEMENT
+                    |--------------------------------------------------------------------------
                     */
 
-                    if ($section['show_ad']) {
+                    if (
+                        !empty(  
+                            $section['show_ad']
+                        )
+                    ) {
 
                         get_template_part(
-                            'template-parts/sections/advertisement'
+
+                            'template-parts/sections/advertisement',
+
+                            null,
+
+                            [
+
+                                'slot' =>
+                                    $homepage_ad_slot,
+
+                            ]
+
                         );
 
                     }
@@ -137,7 +278,14 @@ if (!defined('ABSPATH')) {
 
             </main>
 
+
             <?php
+
+            /*
+            |--------------------------------------------------------------------------
+            | SIDEBAR
+            |--------------------------------------------------------------------------
+            */
 
             get_template_part(
                 'template-parts/sidebar/sidebar'
@@ -150,6 +298,17 @@ if (!defined('ABSPATH')) {
     </div>
 
 </section>
+
+
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| HOMEPAGE VIDEO SECTION
+|--------------------------------------------------------------------------
+*/
+
+?>
 
 <section class="homepage-video-wrapper">
 

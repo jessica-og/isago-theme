@@ -4,18 +4,67 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$title        = $args['title'] ?? '';
-$section_slug = $args['slug'] ?? '';
-$link         = $args['link'] ?? '#';
-$post_count   = absint($args['posts'] ?? 4);
 
-$query = isago_get_category_posts(
-    $section_slug,
-    $post_count
-);
+$title =
+    $args['title']
+    ?? '';
 
-if (!$query->have_posts()) {
+
+$type =
+    sanitize_key(
+        $args['type']
+        ?? 'blog'
+    );
+
+
+$slug =
+    $args['slug']
+    ?? '__all';
+
+
+$link =
+    $args['link']
+    ?? '#';
+
+
+$post_count =
+    absint(
+        $args['posts']
+        ?? 4
+    );
+
+
+$content =
+    isago_get_home_section_content(
+
+        [
+
+            'type' =>
+                $type,
+
+            'slug' =>
+                $slug,
+'orderby' => $args['orderby'] ?? 'latest',
+        ],
+
+        $post_count
+
+    );
+
+
+$items =
+    $content['items']
+    ?? [];
+
+
+if (
+    isago_get_homepage_item_count(
+        $items
+    ) === 0
+) {
+
     return;
+
 }
 
 ?>
@@ -32,31 +81,85 @@ if (!$query->have_posts()) {
 
         [
 
-            'title' => $title,
+            'title' =>
+                $title,
 
-            'link'  => $link
+            'link' =>
+                $link,
 
         ]
 
     );
-  
+
     ?>
+
 
     <div class="isago-grid-layout">
 
         <?php
 
-        while ($query->have_posts()) :
 
-            $query->the_post();
+        /*=================================================
+        AI PROMPTS
+        =================================================*/
 
-            get_template_part(
-                'template-parts/sections/grid-card'
+        if (
+            $type === 'ai_prompt'
+        ) {
+
+            isago_render_homepage_items(
+
+                $items,
+
+                'ai_prompt'
+
             );
 
-        endwhile;
+        }
 
-        wp_reset_postdata();
+
+        /*=================================================
+        AI TOOLS
+        =================================================*/
+
+        elseif (
+            $type === 'ai_tool'
+        ) {
+
+            isago_render_homepage_items(
+
+                $items,
+
+                'ai_tool'
+
+            );
+
+        }
+
+
+        /*=================================================
+        BLOG
+        =================================================*/
+
+        else {
+
+            while (
+                $items->have_posts()
+            ) {
+
+                $items->the_post();
+
+
+                get_template_part(
+                    'template-parts/sections/grid-card'
+                );
+
+            }
+
+
+            wp_reset_postdata();
+
+        }
 
         ?>
 

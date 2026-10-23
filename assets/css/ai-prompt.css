@@ -1,0 +1,1853 @@
+
+
+
+
+
+/*=========================================================
+AI PROMPT CARD PLATFORMS
+=========================================================*/
+
+.ai-prompt-card-platforms {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 14px;
+}
+
+
+.ai-prompt-card-platform {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 5px 8px;
+
+    border: 1px solid rgba(
+        0,
+        212,
+        245,
+        .15
+    );
+
+    border-radius: 7px;
+
+    background: rgba(
+        0,
+        212,
+        245,
+        .06
+    );
+
+    color: var(
+        --isago-primary,
+        #00d4f5
+    );
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/*=========================================================
+AI PROMPT DIRECTORY FILTERS
+=========================================================*/
+
+.ai-prompt-directory-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+ width: 100%;
+    margin-top: 18px;
+}
+
+
+/*=========================================================
+DROPDOWN
+=========================================================*/
+
+.ai-prompt-filter-dropdown {
+    position: relative;
+
+    min-width: 190px;
+}
+
+
+/*=========================================================
+BUTTON
+=========================================================*/
+
+.ai-prompt-filter-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    min-height: 44px;
+
+    padding: 0 15px;
+
+    border: 1px solid var(
+        --isago-border-color,
+        rgba(0, 0, 0, .12)
+    );
+
+    border-radius: 10px;
+
+    background: var(
+        --isago-card-background,
+        #fff
+    );
+
+    color: var(
+        --isago-text-color,
+        #111
+    );
+
+    cursor: pointer;
+
+    list-style: none;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.ai-prompt-filter-button::-webkit-details-marker {
+    display: none;
+}
+
+
+.ai-prompt-filter-button > span {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 0;
+}
+
+
+.ai-prompt-filter-button > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.ai-prompt-filter-button > span > i {
+    flex: 0 0 auto;
+
+    color: var(
+        --isago-primary,
+        #00d4f5
+    );
+}
+
+
+.ai-prompt-filter-button > svg,
+.ai-prompt-filter-button > i {
+    flex: 0 0 auto;
+}
+
+
+/*=========================================================
+OPEN STATE
+=========================================================*/
+
+.ai-prompt-filter-dropdown[open]
+.ai-prompt-filter-button {
+    border-color: var(
+        --isago-primary,
+        #00d4f5
+    );
+}
+
+
+/*=========================================================
+MENU
+=========================================================*/
+
+.ai-prompt-filter-menu {
+    position: absolute;
+
+    top: calc(100% + 8px);
+    left: 0;
+
+    z-index: 50;
+
+    width: 260px;
+    max-height: 320px;
+
+    overflow-y: auto;
+
+    padding: 7px;
+
+    border: 1px solid var(
+        --isago-border-color,
+        rgba(0, 0, 0, .12)
+    );
+
+    border-radius: 12px;
+
+    background: var(
+        --isago-card-background,
+        #fff
+    );
+
+    box-shadow:
+        0 12px 35px rgba(
+            0,
+            0,
+            0,
+            .12
+        );
+}
+
+
+/*=========================================================
+OPTIONS
+=========================================================*/
+
+.ai-prompt-filter-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 10px 11px;
+
+    border-radius: 8px;
+
+    color: var(
+        --isago-text-color,
+        #111
+    );
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.ai-prompt-filter-option:hover {
+    background: rgba(
+        0,
+        212,
+        245,
+        .08
+    );
+}
+
+
+.ai-prompt-filter-option.is-active {
+    background: rgba(
+        0,
+        212,
+        245,
+        .10
+    );
+
+    color: var(
+        --isago-primary,
+        #00d4f5
+    );
+}
+
+
+.ai-prompt-filter-option .fa-check {
+    flex: 0 0 auto;
+}
+
+
+/*=========================================================
+MOBILE
+=========================================================*/
+
+@media (
+    max-width: 767px
+) {
+
+    .ai-prompt-directory-filters {
+        display: grid;
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+
+    .ai-prompt-filter-dropdown {
+        min-width: 0;
+    }
+
+
+    .ai-prompt-filter-menu {
+        width: min(
+            280px,
+            calc(
+                100vw - 32px
+            )
+        );
+    }
+
+}
+
+
+@media (
+    max-width: 480px
+) {
+
+    .ai-prompt-directory-filters {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+AI PROMPT DIRECTORY FILTERS
+=========================================================*/
+
+.ai-prompt-directory-filters {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin:
+        12px auto 0;
+
+}
+
+
+/*=========================================================
+KEEP FILTERS DIRECTLY UNDER SEARCH
+=========================================================*/
+
+.ai-platform-discovery-form {
+
+    margin-bottom: 0;
+
+}
+
+
+/*=========================================================
+ALL PROMPTS BUTTON
+=========================================================*/
+
+.ai-prompt-filter-all {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 44px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid
+        var(
+            --isago-border,
+            rgba(0,0,0,.12)
+        );
+
+    border-radius: 10px;
+
+    background:
+        var(
+            --isago-card,
+            #fff
+        );
+
+    color:
+        var(
+            --isago-text,
+            #111
+        );
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+
+}
+
+
+.ai-prompt-filter-all i {
+
+    color:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+
+    font-size: 13px;
+
+}
+
+
+.ai-prompt-filter-all:hover {
+
+    border-color:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+/*=========================================================
+DROPDOWN
+=========================================================*/
+
+.ai-prompt-filter-dropdown {
+
+    position: relative;
+
+    min-width: 190px;
+
+}
+
+
+/*=========================================================
+DROPDOWN BUTTON
+=========================================================*/
+
+.ai-prompt-filter-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 16px;
+
+    min-height: 44px;
+
+    padding:
+        0 15px;
+
+    border:
+        1px solid
+        var(
+            --isago-border,
+            rgba(0,0,0,.12)
+        );
+
+    border-radius: 10px;
+
+    background:
+        var(
+            --isago-card,
+            #fff
+        );
+
+    color:
+        var(
+            --isago-text,
+            #111
+        );
+
+    cursor: pointer;
+
+    list-style: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.ai-prompt-filter-button::-webkit-details-marker {
+
+    display: none;
+
+}
+
+
+.ai-prompt-filter-button > span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+}
+
+
+.ai-prompt-filter-button > span > i {
+
+    flex:
+        0 0 auto;
+
+    color:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+
+}
+
+
+.ai-prompt-filter-button > svg,
+.ai-prompt-filter-button > i {
+
+    flex:
+        0 0 auto;
+
+}
+
+
+/*=========================================================
+OPEN STATE
+=========================================================*/
+
+.ai-prompt-filter-dropdown[open]
+.ai-prompt-filter-button {
+
+    border-color:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+
+}
+
+
+/*=========================================================
+DROPDOWN MENU
+=========================================================*/
+
+.ai-prompt-filter-menu {
+
+    position: absolute;
+
+    top:
+        calc(100% + 8px);
+
+    left: 0;
+
+    z-index: 50;
+
+    width: 260px;
+
+    max-height: 320px;
+
+    overflow-y: auto;
+
+    padding: 7px;
+
+    border:
+        1px solid
+        var(
+            --isago-border,
+            rgba(0,0,0,.12)
+        );
+
+    border-radius: 12px;
+
+    background:
+        var(
+            --isago-card,
+            #fff
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.12);
+
+}
+
+
+/*=========================================================
+FILTER OPTIONS
+=========================================================*/
+
+.ai-prompt-filter-option {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    width: 100%;
+
+    padding:
+        10px 11px;
+
+    border-radius: 8px;
+
+    color:
+        var(
+            --isago-text,
+            #111
+        );
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.ai-prompt-filter-option:hover {
+
+    background:
+        rgba(0,212,245,.08);
+
+}
+
+
+.ai-prompt-filter-option.is-active {
+
+    background:
+        rgba(0,212,245,.10);
+
+    color:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+
+}
+
+
+.ai-prompt-filter-option .fa-check {
+
+    flex:
+        0 0 auto;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+  
+/* =========================================================
+   ISAGO AI PROMPTS HERO BUTTON
+   Gradient + Bright Snake Border + Hover Ripple
+   ========================================================= */
+
+.isago-animated-button {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+
+    padding: 14px 21px;
+
+    min-height: 44px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00cbe9 0%,
+            #00dff3 45%,
+            #36fefb 100%
+        );
+
+    color: #06181d;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    box-shadow:
+        2px 3px 14px
+        rgba(0,0,0,.14),
+
+        0 8px 26px
+        rgba(0,212,245,.22);
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+/* =========================================================
+   BUTTON CONTENT
+   ========================================================= */
+
+.isago-animated-button-text,
+.isago-animated-button i {
+
+    position: relative;
+
+    z-index: 10;
+
+}
+
+
+/* =========================================================
+   ANIMATED SNAKE BORDER
+   ========================================================= */
+
+.isago-animated-button-border {
+
+    position: absolute;
+
+    display: block;
+
+    z-index: 8;
+
+    pointer-events: none;
+
+    border-radius: 999px;
+
+}
+
+
+/* =========================================================
+   TOP
+   ========================================================= */
+
+.isago-animated-button .border-top {
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            #ffffff 35%,
+            #ffffff 55%,
+            #00f5ff 75%,
+            transparent 100%
+        );
+
+    box-shadow:
+        0 0 5px #ffffff,
+        0 0 10px #00eaff;
+
+    animation:
+        isagoBorderBtnTop
+        2s
+        linear
+        infinite;
+
+}
+
+
+@keyframes isagoBorderBtnTop {
+
+    0% {
+
+        transform:
+            translateX(-100%);
+
+    }
+
+    100% {
+
+        transform:
+            translateX(100%);
+
+    }
+
+}
+
+
+/* =========================================================
+   RIGHT
+   ========================================================= */
+
+.isago-animated-button .border-right {
+
+    top: 0;
+
+    right: 0;
+
+    width: 2px;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            #ffffff 35%,
+            #ffffff 55%,
+            #00f5ff 75%,
+            transparent 100%
+        );
+
+    box-shadow:
+        0 0 5px #ffffff,
+        0 0 10px #00eaff;
+
+    animation:
+        isagoBorderBtnRight
+        2s
+        linear
+        infinite;
+
+    animation-delay:
+        .5s;
+
+}
+
+
+@keyframes isagoBorderBtnRight {
+
+    0% {
+
+        transform:
+            translateY(-100%);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(100%);
+
+    }
+
+}
+
+
+/* =========================================================
+   BOTTOM
+   ========================================================= */
+
+.isago-animated-button .border-bottom {
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            to left,
+            transparent 0%,
+            #ffffff 35%,
+            #ffffff 55%,
+            #00f5ff 75%,
+            transparent 100%
+        );
+
+    box-shadow:
+        0 0 5px #ffffff,
+        0 0 10px #00eaff;
+
+    animation:
+        isagoBorderBtnBottom
+        2s
+        linear
+        infinite;
+
+    animation-delay:
+        1s;
+
+}
+
+
+@keyframes isagoBorderBtnBottom {
+
+    0% {
+
+        transform:
+            translateX(100%);
+
+    }
+
+    100% {
+
+        transform:
+            translateX(-100%);
+
+    }
+
+}
+
+
+/* =========================================================
+   LEFT
+   ========================================================= */
+
+.isago-animated-button .border-left {
+
+    top: 0;
+
+    left: 0;
+
+    width: 2px;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to top,
+            transparent 0%,
+            #ffffff 35%,
+            #ffffff 55%,
+            #00f5ff 75%,
+            transparent 100%
+        );
+
+    box-shadow:
+        0 0 5px #ffffff,
+        0 0 10px #00eaff;
+
+    animation:
+        isagoBorderBtnLeft
+        2s
+        linear
+        infinite;
+
+    animation-delay:
+        1.5s;
+
+}
+
+
+@keyframes isagoBorderBtnLeft {
+
+    0% {
+
+        transform:
+            translateY(100%);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-100%);
+
+    }
+
+}
+
+
+/* =========================================================
+   HOVER RIPPLE
+   ========================================================= */
+
+.isago-animated-button::before {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: 2;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 20px;
+
+    height: 20px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.45);
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   RIPPLE ON HOVER
+   ========================================================= */
+
+.isago-animated-button:hover::before {
+
+    animation:
+        isagoButtonBtnRipple
+        .8s
+        ease-out;
+
+}
+
+
+@keyframes isagoButtonBtnRipple {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity:
+            .55;
+
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(18);
+
+        opacity:
+            0;
+
+    }
+
+}
+
+
+/* =========================================================
+   HOVER BUTTON
+   ========================================================= */
+
+.isago-animated-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 14px 32px
+        rgba(0,212,245,.30),
+
+        0 0 24px
+        rgba(54,254,251,.20);
+
+}
+
+
+/* =========================================================
+   HOVER ARROW
+   ========================================================= */
+
+.isago-animated-button i {
+
+    font-size:
+        12px;
+
+    transition:
+        transform .25s ease;
+
+}
+
+
+.isago-animated-button:hover i {
+
+    transform:
+        translateX(4px);
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .isago-animated-button-border {
+
+        animation:
+            none;
+
+    }
+
+    .isago-animated-button:hover::before {
+
+        animation:
+            none;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .isago-animated-button {
+
+        padding:
+            13px 18px;
+
+        min-height:
+            42px;
+
+        font-size:
+            12px;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+AI PROMPT CATEGORY FILTER TABS
+=========================================================*/
+
+.ai-prompt-subcategory-navigation {
+    width: 100%;
+    margin: 0 0 28px;
+    overflow: hidden;
+}
+
+.ai-prompt-subcategory-tabs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto;
+    padding: 2px 2px 9px;
+    scrollbar-width: thin;
+    overscroll-behavior-x: contain;
+}
+
+.ai-prompt-subcategory-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    gap: 10px;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid var(--isago-border);  
+    border-radius: 14px;
+    background: var(--isago-card);
+    color: var(--isago-text);
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.ai-prompt-subcategory-tab:hover {
+    border-color: var(--isago-primary, #00d4f5);
+    color: var(--isago-text);
+    transform: translateY(-1px);
+}
+
+.ai-prompt-subcategory-tab.is-active {
+    border-color: var(--isago-primary, #00d4f5);
+    background: var(--isago-primary, #00d4f5);
+    color: #102027;
+}
+
+.ai-prompt-subcategory-label {
+    display: inline-block;
+}
+
+.ai-prompt-subcategory-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 0 6px;
+    box-sizing: border-box;
+    border: 1px solid var(--isago-border);
+    border-radius: 999px;
+    background: rgba(127, 127, 127, .08);
+    color: inherit;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.ai-prompt-subcategory-tab.is-active
+.ai-prompt-subcategory-count {
+    border-color: rgba(16, 32, 39, .15);
+    background: rgba(16, 32, 39, .10);
+}
+
+@media (max-width: 767px) {
+    .ai-prompt-subcategory-navigation {
+        margin-bottom: 22px;
+    }
+
+    .ai-prompt-subcategory-tabs {
+        gap: 8px;
+    }
+
+    .ai-prompt-subcategory-tab {
+        min-height: 40px;
+        gap: 7px;
+        padding: 0 12px;
+        border-radius: 12px;
+        font-size: 11px;
+    }
+
+    .ai-prompt-subcategory-count {
+        min-width: 21px;
+        min-height: 21px;
+        font-size: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+HIERARCHICAL AI PROMPT CATEGORY FILTER
+=========================================================*/
+
+.ai-prompt-filter-category-node {
+    width: 100%;
+    min-width: 0;
+}
+
+.ai-prompt-filter-category-row {
+    display: flex;
+    align-items: stretch;
+    gap: 4px;
+    width: 100%;
+    min-width: 0;
+}
+
+.ai-prompt-filter-category-row > .ai-prompt-filter-option {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.ai-prompt-filter-category-toggle {
+    display: inline-flex;
+    flex: 0 0 32px;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    min-height: 36px;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    transition:
+        background-color .2s ease,
+        color .2s ease;
+}
+
+.ai-prompt-filter-category-toggle:hover {
+    background: rgba(127, 127, 127, .12);
+    color: var(--isago-primary, #00d4f5);
+}
+
+.ai-prompt-filter-category-toggle:focus-visible {
+    outline: 2px solid var(--isago-primary, #00d4f5);
+    outline-offset: 1px;
+}
+
+.ai-prompt-filter-category-toggle i {
+    font-size: 11px;
+    transition: transform .2s ease;
+}
+
+.ai-prompt-filter-category-children {
+    margin: 3px 0 5px 13px;
+    padding-left: 10px;
+    border-left: 1px solid var(--isago-border, #dedede);
+}
+
+.ai-prompt-filter-category-children[hidden] {
+    display: none !important;
+}
+
+.ai-prompt-filter-category-children
+.ai-prompt-filter-category-node {
+    margin-top: 2px;
+}
+
+
+.ai-platform-directory-results.is-category-tabs-loading {
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+ISAGO — RELATED BLOG & NEWS ARTICLES
+On AI Prompt Category Pages
+=========================================================*/
+
+.isago-prompt-related-articles {
+    padding: 65px 0 80px;
+    border-top: 1px solid var(--isago-border);
+    background: var(--isago-body-bg);
+}
+
+.isago-prompt-related-articles-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.isago-prompt-related-articles-kicker {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--isago-primary);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.isago-prompt-related-articles-header h2 {
+    margin: 0 0 10px;
+    color: var(--isago-text);
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -.035em;
+}
+
+.isago-prompt-related-articles-header p {
+    margin: 0;
+    color: var(--isago-post-text);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.isago-prompt-related-articles-count {
+    flex-shrink: 0;
+    padding-bottom: 3px;
+    color: var(--isago-date);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.isago-prompt-related-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.isago-prompt-related-article {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--isago-border);
+    border-radius: 16px;
+    background: var(--isago-card);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .04);
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+.isago-prompt-related-article:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 212, 245, .35);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+}
+
+.isago-prompt-related-article-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--isago-bg);
+}
+
+.isago-prompt-related-article-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .35s ease;
+}
+
+.isago-prompt-related-article:hover
+.isago-prompt-related-article-image img {
+    transform: scale(1.04);
+}
+
+.isago-prompt-related-article-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--isago-primary);
+    font-size: 35px;
+}
+
+.isago-prompt-related-article-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 21px;
+}
+
+.isago-prompt-related-article-date {
+    margin-bottom: 10px;
+    color: var(--isago-date);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.isago-prompt-related-article-body h3 {
+    margin: 0 0 11px;
+    font-size: 16px;
+    line-height: 1.4;
+    letter-spacing: -.02em;
+}
+
+.isago-prompt-related-article-body h3 a {
+    color: var(--isago-text);
+    text-decoration: none;
+}
+
+.isago-prompt-related-article-body h3 a:hover {
+    color: var(--isago-primary);
+}
+
+.isago-prompt-related-article-body p {
+    margin: 0 0 18px;
+    color: var(--isago-post-text);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.isago-prompt-related-article-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    color: var(--isago-primary);
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.isago-prompt-related-article-link i {
+    transition: transform .2s ease;
+}
+
+.isago-prompt-related-article-link:hover i {
+    transform: translateX(4px);
+}
+
+@media (max-width: 900px) {
+    .isago-prompt-related-articles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .isago-prompt-related-articles {
+        padding: 45px 0 55px;
+    }
+
+    .isago-prompt-related-articles-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .isago-prompt-related-articles-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .isago-prompt-related-article-body {
+        padding: 18px;
+    }
+
+    .isago-prompt-related-article-body h3 {
+        font-size: 18px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   ISAGO — FIX FILTER DROPDOWN OVERLAPPING PROMPT SAVE BUTTON
+   ========================================================= */
+
+/* Keep the discovery filter section above the prompt cards. */
+.ai-platform-discovery {
+    position: relative;
+    z-index: 100;
+    isolation: isolate;
+}
+
+/* Keep dropdowns within a predictable layout. */
+.ai-prompt-directory-filters {
+    position: relative;
+    z-index: 101;
+}
+
+/* Closed dropdowns should not cover neighboring controls. */
+.ai-prompt-filter-dropdown {
+    position: relative;
+    z-index: 1;
+    min-width: 190px;
+}
+
+/* The OPEN dropdown must sit above the prompt cards. */
+.ai-prompt-filter-dropdown[open] {
+    z-index: 1000;
+}
+
+/* Keep the dropdown button above surrounding content. */
+.ai-prompt-filter-dropdown[open] > .ai-prompt-filter-button {
+    position: relative;
+    z-index: 1001;
+}
+
+/* Give the menu a solid background and a high stacking level. */
+.ai-prompt-filter-dropdown > .ai-prompt-filter-menu {
+    position: absolute;
+    z-index: 1002;
+
+    top: calc(100% + 8px);
+    left: 0;
+
+    width: 280px;
+    max-width: min(320px, calc(100vw - 32px));
+    max-height: min(340px, 55vh);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    box-sizing: border-box;
+    overscroll-behavior-y: contain;
+    scrollbar-gutter: stable;
+
+    background: var(--isago-card, #172235);
+    color: var(--isago-text, #f4f7fb);
+
+    border: 1px solid var(--isago-border, #344154);
+    border-radius: 12px;
+
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.32),
+        0 3px 10px rgba(0, 0, 0, 0.16);
+
+    scrollbar-width: thin;
+    scrollbar-color: #00aeca #202b3b;
+}
+
+/* Chromium browsers: Chrome, Edge and similar. */
+.ai-prompt-filter-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ai-prompt-filter-menu::-webkit-scrollbar-track {
+    background: #202b3b;
+    border-radius: 10px;
+    margin: 8px 0;
+}
+
+.ai-prompt-filter-menu::-webkit-scrollbar-thumb {
+    background: #526579;
+    border: 2px solid #202b3b;
+    border-radius: 10px;
+}
+
+.ai-prompt-filter-menu::-webkit-scrollbar-thumb:hover {
+    background: #00d4f5;
+}
+
+/* Keep menu options readable and prevent horizontal overflow. */
+.ai-prompt-filter-menu .ai-prompt-filter-option {
+    box-sizing: border-box;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Keep nested category rows and expand buttons inside the menu. */
+.ai-prompt-filter-menu .ai-prompt-filter-category-row {
+    min-width: 0;
+}
+
+.ai-prompt-filter-menu .ai-prompt-filter-category-row
+> .ai-prompt-filter-option {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* Ensure save/bookmark controls on cards stay behind the dropdown. */
+.ai-platform-directory-results {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive menu sizing. */
+@media (max-width: 767px) {
+    .ai-prompt-filter-dropdown > .ai-prompt-filter-menu {
+        width: min(300px, calc(100vw - 32px));
+        max-height: min(320px, 50vh);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ai-prompt-filter-menu {
+        scroll-behavior: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.isago-ai-prompt-instructions-body strong,
+.isago-ai-prompt-instructions-body b {
+    font-weight: 700;
+}
+
+.isago-ai-prompt-instructions-body ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+.isago-ai-prompt-instructions-body ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+.isago-ai-prompt-instructions-body li {
+    display: list-item;
+    margin-bottom: 0.5rem;
+}
+
+.isago-ai-prompt-instructions-body h2,
+.isago-ai-prompt-instructions-body h3,
+.isago-ai-prompt-instructions-body h4 {
+    font-weight: 700;
+    margin: 1.25rem 0 0.75rem;
+}
+
+.isago-ai-prompt-instructions-body p {
+    margin: 0 0 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* AI PROMPTS LOADING INDICATOR */
+
+.isago-ai-prompts-loading [data-isago-ai-prompts-loading] {
+    display: flex;
+}
+
+[data-isago-ai-prompts-loading] {
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 22px 16px;
+    margin-bottom: 20px;
+    color: #343b45;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+[data-isago-ai-prompts-loading][hidden] {
+    display: none !important;
+}
+
+.ai-prompt-loading-spinner {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    border: 2px solid rgba(0, 212, 245, 0.22);
+    border-top-color: #00d4f5;
+    border-radius: 50%;
+    animation: ai-prompt-loading-spin 0.7s linear infinite;
+}
+
+@keyframes ai-prompt-loading-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ai-prompt-loading-spinner {
+        animation: none;
+    }
+}

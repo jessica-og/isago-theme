@@ -12,39 +12,53 @@ $menu = isago_get_menu();
 
 <aside class="isago-mobile-menu">
 
-<button
-class="isago-mobile-close">
+    <!-- Close -->
+    <button
+        class="isago-mobile-close"
+        type="button"
+        aria-label="Close Menu"
+    >
+        <i class="fa-solid fa-xmark"></i>
+    </button>
 
-<i class="fa-solid fa-xmark"></i>
 
-</button>
+    <!-- Scrollable Menu -->
+    <div class="isago-mobile-menu-scroll">
 
-<ul>
 
-<?php
 
-foreach($menu as $item){
 
-include locate_template(
+        <ul class="isago-mobile-nav">
 
-'template-parts/header/mobile-menu-item.php'
+            <?php foreach ($menu as $item) : ?>
 
-);
+                <?php
 
-}
+                include locate_template(
+                    'template-parts/header/mobile-menu-item.php'
+                );
 
-?>
+                ?>
 
-</ul>
+            <?php endforeach; ?>
 
-<?php
+        </ul>
 
-get_template_part(
+    <!-- =========================================
+             MOBILE AUTHENTICATION
+        ========================================== -->
 
-'template-parts/header/social-icons'
+        <div class="isago-mobile-auth">
 
-);
+            <?php
+            get_template_part(
+                'template-parts/header/auth'
+            );
+            ?>
 
-?>
+        </div>
+      
+
+    </div>
 
 </aside>

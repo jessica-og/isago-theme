@@ -3,19 +3,98 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-$settings = isago_get_category_archive_settings();
+
+
+/*
+|--------------------------------------------------------------------------
+| Category Archive
+|--------------------------------------------------------------------------
+|
+| This template is used for:
+|
+| /category/name/
+| /category/name/page/2/
+| /category/name/page/3/
+|
+|--------------------------------------------------------------------------
+*/
+
+
+$category_id =
+    absint(
+        get_queried_object_id()
+    );
+
+
+/*
+|--------------------------------------------------------------------------
+| Safety check
+|--------------------------------------------------------------------------
+*/
+
+if (!$category_id) {
+    return;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Settings
+|--------------------------------------------------------------------------
+*/
+
+$settings = [
+
+    'toolbar'  => true,
+
+    'featured' => true,
+
+];
+
+
+/*
+|--------------------------------------------------------------------------
+| CATEGORY QUERY
+|--------------------------------------------------------------------------
+|
+| Get the category posts before rendering
+| the grid.
+|
+*/
+
+$query =
+    isago_get_category_grid();
+
+
+/*
+|--------------------------------------------------------------------------
+| CHECK FOR CONTENT
+|--------------------------------------------------------------------------
+*/
+
+$has_category_posts =
+    $query instanceof WP_Query
+    &&
+    $query->have_posts();
+
 ?>
 
-<section class="isago-category-page">
+
+<section
+    class="isago-category-page"
+    data-category="<?php echo esc_attr($category_id); ?>"
+>
+
 
     <div class="container">
+
 
         <?php
 
         /*
-        ---------------------------------------------------------
-        Category Header
-        ---------------------------------------------------------
+        |--------------------------------------------------------------------------
+        | Header
+        |--------------------------------------------------------------------------
         */
 
         get_template_part(
@@ -24,76 +103,127 @@ $settings = isago_get_category_archive_settings();
 
         ?>
 
-        <div class="category-page-grid">
 
-            <main class="category-main">
+        <?php if ($has_category_posts) : ?>
+
+
+            <div class="category-page-grid">
+
+
+                <main class="category-main">
+
+
+                    <?php
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Toolbar
+                    |--------------------------------------------------------------------------
+                    */
+
+                    if ($settings['toolbar']) {
+
+                        get_template_part(
+                            'template-parts/category/category-toolbar'
+                        );
+
+                    }
+
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Featured
+                    |--------------------------------------------------------------------------
+                    */
+
+                    if ($settings['featured']) {
+
+                        get_template_part(
+                            'template-parts/category/category-featured'
+                        );
+
+                    }
+
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Grid
+                    |--------------------------------------------------------------------------
+                    */
+
+                    set_query_var(
+                        'category_query',
+                        $query
+                    );
+
+
+                    get_template_part(
+                        'template-parts/category/category-grid'
+                    );
+
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Pagination
+                    |--------------------------------------------------------------------------
+                    */
+
+                    set_query_var(
+                        'isago_pagination_query',
+                        $query
+                    );
+
+
+                    get_template_part(
+                        'template-parts/category/category-pagination'
+                    );
+
+                    ?>
+
+
+                </main>
+
 
                 <?php
 
-
-if ($settings['toolbar']) {
-
-    get_template_part(
-        'template-parts/category/category-toolbar'
-    );
-
-}
-
                 /*
-                ---------------------------------------------------------
-                Featured Post
-                ---------------------------------------------------------
+                |--------------------------------------------------------------------------
+                | Sidebar
+                |--------------------------------------------------------------------------
                 */
 
-             if ($settings['featured']) {
+                get_template_part(
+                    'template-parts/category/sidebar/sidebar'
+                );
 
-    get_template_part(
-        'template-parts/category/category-featured'
-    );
-
-}
-                /*
-                ---------------------------------------------------------
-                Posts Grid
-                ---------------------------------------------------------
-                */
-$query = isago_get_category_grid();
-
-set_query_var('category_query', $query);
-
-get_template_part(
-    'template-parts/category/category-grid'
-);
-
-/*
----------------------------------------------------------
-Pagination
----------------------------------------------------------
-*/
-
-set_query_var('isago_pagination_query', $query);
-
-get_template_part(
-    'template-parts/category/category-pagination'
-);
                 ?>
 
-            </main>
 
-   <?php
+            </div>
 
-if ($settings['sidebar']) {
 
-    get_template_part(
-        'template-parts/category/sidebar/sidebar'
-    );
+        <?php else : ?>
 
-}
 
-?>
+            <?php
 
-        </div>
+            /*
+            |--------------------------------------------------------------------------
+            | COMING SOON
+            |--------------------------------------------------------------------------
+            */
+
+            get_template_part(
+                'template-parts/category/coming-soon'
+            );
+
+            ?>
+
+
+        <?php endif; ?>
+
 
     </div>
+
 
 </section>

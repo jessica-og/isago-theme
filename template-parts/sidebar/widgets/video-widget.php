@@ -22,98 +22,127 @@ $query = isago_popular_sidebar_videos(
 if (!$query->have_posts()) {
     return;
 }
+$video_category = get_term_by(
+    'name',
+    'AI Tutorials',
+    'category'
+);
 
+$video_link = '#';
+
+if ($video_category) {
+
+    $video_link = get_category_link(
+        $video_category->term_id
+    );
+}
 ?>
 
 <section class="sidebar-widget">
 
-    <div class="sidebar-heading">
+    <div class="section-heading">
 
         <h3>
             VIDEO
         </h3>
 
-        <a href="<?php echo esc_url(
-            get_post_type_archive_link('isago_video')
-        ); ?>">
-            More Video
-        </a>
+     <a href="<?php echo esc_url($video_link); ?>">
+    More Video
+</a>
 
     </div>
 
 
     <?php while ($query->have_posts()) : $query->the_post(); ?>
 
-        <article class="video-item">
+<article class="sidebar-video-item">
 
-            <a
-                href="<?php the_permalink(); ?>"
-                class="video-thumb"
-            >
+    <div class="sidebar-video-thumb">
 
-                <div class="video-image">
+        <div class="sidebar-video-image">
 
-                    <?php
+            <?php
 
-                    if (has_post_thumbnail()) {
+            echo isago_get_post_thumbnail(
+                get_the_ID(),
+                'medium',
+                [
+                    'loading' => 'lazy',
+                    'alt'     => the_title_attribute([
+                        'echo' => false
+                    ])
+                ]
+            );
 
-                        the_post_thumbnail('medium');
+            ?>
 
-                    } else {
 
-                        echo '<img src="' .
-                            esc_url(
-                                get_template_directory_uri() .
-                                '/assets/images/video.png'
-                            ) .
-                            '" alt="' .
-                            esc_attr(get_the_title()) .
-                            '">';
+            <?php
+            /*
+            |--------------------------------------------------------------------------
+            | Video Lightbox Source
+            |--------------------------------------------------------------------------
+            */
 
-                    }
+            $video_url = isago_get_video_url(
+                get_the_ID()
+            );
+            ?>  
 
-                    ?>
 
-                    <span class="video-play">
+            <?php if (!empty($video_url)) : ?>
 
-                        <i class="fa-solid fa-play"></i>
+                <button
+                    type="button"
+                    class="sidebar-video-play homepage-video-play"
+                    data-video="<?php echo esc_url($video_url); ?>"
+                    aria-label="<?php echo esc_attr(
+                        'Play ' . get_the_title()
+                    ); ?>"
+                >
 
-                    </span>
+                    <i class="fa-solid fa-play"></i>
 
-                </div>
+                </button>
+
+            <?php endif; ?>
+
+        </div>
+
+    </div>
+
+
+    <div class="sidebar-video-content">
+
+        <div class="sidebar-video-label">
+
+            VIDEO
+
+        </div>
+
+
+        <h4 class="isago-editorial-post-title">
+
+            <a href="<?php the_permalink(); ?>">
+
+                <?php the_title(); ?>
 
             </a>
 
-
-            <div class="video-content">
-
-                <span class="video-label">
-                    VIDEO
-                </span>
+        </h4>
 
 
-                <h4>
+        <div class="isago-post-meta">
 
-                    <a href="<?php the_permalink(); ?>">
+            <?php echo esc_html(
+                get_the_date()
+            ); ?>
 
-                        <?php the_title(); ?>
+        </div>
 
-                    </a>
+    </div>
 
-                </h4>
-
-
-                <div class="latest-date">
-
-                    <?php echo esc_html(
-                        get_the_date()
-                    ); ?>
-
-                </div>
-
-            </div>
-
-        </article>
+</article>
 
     <?php endwhile; ?>
 

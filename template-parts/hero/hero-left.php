@@ -4,13 +4,31 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$query = $args['query'] ?? null;
 
-if (!$query || !$query->have_posts()) {
+$query =
+    $args['query']
+    ?? null;
+
+
+$type =
+    sanitize_key(
+        $args['type']
+        ?? 'blog'
+    );
+
+
+if (
+    !$query
+    ||
+    !$query->have_posts()
+) {
+
     return;
+
 }
 
 ?>
+
 
 <div class="hero-left">
 
@@ -18,11 +36,60 @@ if (!$query || !$query->have_posts()) {
 
     $count = 0;
 
-    while ($query->have_posts() && $count < 2) :
+    while (
+        $query->have_posts()
+        &&
+        $count < 2
+    ) :
 
         $query->the_post();
 
-        $categories = get_the_category();
+
+        /*=================================================
+        GET CONTENT CATEGORY
+        =================================================*/
+
+        $categories = [];
+
+
+        /*
+         * Blog
+         */
+
+        if (
+            $type === 'blog'
+        ) {
+
+            $categories =
+                get_the_category();
+
+        }
+
+
+        /*
+         * AI Prompt
+         */
+
+        elseif (
+            $type === 'ai_prompt'
+        ) {
+
+            $categories =
+                get_the_terms(
+                    get_the_ID(),
+                    'ai_prompt_category'
+                );
+
+
+            if (
+                is_wp_error($categories)
+            ) {
+
+                $categories = [];
+
+            }
+
+        }
 
     ?>
 
@@ -35,16 +102,22 @@ if (!$query || !$query->have_posts()) {
 
                 <?php
 
-                if (has_post_thumbnail()) {
+                echo isago_get_post_thumbnail(
 
-                    the_post_thumbnail(
-                        'medium_large',
-                        [
-                            'loading' => $count === 0 ? 'eager' : 'lazy'
-                        ]
-                    );
+                    get_the_ID(),
 
-                }
+                    'medium_large',
+
+                    [
+
+                        'loading' =>
+                            $count === 0
+                                ? 'eager'
+                                : 'lazy'
+
+                    ]
+
+                );
 
                 ?>
 
@@ -53,11 +126,14 @@ if (!$query || !$query->have_posts()) {
 
             <div class="hero-side-content">
 
+
                 <?php if (!empty($categories)) : ?>
 
                     <div class="category-text isago-post-category">
 
-                        <?php echo esc_html($categories[0]->name); ?>
+                        <?php echo esc_html(
+                            $categories[0]->name
+                        ); ?>
 
                     </div>
 
@@ -75,15 +151,38 @@ if (!$query || !$query->have_posts()) {
                 </h3>
 
 
+                <?php
+
+                $theme =
+                    isago_get_theme_settings();
+
+
+                $author_name =
+                    !empty(
+                        $theme['author_name']
+                    )
+                        ? $theme['author_name']
+                        : 'Isago';
+
+                ?>
+
+
                 <div class="isago-post-meta">
 
-                   <?php echo esc_html(get_the_date()); ?>
+                    <?php echo esc_html(
+                        get_the_date()
+                    ); ?>
 
-            <span aria-hidden="true">•</span>
+                    <span aria-hidden="true">
+                        •
+                    </span>
 
-            <?php the_author(); ?>
+                    <?php echo esc_html(
+                        $author_name
+                    ); ?>
 
                 </div>
+
 
             </div>
 
@@ -94,6 +193,7 @@ if (!$query || !$query->have_posts()) {
         $count++;
 
     endwhile;
+
 
     wp_reset_postdata();
 

@@ -9,7 +9,7 @@ margin:55px 0 90px;
 }
 
 .post-layout{
-
+  
 display:grid;
 
 grid-template-columns:minmax(0,1.75fr) 340px;
@@ -36,25 +36,13 @@ margin-bottom:45px;
 
 .post-category{
 
-display:inline-flex;
-
-margin-bottom:18px;
-
-font-size:12px;
-
-font-weight:800;
-
-letter-spacing:.08em;
-
-text-transform:uppercase;
-
-color:var(--isago-primary);
-
+margin-top: 40px;
+margin-bottom: 60px;
 }
 
 .post-title{
 
-font-size:56px;
+font-size:42px;
 
 line-height:1.08;
 
@@ -70,14 +58,14 @@ max-width:900px;
 
 .post-excerpt{
 
-font-size:19px;
+font-size:16px;
 
 line-height:1.8;
 
-color:#64748b;
+color:var(--isago-post-text);
 
 margin-bottom:30px;
-
+margin-top: 10px;
 max-width:760px;
 
 }
@@ -112,7 +100,7 @@ gap:22px;
 
 font-size:14px;
 
-color:#64748b;
+color:var(--isago-date);
 
 }
 
@@ -175,7 +163,7 @@ ARTICLE
 
 margin-top:40px;
 
-font-size:19px;
+font-size:16px;
 
 line-height:1.9;
 
@@ -205,7 +193,7 @@ margin:70px 0 22px;
 
 .post-content h3{
 
-font-size:30px;
+font-size:25px;
 
 font-weight:800;
 
@@ -229,7 +217,7 @@ margin:40px 0 16px;
 
 line-height:1.95;
 
-color:#475569;
+color:var(--isago-post-text);
 
 }
 
@@ -325,7 +313,7 @@ margin:70px 0;
 
 border:none;
 
-border-top:1px solid #e5e7eb;
+border-top:1px solid var(--isago-border);
 
 }
 
@@ -345,7 +333,7 @@ margin:45px 0;
 
 padding:15px;
 
-border:1px solid #e5e7eb;
+border:1px solid var(--isago-border);
 
 }
 
@@ -353,7 +341,7 @@ border:1px solid #e5e7eb;
 
 background:#111827;
 
-color:#fff;
+color:var(--isago-text);
 
 padding:28px;
 
@@ -424,7 +412,7 @@ font-size:14px;
 
 font-weight:700;
 
-color:#555;
+color:var(--isago-post-text);
 
 margin-right:5px;
 
@@ -446,7 +434,7 @@ align-items:center;
 
 justify-content:center;
 
-border:1px solid #e5e7eb;
+border:1px solid var(--isago-border);
 
 background:var(--isago-bg);
 
@@ -454,7 +442,7 @@ cursor:pointer;
 
 transition:.3s;
 
-color:var(--isago-text);
+color:var(--isago-date);
 
 }
 
@@ -466,10 +454,98 @@ background:var(--isago-primary);
 
 border-color:var(--isago-primary);
 
-color:#fff;
+color:var(--isago-text);
+
+}
+/*=========================================================
+COPY LINK
+=========================================================*/
+
+.copy-post-link{
+
+    position:relative;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        transform .2s ease;
 
 }
 
+.copy-post-link.is-copied{
+
+    background:var(--isago-primary);
+
+    border-color:var(--isago-primary);
+
+    color:var(--isago-text);
+
+}
+
+.copy-post-link.is-copied i{
+
+    animation:isago-copy-check .25s ease;
+
+}
+
+.copy-feedback{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-34px;
+
+    transform:translateX(-50%);
+
+    white-space:nowrap;
+
+    padding:5px 9px;
+
+    background:#111827;
+
+    color:var(--isago-text);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    border-radius:4px;
+
+    pointer-events:none;
+
+    z-index:20;
+
+}
+
+@keyframes isago-copy-check{
+
+    0%{
+
+        transform:scale(.7);
+
+        opacity:0;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
 
 
 
@@ -549,13 +625,13 @@ margin-top:70px;
 
 .post-title{
 
-font-size:40px;
+font-size:38px;
 
 }
 
 .post-excerpt{
 
-font-size:17px;
+font-size:14px;
 
 }
 
@@ -589,7 +665,7 @@ font-size:17px;
 
 .post-content h2{
 
-font-size:32px;
+font-size:25px;
 
 }
 
@@ -633,13 +709,14 @@ gap:28px;
 
 align-items:center;
 
-border:1px solid #e5e7eb;
+border:1px solid var(--isago-border);
 
 border-radius:18px;
 
 background:var(--isago-bg);
 
 transition:.35s;
+box-shadow: 2px 2px 12px #0002;
 
 }
 
@@ -676,14 +753,16 @@ margin:0 0 10px;
 font-size:24px;
 
 font-weight:900;
-
+color: var(--isago-text);
 }
-
+.author-bio{
+    color: var(--isago-primary);
+}
 .post-author-content p{
 
 margin-bottom:20px;
 
-color:#64748b;
+color: var(--isago-post-text);
 
 line-height:1.8;
 
@@ -705,7 +784,7 @@ height:40px;
 
 border-radius:50%;
 
-border:1px solid #e5e7eb;
+border:1px solid var(--isago-border);
 
 display:flex;
 
@@ -721,7 +800,7 @@ transition:.3s;
 
 background:var(--isago-primary);
 
-color:#fff;
+color:var(--isago-text);
 
 border-color:var(--isago-primary);
 
@@ -743,35 +822,7 @@ margin:80px 0;
 
 }
 
-.related-grid{
 
-display:grid;
-
-grid-template-columns:repeat(5,1fr);
-
-gap:22px;
-
-}
-
-.related-card img{
-
-width:100%;
-
-aspect-ratio:16/10;
-
-object-fit:cover;
-
-border-radius:12px;
-
-transition:.35s;
-
-}
-
-.related-card:hover img{
-
-transform:scale(1.05);
-
-}
 
 .related-content{
 
@@ -779,66 +830,12 @@ margin-top:12px;
 
 }
 
-.related-category{
-
-font-size:11px;
-
-font-weight:800;
-
-color:var(--isago-primary);
-
-text-transform:uppercase;
-
-margin-bottom:8px;
-
-}
-
-.related-card h3{
-
-font-size:16px;
-
-line-height:1.45;
-
-font-weight:800;
-
-margin-bottom:8px;
-
-}
-
-.related-date{
-
-font-size:12px;
-
-color:#94a3b8;
-
-}
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-@media (max-width:1200px){
-
-.related-grid,
-
-.single-video-grid{
-
-grid-template-columns:repeat(3,1fr);
-
-}
-
-}
 
 @media (max-width:768px){
 
@@ -856,15 +853,889 @@ justify-content:center;
 
 }
 
-.related-grid,
 
-.single-video-grid{
 
-grid-template-columns:1fr;
+}
+
+
+
+@media(max-width:468px){
+
+.post-title{
+
+font-size:30px;
+
+}
+.post-excerpt{
+
+font-size:14px;
 
 }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+SINGLE VIDEO POST
+=========================================================*/
+
+.isago-post-video {
+    position: relative;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+
+.isago-post-video-thumb {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.isago-post-video-thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+.isago-post-video-thumb .homepage-video-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+
+.isago-post-video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+
+.isago-post-video-play i {
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+/*=========================================================
+AI PROMPT RETIREMENT NOTICE
+=========================================================*/
+
+.isago-ai-prompt-retirement-notice {
+    display: flex;
+    gap: 18px;
+    margin: 0 0 24px;
+    padding: 20px 22px;
+    border: 1px solid rgba(0, 212, 245, 0.28);
+    border-radius: 14px;
+    background: rgba(0, 212, 245, 0.06);
+}
+
+
+.isago-ai-prompt-retirement-notice-icon {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 212, 245, 0.12);
+    color: #00d4f5;
+    font-size: 18px;
+}
+
+
+.isago-ai-prompt-retirement-notice-content {
+    flex: 1;
+    min-width: 0;
+}
+
+
+.isago-ai-prompt-retirement-notice-content h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+
+.isago-ai-prompt-retirement-notice-content p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+.isago-ai-prompt-retirement-notice-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+.isago-ai-prompt-retirement-notice-content strong {
+    font-weight: 700;
+}
+
+
+@media (max-width: 600px) {
+
+    .isago-ai-prompt-retirement-notice {
+        gap: 13px;
+        padding: 16px;  
+    }
+
+
+    .isago-ai-prompt-retirement-notice-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
+
+
+    .isago-ai-prompt-retirement-notice-content h3 {
+        font-size: 16px;
+    }
+
+
+    .isago-ai-prompt-retirement-notice-content p {
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   ISAGO VIDEO AI PROMPT
+========================================================= */
+
+.isago-video-ai-prompt {
+    margin: 45px 0;
+    padding: 28px;
+    border: 1px solid var(--isago-border);
+    border-radius: 18px;
+    background: var(--isago-bg);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.isago-video-ai-prompt-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.isago-video-ai-prompt-heading {
+    flex: 1;
+    min-width: 0;
+}
+
+.isago-video-ai-prompt-eyebrow {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #00d4f5;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.isago-video-ai-prompt-heading h2 {
+    margin: 0 0 12px;
+    color: var(--isago-text);
+    font-size: 24px;
+    line-height: 1.25;
+    font-weight: 900;
+}
+
+.isago-video-ai-prompt-heading p {
+    margin: 0;
+    color: var(--isago-post-text);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.isago-video-prompt-toggle,
+.isago-video-prompt-copy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border: 1px solid #00d4f5;
+    border-radius: 10px;
+    background: #00d4f5;
+    color: #07111f;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.isago-video-prompt-toggle:hover,
+.isago-video-prompt-copy:hover {
+    background: #36fefb;
+    border-color: #36fefb;
+    transform: translateY(-1px);
+}
+
+.isago-video-prompt-chevron {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.isago-video-prompt-panel {
+    margin-top: 24px;
+    padding-top: 22px;
+    border-top: 1px solid var(--isago-border);
+}
+
+.isago-video-prompt-panel[hidden] {
+    display: none !important;
+}
+
+.isago-video-prompt-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 14px;
+}
+
+.isago-video-prompt-label {
+    color: var(--isago-date);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.isago-video-prompt-copy {
+    padding: 9px 14px;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FORMATTED VIDEO PROMPT CONTENT
+========================================================= */
+
+.isago-video-prompt-text {
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 650px;
+    margin: 0;
+    padding: 24px;
+    overflow: auto;
+    overflow-wrap: anywhere;
+    border: 1px solid var(--isago-border);
+    border-radius: 12px;
+    background: var(--isago-card);
+    color: var(--isago-text);
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+.isago-video-prompt-text > :first-child {
+    margin-top: 0;
+}
+
+.isago-video-prompt-text > :last-child {
+    margin-bottom: 0;
+}
+
+.isago-video-prompt-text h2 {
+    margin: 30px 0 14px;
+    color: var(--isago-text);
+    font-size: 25px;
+    line-height: 1.3;
+    font-weight: 900;
+}
+
+.isago-video-prompt-text h3 {
+    margin: 26px 0 12px;
+    color: var(--isago-text);
+    font-size: 21px;
+    line-height: 1.4;
+    font-weight: 800;
+}
+
+.isago-video-prompt-text h4 {
+    margin: 22px 0 10px;
+    color: var(--isago-text);
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.isago-video-prompt-text p {
+    margin: 0 0 18px;
+    color: var(--isago-post-text);
+    line-height: 1.85;
+}
+
+.isago-video-prompt-text strong,
+.isago-video-prompt-text b {
+    color: var(--isago-text);
+    font-weight: 800;
+}
+
+.isago-video-prompt-text em,
+.isago-video-prompt-text i {
+    font-style: italic;
+}
+
+.isago-video-prompt-text ul,
+.isago-video-prompt-text ol {
+    margin: 16px 0 22px;
+    padding-left: 28px;
+}
+
+.isago-video-prompt-text li {
+    margin-bottom: 9px;
+    padding-left: 4px;
+}
+
+.isago-video-prompt-text a {
+    color: var(--isago-primary);
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+}
+
+.isago-video-prompt-text blockquote {
+    margin: 22px 0;
+    padding: 16px 20px;
+    border-left: 4px solid var(--isago-primary);
+    background: rgba(0, 212, 245, 0.06);
+    border-radius: 6px;
+}
+
+.isago-video-prompt-text pre,
+.isago-video-prompt-text code {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+    .isago-video-prompt-text {
+        max-height: 600px;
+        padding: 17px;
+        font-size: 14px;
+    }
+
+    .isago-video-prompt-text h2 {
+        font-size: 22px;
+    }
+
+    .isago-video-prompt-text h3 {
+        font-size: 16px;
+    }
+}
+
+
+.isago-video-prompt-feedback {
+    min-height: 20px;
+    margin: 10px 0 0;
+    color: var(--isago-post-text);
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .isago-video-ai-prompt {
+        padding: 20px;
+        margin: 35px 0;
+    }
+
+    .isago-video-ai-prompt-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .isago-video-ai-prompt-heading h2 {
+        font-size: 24px;
+    }
+
+    .isago-video-prompt-toggle {
+        width: 100%;
+    }
+
+    .isago-video-prompt-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .isago-video-prompt-copy {
+        width: 100%;
+    }
+
+    .isago-video-prompt-text {
+        padding: 16px;
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+/* =========================================================
+   AI PROMPT INSTRUCTIONS — RICH TEXT
+========================================================= */
+
+.isago-ai-prompt-instructions {
+  
+    background: var(--isago-card) !important;
+    color: var(--isago-text) !important;
+}
+#isago-ai-prompt-instructions-title{
+  
+    color: var(--isago-text) !important;
+}
+.isago-ai-prompt-instructions-body{
+    font-size: 16px;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+    background: var(--isago-card);
+}
+.isago-ai-prompt-instructions-body > :first-child {
+    margin-top: 0;
+}
+
+.isago-ai-prompt-instructions-body > :last-child {
+    margin-bottom: 0;
+}
+
+.isago-ai-prompt-instructions-body p {
+    margin: 0 0 18px;
+    line-height: 1.85;
+     color: var(--isago-post-text);
+}
+
+.isago-ai-prompt-instructions-body h2 {
+    margin: 32px 0 14px;
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 900;
+    color: var(--isago-text);
+}
+
+.isago-ai-prompt-instructions-body h3 {
+    margin: 26px 0 12px;
+    font-size: 22px;
+    line-height: 1.4;
+    font-weight: 800;
+    color: var(--isago-text);
+}
+
+.isago-ai-prompt-instructions-body h4 {
+    margin: 22px 0 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 800;
+    color: var(--isago-text);
+}
+
+.isago-ai-prompt-instructions-body strong,
+.isago-ai-prompt-instructions-body b {
+    font-weight: 800;
+    color: var(--isago-text);
+}
+
+.isago-ai-prompt-instructions-body ul,
+.isago-ai-prompt-instructions-body ol {
+    margin: 16px 0 24px;
+    padding-left: 28px;
+     color: var(--isago-text);
+}
+
+.isago-ai-prompt-instructions-body li {
+    margin-bottom: 10px;
+    padding-left: 4px;
+     color: var(--isago-text);
+}
+
+.isago-ai-prompt-instructions-body a {
+    color: var(--isago-primary);
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+     color: var(--isago-text);
+}
+
+.isago-ai-prompt-instructions-body blockquote {
+    margin: 24px 0;
+    padding: 18px 22px;
+    border-left: 4px solid var(--isago-primary);
+    border-radius: 8px;
+    background: rgba(0, 212, 245, 0.06);
+     color: var(--isago-text);
+}
+
+@media (max-width: 768px) {
+    .isago-ai-prompt-instructions-body {
+        font-size: 15px;
+    }
+
+    .isago-ai-prompt-instructions-body h2 {
+        font-size: 23px;
+    }
+
+    .isago-ai-prompt-instructions-body h3 {
+        font-size: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   ISAGO — BUY ME A COFFEE SUPPORT
+========================================================= */
+
+.isago-coffee-support {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin: 32px 0;
+    padding: 24px;
+    border: 1px solid rgba(0, 212, 245, 0.24);
+    border-radius: 16px;
+    background: rgba(0, 212, 245, 0.055);
+}
+
+.isago-coffee-support-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    min-width: 0;
+}
+
+.isago-coffee-support-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(0, 212, 245, 0.14);
+    color: #00d4f5;
+    font-size: 21px;
+}
+
+.isago-coffee-support-text {
+    min-width: 0;
+}
+
+.isago-coffee-support-text h3 {
+    margin: 0 0 7px;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 800;
+    color: var(--isago-text, #111827);
+}
+
+.isago-coffee-support-text p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--isago-muted, #64748b);
+}
+
+.isago-coffee-support-button {
+    flex-shrink: 0;
+    gap: 10px;
+    text-decoration: none !important;
+    white-space: nowrap;
+}
+
+.isago-coffee-support-button:hover {
+    transform: translateY(-2px);
+}
+
+.isago-coffee-support-button:focus-visible {
+    outline: 3px solid #00d4f5;
+    outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+    .isago-coffee-support {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .isago-coffee-support-button {
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
+        white-space: normal;
+    }
+
+    .isago-coffee-support-text h3 {
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+ISAGO — ARTICLE TABLE DESIGN
+=========================================================*/
+
+.post-content table {
+    display: table;
+    width: 100%;
+    max-width: 100%;
+    margin: 35px 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
+    border: 1px solid var(--isago-border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--isago-card);
+    color: var(--isago-post-text);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Table cells */
+.post-content table th,
+.post-content table td {
+    padding: 16px 18px;
+    border: 0;
+    border-right: 1px solid var(--isago-border);
+    border-bottom: 1px solid var(--isago-border);
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: break-word;
+}
+
+/* Remove unnecessary outer borders */
+.post-content table tr > *:last-child {
+    border-right: 0;
+}
+
+.post-content table tr:last-child > * {
+    border-bottom: 0;
+}
+
+/* Header row */
+.post-content table thead th,
+.post-content table tr:first-child th {
+    background: var(--isago-primary);
+    color: #07111f;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+/* Body text */
+.post-content table tbody td {
+    color: var(--isago-post-text);
+    font-weight: 400;
+}
+
+/* Subtle alternating rows */
+.post-content table tbody tr:nth-child(even) {
+    background: rgba(127, 127, 127, 0.06);
+}
+
+/* Hover highlight */
+.post-content table tbody tr:hover {
+    background: rgba(0, 212, 245, 0.08);
+}
+
+/* Keep text inside cells readable */
+.post-content table p {
+    margin: 0;
+    line-height: 1.7;
+    color: inherit;
+}
+
+.post-content table strong {
+    font-weight: 750;
+}
+
+/* Responsive tables on smaller screens */
+@media (max-width: 768px) {
+    .post-content table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        font-size: 14px;
+    }
+
+    .post-content table th,
+    .post-content table td {
+        min-width: 130px;
+        padding: 12px 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   ISAGO — SINGLE POST READABILITY FIX
+   Fix article text contrast and prompt blocks in dark mode
+========================================================= */
+
+/* Main article text */
+.isago-post-page .post-content {
+    color: var(--isago-post-text);
+    background: transparent;
+}
+
+/* Paragraphs and general text */
+.isago-post-page .post-content p,
+.isago-post-page .post-content li,
+.isago-post-page .post-content dd {
+    color: var(--isago-post-text);
+}
+
+/* Headings */
+.isago-post-page .post-content h1,
+.isago-post-page .post-content h2,
+.isago-post-page .post-content h3,
+.isago-post-page .post-content h4,
+.isago-post-page .post-content h5,
+.isago-post-page .post-content h6 {
+    color: var(--isago-text);
+    font-size: 25px;
+}
+
+/* Bold text */
+.isago-post-page .post-content strong,
+.isago-post-page .post-content b {
+    color: var(--isago-text);
+}
+
+/* Article links */
+.isago-post-page .post-content a {
+    color: var(--isago-primary);
+}
+
+/* Prompt and code blocks */
+.isago-post-page .post-content pre,
+.isago-post-page .post-content pre code {
+    background: var(--isago-card);
+    color: var(--isago-text);
+    border-radius: 12px;
+}
+
+/* Inline code */
+.isago-post-page .post-content code {
+    background: rgba(148, 163, 184, 0.15);
+    color: var(--isago-text);
+    
+
+}
+
+/* Blockquotes */
+.isago-post-page .post-content blockquote {
+    background: var(--isago-card);
+    color: var(--isago-post-text);
+    border-left-color: var(--isago-primary);
+    font-size: 16px;
+}
+
+.isago-post-page .post-content blockquote p {
+    color: inherit;
+}
+
+/* Tables */
+.isago-post-page .post-content table {
+    background: var(--isago-card);
+    color: var(--isago-post-text);
+}
+
+.isago-post-page .post-content table td {
+    color: var(--isago-post-text);
+}
+
+.isago-post-page .post-content table th {
+    color: var(--isago-text);
+}
+
+
+
+/* Prevent article content from inheriting a white text-block background */
+.isago-post-page .post-content .wp-block-quote {
+    background: var(--isago-card);
+    color: var(--isago-post-text);
+}
+
 
 
 

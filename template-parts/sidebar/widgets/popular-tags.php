@@ -1,41 +1,38 @@
+
 <section class="sidebar-widget">
 
-<h3 class="sidebar-title">
+    <h3 class="isago-section-title">
+        POPULAR TAGS
+    </h3>
 
-POPULAR TAGS
+    <div class="popular-tags cat-margin">
 
-</h3>
+        <?php
+        $settings = isago_get_sidebar_settings();
 
-<div class="popular-tags">
+        $limit = absint(
+            $settings['popular_tags_count'] ?? 8
+        );
 
-<?php
+        $tags = function_exists('isago_get_contextual_popular_tags')
+            ? isago_get_contextual_popular_tags($limit)
+            : [];
 
-$settings = isago_get_sidebar_settings();
+        if (!empty($tags)) :
 
-$tags = get_tags([
+            foreach ($tags as $tag) :
+        ?>
 
-'hide_empty'=>false,
+                <a href="<?php echo esc_url(get_tag_link($tag)); ?>">
+                    <?php echo esc_html($tag->name); ?>
+                </a>
 
-'orderby'=>'count',
+        <?php
+            endforeach;
 
-'order'=>'DESC',
+        endif;
+        ?>
 
-'number'=>$settings['popular_tags_count']
-
-]);
-
-foreach($tags as $tag):
-
-?>
-
-<a href="<?php echo esc_url(get_tag_link($tag)); ?>">
-
-<?php echo esc_html($tag->name); ?>
-
-</a>
-
-<?php endforeach; ?>
-
-</div>
+    </div>
 
 </section>

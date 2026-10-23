@@ -17,58 +17,22 @@ if (!defined('ABSPATH')) {
 $theme = isago_get_theme_settings();
 $header_ad = isago_get_ad('header');
 ?>
+
+<?php if (isago_ad_enabled('header')) : ?>
+<div class="ad-box isago-header-ad">
+    <?php
+       echo isago_render_ad(
+    'header',
+    'ad-image'
+);
+        ?>
+</div>
+<?php endif; ?>
+
+
 <div class="isago-header-wrapper">
 
 <header class="isago-header">
-
-      <?php if (
-    !empty($header_ad['enable']) &&
-    !empty($header_ad['image'])
-) : ?>
-
-    <div class="header-ad-label">
-        Advertisement
-    </div>
-
-    <div class="header-ad-box">
-
-        <div class="header-banner">
-
-            <?php if (!empty($header_ad['url'])) : ?>
-
-                <a
-                    href="<?php echo esc_url($header_ad['url']); ?>"
-                    <?php
-                    if (!empty($header_ad['blank'])) {
-                        echo 'target="_blank" rel="noopener noreferrer"';
-                    }
-                    ?>
-                >
-
-                    <img
-                        src="<?php echo esc_url($header_ad['image']); ?>"
-                        alt="<?php echo esc_attr($header_ad['alt']); ?>"
-                    >
-
-                </a>
-
-            <?php else : ?>
-
-                <img
-                    src="<?php echo esc_url($header_ad['image']); ?>"
-                    alt="<?php echo esc_attr($header_ad['alt']); ?>"
-                >
-
-            <?php endif; ?>
-
-        </div>
-
-    </div>
-
-<?php endif; ?>
-
-  
-
 
     <div class="isago-topbar container">
 
@@ -112,7 +76,7 @@ $header_ad = isago_get_ad('header');
             aria-label="Toggle Dark Mode">
 
             <i class="fa-regular fa-moon"></i>
-
+  
         </button>
 
     </div>
@@ -164,8 +128,8 @@ $header_ad = isago_get_ad('header');
      <?php
 
 get_template_part(
-
-'template-parts/header/social-icons'
+  
+'template-parts/header/auth'
 
 );
 
@@ -201,6 +165,15 @@ get_template_part(
 
 get_template_part(
     'template-parts/header/navigation'
-);
+);  
 ?>
 </div>
+
+
+
+
+
+
+
+
+

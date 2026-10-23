@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 
 <div class="container">
 
-    <?php
+    <?php  
   
     get_template_part('template-parts/search/search-header');
     ?>
@@ -30,7 +30,23 @@ if (!defined('ABSPATH')) {
                 <?php get_template_part('template-parts/search/search-no-results'); ?>
 
             <?php endif; ?>
+    <div class="post-category padding-top">
+<?php if (isago_ad_enabled('search')) : ?>
+      <div class="ad-box">
+          <?php
 
+        echo isago_render_ad(
+            'search',
+            'ad-image',
+            'category-banner',
+        
+        );
+
+        ?>
+      </div>
+<?php endif; ?>
+
+    </div>
         </main>
 
         <?php
@@ -42,5 +58,24 @@ if (!defined('ABSPATH')) {
     </div>
 
 </div>
+
+</section>
+
+
+
+
+<section class="homepage-video-wrapper">
+
+    <div class="container">
+
+        <?php
+
+        get_template_part(
+            'template-parts/sections/video-section'
+        );
+
+        ?>
+
+    </div>
 
 </section>

@@ -1,0 +1,2311 @@
+/*=========================================================
+AI PROMPT SINGLE
+=========================================================*/
+
+.isago-ai-prompt-single {
+    width: 100%;
+}
+
+.isago-ai-prompt-title{
+    margin-bottom: 20px;
+}
+
+/*=========================================================
+SHORT DESCRIPTION
+=========================================================*/
+
+.isago-ai-prompt-description {
+    max-width: 850px;
+    margin: 0 0 28px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--isago-post-text);
+    margin-bottom: 30px;
+}
+
+
+
+
+/*=========================================================
+PROMPT MEDIA
+=========================================================*/
+
+.isago-ai-prompt-media {
+    position: relative;
+    width: 100%;
+    margin: 0 0 30px;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+
+.isago-ai-prompt-media img,
+.isago-ai-prompt-media video {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 450px;
+}
+
+
+.isago-ai-prompt-video {
+    position: relative;
+}
+
+
+/*=========================================================
+PROMPT VIDEO PLAY BUTTON
+=========================================================*/
+
+.isago-ai-prompt-video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 64px;
+    height: 64px;
+
+    margin: 0;
+
+    transform: translate(
+        -50%,
+        -50%
+    );
+
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(
+        0,
+        0,
+        0,
+        .78
+    );
+
+    color: #fff;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(
+            0,
+            0,
+            0,
+            .25
+        );
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+
+.isago-ai-prompt-video-play:hover {
+    transform:
+        translate(
+            -50%,
+            -50%
+        )
+        scale(1.08);
+}
+
+
+.isago-ai-prompt-video-play i {
+    margin-left: 3px;
+    font-size: 20px;
+}
+
+
+/*=========================================================
+WORKSPACE
+=========================================================*/
+
+.isago-ai-prompt-workspace {
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: var(--isago-workspace);
+
+    color: var(--isago-text);
+
+    box-shadow:
+        0 18px 50px rgba(
+            0,
+            0,
+            0,
+            .12
+        );
+}
+
+
+/*=========================================================
+WORKSPACE HEADER
+=========================================================*/
+
+.isago-ai-prompt-workspace-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    min-height: 68px;
+
+    padding: 12px 18px;
+
+    background: var(--isago-workspace-header);
+
+    border-bottom: 1px solid var(--isago-border-color);
+}
+
+
+.isago-ai-prompt-workspace-title {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+    color: var(--isago-text);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+.isago-ai-prompt-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 10px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+    box-shadow: var(--isago-box-shadow);
+
+    color: var(
+        --isago-primary,
+        #00d4f5
+    );
+}
+
+
+.isago-ai-prompt-workspace-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.isago-ai-prompt-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        .12
+    );
+ box-shadow: var(--isago-box-shadow);
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: var(--isago-text);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.isago-ai-prompt-copy:hover {
+    background: var(--isago-rgb-border);
+     box-shadow: var(--isago-box-shadow);
+}
+
+
+/*=========================================================
+WORKSPACE BODY
+=========================================================*/
+
+.isago-ai-prompt-workspace-body {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        320px;
+
+    min-height: 430px;
+}
+
+
+/*=========================================================
+PROMPT CONTENT
+=========================================================*/
+
+.isago-ai-prompt-content {
+    min-width: 0;
+
+    padding: 28px;
+
+    background: var(--isago-workspace-body);
+}
+
+
+.isago-ai-prompt-content-inner {
+    max-height: 650px;
+
+    overflow-y: auto;
+
+    padding-right: 10px;
+
+    font-size: 15px;
+    line-height: 1.75;
+
+    color: var(--isago-text);
+}
+
+
+.isago-ai-prompt-content-inner::-webkit-scrollbar {
+    width: 7px;
+}
+
+
+.isago-ai-prompt-content-inner::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        .18
+    );
+         box-shadow: var(--isago-box-shadow);
+}
+
+
+/*=========================================================
+PROMPT TYPOGRAPHY
+=========================================================*/
+
+.isago-ai-prompt-content-inner h1,
+.isago-ai-prompt-content-inner h2,
+.isago-ai-prompt-content-inner h3,
+.isago-ai-prompt-content-inner h4 {
+    color: var(--isago-text);
+    font-weight: 900;
+     margin-bottom: 10px;
+     margin-top: 10px;
+}
+
+.isago-ai-prompt-content-inner p{
+    color: var(--isago-post-text);
+    font-weight: 400;
+  
+}
+
+.isago-ai-prompt-content-inner strong {
+    color: var(--isago-text);
+      font-weight: 700;
+      
+}
+
+
+.isago-ai-prompt-content-inner pre {
+    overflow-x: auto;
+
+    margin: 20px 0;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    background: #111;
+
+    color: var(--isago-text);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+.isago-ai-prompt-content-inner code {
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+}
+
+
+.isago-ai-prompt-content-inner pre code {
+    color: inherit;
+}
+
+
+/*=========================================================
+VARIABLE PANEL
+=========================================================*/
+
+.isago-ai-prompt-variables {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    padding: 28px 24px;
+
+    background: var(--isago-workspace-body);
+
+    border-left: 1px solid rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+         box-shadow: var(--isago-box-shadow);
+}
+
+
+.isago-ai-prompt-variables-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+.isago-ai-prompt-variables-header > div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+
+.isago-ai-prompt-variables-header i {
+    color: var(
+        --isago-primary,
+        #00d4f5
+    );
+}
+
+
+.isago-ai-prompt-variable-count {
+    color: var(--isago-muted);
+
+    font-size: 12px;
+}
+
+
+.isago-ai-prompt-variable-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+
+.isago-ai-prompt-variable-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.isago-ai-prompt-variable-field label {
+    color: var(--isago-muted);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .04em;
+}
+
+
+.isago-ai-prompt-variable-input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        .10
+    );
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #30302e;
+
+    color: var(--isago-text);
+     box-shadow: var(--isago-box-shadow);
+    font-size: 14px;
+}
+
+
+.isago-ai-prompt-variable-input::placeholder {
+    color: #888;
+}
+
+
+.isago-ai-prompt-variable-input:focus {
+    border-color: var(
+        --isago-primary,
+        #00d4f5
+    );
+}
+
+
+.isago-ai-prompt-reset {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: auto;
+    padding: 11px 14px;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        .10
+    );
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #aaa;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+.isago-ai-prompt-reset:hover {
+    color: var(--isago-text);
+
+    background: rgba(
+        255,
+        255,
+        255,
+        .06
+    );
+}
+
+
+/*=========================================================
+WORKSPACE FOOTER
+=========================================================*/
+
+.isago-ai-prompt-workspace-footer {
+    padding: 18px 22px;
+
+    background: var(--isago-workspace-header);
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+    border-top: 1px solid rgba(
+        255,w
+        255,
+        255,
+        .08
+    );
+}
+
+/*=========================================================
+PROMPT TAGS
+=========================================================*/
+
+.isago-ai-prompt-tags {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 6px;
+}
+
+
+.isago-ai-prompt-tag {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 7px 10px;
+
+    border-radius: 9px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        .07
+    );
+
+    color: var(--isago-text);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        color .2s ease,
+        background .2s ease;
+}
+
+
+.isago-ai-prompt-tag:hover {
+    background: rgba(
+        0,
+        212,
+        245,
+        .10
+    );
+
+    color: var(
+        --isago-primary,
+        #00d4f5
+    );
+}
+.isago-ai-prompt-meta-left {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 14px 20px;
+}
+
+
+/*=========================================================
+CATEGORY
+=========================================================*/
+
+.isago-ai-prompt-meta-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.isago-ai-prompt-meta-label {
+    color: #8f8f8b;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+.isago-ai-prompt-category-path {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    padding: 8px 11px;
+
+    border-radius: 9px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        .07
+    );
+
+    font-size: 12px;
+}
+
+
+.isago-ai-prompt-category-path a {
+    color: #eee;
+
+    text-decoration: none;
+}
+
+
+.isago-ai-prompt-category-path a:hover {
+    color: var(
+        --isago-primary,
+        #00d4f5
+    );
+}
+
+
+.isago-ai-prompt-category-separator {
+    color: #666;
+
+    font-size: 9px;
+}
+
+
+/*=========================================================
+AI PLATFORMS
+=========================================================*/
+
+.isago-ai-prompt-platforms {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+.isago-ai-prompt-platform-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.isago-ai-prompt-platform {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 6px 7px 6px 6px;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+
+    border-radius: 10px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        .06
+    );
+}
+
+
+.isago-ai-prompt-platform img,
+.isago-ai-prompt-platform-fallback {
+    width: 24px;
+    height: 24px;
+
+    border-radius: 7px;
+
+    object-fit: cover;
+}
+
+
+.isago-ai-prompt-platform-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+
+    color: var(
+        --isago-primary,
+        #00d4f5
+    );
+
+    font-size: 11px;
+}
+
+
+.isago-ai-prompt-platform-name {
+    color: #eee;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.isago-ai-prompt-open-tool {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 5px 8px;
+
+    border-radius: 7px;
+
+    background: var(
+        --isago-primary,
+        #00d4f5
+    );
+
+    color: #071014;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+
+.isago-ai-prompt-open-tool:hover {
+    color: #071014;
+
+    opacity: .85;
+}
+
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width: 900px) {
+
+    .isago-ai-prompt-workspace-body {
+        grid-template-columns: 1fr;
+    }
+
+
+    .isago-ai-prompt-variables {
+        border-top: 1px solid rgba(
+            255,
+            255,
+            255,
+            .08
+        );
+
+        border-left: 0;
+    }
+
+
+    .isago-ai-prompt-variable-list {
+        display: grid;
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+
+    .isago-ai-prompt-reset {
+        margin-top: 20px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .isago-ai-prompt-workspace-header {
+        padding: 11px 13px;
+    }
+
+
+    .isago-ai-prompt-workspace-title {
+        font-size: 14px;
+    }
+
+
+    .isago-ai-prompt-copy span {
+        display: none;
+    }
+
+
+    .isago-ai-prompt-content {
+        padding: 18px;
+    }
+
+
+    .isago-ai-prompt-content-inner {
+        font-size: 14px;
+    }
+
+
+    .isago-ai-prompt-variables {
+        padding: 20px 18px;
+    }
+
+
+    .isago-ai-prompt-variable-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    .isago-ai-prompt-workspace-footer {
+        padding: 15px;
+    }
+
+
+    .isago-ai-prompt-meta-left {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+
+    .isago-ai-prompt-platforms {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+AI PROMPT VARIABLE TOKEN
+=========================================================*/
+
+/*
+ * Empty variable:
+ * Cyan text with a subtle glow.
+ * No background or box.
+ */
+
+.isago-ai-prompt-content-inner
+.isago-ai-prompt-variable-token {
+
+    display: inline !important;
+
+    color: #00d4f5 !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    font: inherit;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    text-shadow:
+        0 0 6px rgba(0, 212, 245, 0.35);
+
+    transition:
+        color 0.2s ease,
+        text-shadow 0.2s ease;
+
+}
+
+
+/*=========================================================
+ACTIVE VARIABLE — USER IS TYPING
+=========================================================*/
+
+.isago-ai-prompt-content-inner
+.isago-ai-prompt-variable-token.is-active {
+
+    color: #36fefb !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+
+    box-shadow: none !important;
+
+    text-shadow:
+        0 0 5px rgba(54, 254, 251, 0.65),
+        0 0 12px rgba(0, 212, 245, 0.55),
+        0 0 22px rgba(0, 212, 245, 0.35);
+
+}
+
+
+/*=========================================================
+FILLED VARIABLE
+=========================================================*/
+
+/*
+ * Once a value has been entered, use a softer
+ * differentiated glow.
+ */
+
+.isago-ai-prompt-content-inner
+.isago-ai-prompt-variable-token.is-filled {
+
+    color: #36fefb !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+
+    border: 0 !important;
+
+    box-shadow: none !important;
+
+    font-weight: 500;
+
+    text-shadow:
+        0 0 5px rgba(54, 254, 251, 0.30);
+
+}
+
+
+/*=========================================================
+ACTIVE + FILLED
+=========================================================*/
+
+.isago-ai-prompt-content-inner
+.isago-ai-prompt-variable-token.is-filled.is-active {
+
+    color: #36fefb !important;
+
+    text-shadow:
+        0 0 5px rgba(54, 254, 251, 0.70),
+        0 0 14px rgba(0, 212, 245, 0.55),
+        0 0 24px rgba(0, 212, 245, 0.30);
+
+}
+
+
+/*=========================================================
+VARIABLES PANEL
+=========================================================*/
+
+.isago-ai-prompt-variables {
+
+    background: transparent !important;
+
+    border: 0 !important;
+
+    box-shadow: none !important;
+
+}
+
+
+/*=========================================================
+VARIABLE FIELD
+=========================================================*/
+
+.isago-ai-prompt-variable-field {
+
+    background: transparent !important;
+
+    border: 0 !important;
+
+    box-shadow: none !important;
+
+}
+
+
+/*=========================================================
+VARIABLE HEADER
+=========================================================*/
+
+.isago-ai-prompt-variables-header {
+
+    background: transparent !important;
+
+}
+/*=========================================================
+PROMPT CONTENT CODE BLOCK
+=========================================================*/
+
+.isago-ai-prompt-content-inner pre,
+.isago-ai-prompt-content-inner code {
+
+    background: transparent !important;
+    background-color: transparent !important;
+
+    border: 0 !important;
+
+    box-shadow: none !important;
+
+}
+
+
+
+
+
+/*=========================================================
+PROMPT ACCESS
+=========================================================*/
+
+.ai-platform-card-access {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-top: 18px;
+
+}
+
+
+/*=========================================================
+ACCESS BADGE
+=========================================================*/
+
+.ai-platform-card-access-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 28px;
+
+    padding: 5px 9px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    text-transform: uppercase;
+
+    letter-spacing: .04em;
+}
+
+
+/* FREE */
+
+.ai-platform-card-access-badge.is-free {
+
+    background: rgba(
+        54,
+        254,
+        251,
+        .10
+    );
+
+    color: var(
+        --isago-primary,
+        #00d4f5
+    );
+
+    border: 1px solid rgba(
+        0,
+        212,
+        245,
+        .16
+    );
+
+}
+
+
+/* PAID */
+
+
+
+/*=========================================================
+PRICE
+=========================================================*/
+
+.ai-platform-card-price {
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    color: var(
+        --isago-primary
+    );
+
+    white-space: nowrap;
+}
+
+
+/*=========================================================
+ACTION
+=========================================================*/
+
+.ai-platform-card-action {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-left: auto;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: var(
+        --isago-primary
+    );
+
+    white-space: nowrap;
+}
+
+
+.ai-platform-card-action i {
+
+    font-size: 11px;
+
+    transition:
+        transform .2s ease;
+}
+
+
+.ai-platform-card:hover
+.ai-platform-card-action i {
+
+    transform:
+        translateX(3px);
+}
+
+
+/*=========================================================
+MOBILE
+=========================================================*/
+
+@media (max-width: 600px) {
+
+    .ai-platform-card-access {
+
+        gap: 8px;
+
+    }
+
+    .ai-platform-card-action {
+
+        font-size: 12px;
+
+    }
+
+    .ai-platform-card-price {
+
+        font-size: 13px;
+
+    }
+
+}
+
+
+/*=========================================================
+PROMPT ACCESS
+=========================================================*/
+
+.isago-ai-prompt-access {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    width: 100%;
+
+    margin: 0 0 18px;
+
+    padding: 14px 18px;
+
+    border: 1px solid rgba(
+        0,
+        212,
+        245,
+        .14
+    );
+
+    border-radius: 14px;
+
+    background: rgba(
+        0,
+        212,
+        245,
+        .035
+    );
+
+}
+
+
+/*=========================================================
+STATUS
+=========================================================*/
+
+.isago-ai-prompt-access-status {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+.isago-ai-prompt-access-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 10px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: .04em;
+
+}
+
+
+/* FREE */
+
+.isago-ai-prompt-access-badge.is-free {
+
+    color: var(--isago-text);
+
+    background:
+        var(
+            --isago-primary
+        );
+
+}
+
+
+
+
+
+/*=========================================================
+PRICE
+=========================================================*/
+
+.isago-ai-prompt-price {
+
+    color:
+        var(
+            --isago-primary
+        );
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+/*=========================================================
+MOBILE
+=========================================================*/
+
+@media (max-width: 600px) {
+
+    .isago-ai-prompt-access {
+
+        padding: 12px 14px;
+
+    }
+
+    .isago-ai-prompt-price {
+
+        font-size: 17px;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+LOCKED PAID PROMPT
+=========================================================*/
+
+.isago-ai-prompt-locked {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 28px;
+
+    width: 100%;
+
+    min-height: 300px;
+
+    padding: 40px;
+
+    box-sizing: border-box;
+
+    border: 1px solid
+        rgba(0, 212, 245, .14);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 212, 245, .045),
+            rgba(255, 255, 255, .025)
+        );
+
+    text-align: left;
+
+}
+
+
+.isago-ai-prompt-locked-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex: 0 0 64px;
+
+    width: 64px;
+
+    height: 64px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(0, 212, 245, .10);
+
+    border: 1px solid
+        rgba(0, 212, 245, .18);
+
+    color:
+        var(--isago-primary, #00d4f5);
+
+    font-size: 24px;
+
+}
+
+
+.isago-ai-prompt-locked-content {
+
+    max-width: 560px;
+
+}
+
+
+.isago-ai-prompt-locked-label {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-bottom: 8px;
+
+    padding: 5px 9px;
+
+    border-radius: 7px;
+
+    background:
+        rgba(0, 212, 245, .10);
+
+    color:
+        var(--isago-primary, #00d4f5);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    text-transform: uppercase;
+
+    letter-spacing: .06em;
+
+}
+
+
+.isago-ai-prompt-locked-content h3 {
+
+    margin: 0 0 10px;
+
+    font-size: 24px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+}
+
+
+.isago-ai-prompt-locked-content p {
+
+    margin: 0 0 18px;
+
+    color: inherit;
+
+    opacity: .72;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+}
+
+
+.isago-ai-prompt-locked-price {
+
+    margin-bottom: 20px;
+
+    color:
+        var(--isago-primary, #00d4f5);
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+}
+
+
+.isago-ai-prompt-locked-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.isago-ai-prompt-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 42px;
+
+    padding: 0 16px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease;
+
+}
+
+
+.isago-ai-prompt-button:hover {
+
+    transform: translateY(-1px);
+
+}
+
+
+.isago-ai-prompt-button-primary {
+
+    background:
+        var(--isago-primary, #00d4f5);
+
+    color: #071014;
+
+}
+
+
+.isago-ai-prompt-button-secondary {
+
+    background:
+        rgba(255, 255, 255, .06);
+
+    border: 1px solid
+        rgba(255, 255, 255, .12);
+
+    color: inherit;
+
+}
+
+
+@media (max-width: 700px) {
+
+    .isago-ai-prompt-locked {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 28px 22px;
+
+        text-align: left;
+
+    }
+
+
+    .isago-ai-prompt-locked-icon {
+
+        width: 54px;
+
+        height: 54px;
+
+        flex-basis: 54px;
+
+        font-size: 20px;
+
+    }
+
+
+    .isago-ai-prompt-locked-content h3 {
+
+        font-size: 21px;
+
+    }
+
+
+    .isago-ai-prompt-locked-price {
+
+        font-size: 21px;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .isago-ai-prompt-locked {
+
+        padding: 24px 18px;
+
+    }
+
+
+    .isago-ai-prompt-locked-actions {
+
+        width: 100%;
+
+    }
+
+
+    .isago-ai-prompt-button {
+
+        width: 100%;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================
+ISAGO AI PROMPT INSTRUCTIONS
+=========================================================*/
+
+.isago-ai-prompt-instructions {
+
+    margin-top:
+        24px;
+
+    border:
+        1px solid
+        var(
+            --isago-border-color);
+
+    border-radius:
+        16px;
+
+    background:
+        var(
+            --isago-card-background,
+            var(--isago-text)
+        );
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        0 6px 24px
+        rgba(0, 0, 0, .04);
+}
+
+
+/*=========================================================
+HEADER
+=========================================================*/
+
+.isago-ai-prompt-instructions-header {
+
+    padding:
+        18px 20px;
+
+    border-bottom:
+        1px solid
+        var(
+            --isago-border-color );
+
+    background:
+        rgba(
+            0,
+            212,
+            245,
+            .035
+        );
+}
+
+
+.isago-ai-prompt-instructions-title {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+}
+
+
+.isago-ai-prompt-instructions-icon {
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(
+            0,
+            212,
+            245,
+            .10
+        );
+
+    color:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+
+    font-size:
+        16px;
+}
+
+
+/*=========================================================
+EYEBROW
+=========================================================*/
+
+.isago-ai-prompt-instructions-eyebrow {
+
+    display:
+        block;
+
+    margin-bottom:
+        3px;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1;
+
+    letter-spacing:
+        .10em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+}
+
+
+/*=========================================================
+TITLE
+=========================================================*/
+
+.isago-ai-prompt-instructions-header h2 {
+
+    margin:
+        0;
+
+    color:
+        var(
+            --isago-text
+        );
+
+    font-size:
+        18px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.35;
+}
+
+
+/*=========================================================
+BODY
+=========================================================*/
+
+.isago-ai-prompt-instructions-body {
+
+    padding:
+        22px 24px;
+
+    color:
+        var(
+            --isago-text
+        );
+
+    font-size:
+        14px;
+
+    line-height:
+        1.75;
+}  
+
+
+/*=========================================================
+PARAGRAPHS
+=========================================================*/
+
+.isago-ai-prompt-instructions-body p {
+
+    margin:
+        0 0 14px;
+}
+
+
+.isago-ai-prompt-instructions-body p:last-child {
+
+    margin-bottom:
+        0;
+}
+
+/* Preserve comfortable spacing around headings */
+.isago-ai-prompt-instructions-body h3,
+.isago-ai-prompt-instructions-body h4 {
+    margin: 24px 0 10px;
+    line-height: 1.4;
+}
+
+.isago-ai-prompt-instructions-body h3:first-child,
+.isago-ai-prompt-instructions-body h4:first-child {
+    margin-top: 0;
+}
+
+/*=========================================================
+LISTS
+=========================================================*/
+
+.isago-ai-prompt-instructions-body ul,
+.isago-ai-prompt-instructions-body ol {
+
+    margin:
+        0 0 16px;
+
+    padding-left:
+        22px;
+}
+
+
+.isago-ai-prompt-instructions-body li {
+
+    margin-bottom:
+        8px;
+
+    padding-left:
+        3px;
+}
+
+
+.isago-ai-prompt-instructions-body li:last-child {
+
+    margin-bottom:
+        0;
+}
+
+
+/*=========================================================
+LINKS
+=========================================================*/
+
+.isago-ai-prompt-instructions-body a {
+
+    color:
+        var(
+            --isago-primary,
+            #00d4f5
+        );
+
+    text-decoration:
+        underline;
+}
+
+
+/*=========================================================
+STRONG TEXT
+=========================================================*/
+
+.isago-ai-prompt-instructions-body strong {
+
+    font-weight:
+        700;
+}
+
+
+/*=========================================================
+CODE / INLINE HIGHLIGHT
+=========================================================*/
+
+.isago-ai-prompt-instructions-body code {
+
+    padding:
+        2px 6px;
+
+    border-radius:
+        5px;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            .06
+        );
+
+    font-size:
+        .92em;
+}
+
+
+/*=========================================================
+MOBILE
+=========================================================*/
+
+@media (max-width: 600px) {
+
+    .isago-ai-prompt-instructions {
+
+        margin-top:
+            18px;
+
+        border-radius:
+            13px;
+    }
+
+
+    .isago-ai-prompt-instructions-header {
+
+        padding:
+            15px 16px;
+    }
+
+
+    .isago-ai-prompt-instructions-body {
+
+        padding:
+            18px;
+
+        font-size:
+            13px;
+
+        line-height:
+            1.7;
+    }  
+
+
+    .isago-ai-prompt-instructions-icon {
+
+        width:
+            36px;
+
+        height:
+            36px;
+
+        border-radius:
+            9px;
+    }
+
+
+    .isago-ai-prompt-instructions-header h2 {
+
+        font-size:
+            16px;
+    }
+
+}
+
+
+
+
+
+
+/* prompt template */
+
+
+/* =====================================================
+   AI PROMPT TEMPLATE — SHARED template DESIGN
+===================================================== */
+
+
+
+/* Variable examples table */
+.isago-ai-prompt-template-body table {
+    width: 100%;
+    max-width: 100%;
+    margin: 18px 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 14px;
+    line-height: 1.7;
+   
+
+}
+
+.isago-ai-prompt-template-body th,
+.isago-ai-prompt-template-body td {
+    padding: 14px 16px;
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    border-bottom: 1px solid var(--isago-border-color);
+}
+
+.isago-ai-prompt-template-body th {
+    color: var(--isago-text);
+    font-size: 12px;
+    font-weight: 700;
+    background: rgba(0, 212, 245, 0.06);
+}
+
+.isago-ai-prompt-template-body th:first-child,
+.isago-ai-prompt-template-body td:first-child {
+    width: 32%;
+}
+
+.isago-ai-prompt-template-body tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.isago-ai-prompt-template-body tbody tr:hover {
+    background: rgba(0, 212, 245, 0.035);
+}
+
+/* Variable tokens and inline code */
+.isago-ai-prompt-template-body code {
+    padding: 2px 6px;
+    border: 1px solid rgba(0, 212, 245, 0.14);
+    border-radius: 5px;
+    background: rgba(0, 212, 245, 0.07);
+    color: var(--isago-primary, #00d4f5);
+    font-size: 0.92em;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    .isago-ai-prompt-template-body table {
+        font-size: 12px;
+    }
+
+    .isago-ai-prompt-template-body th,
+    .isago-ai-prompt-template-body td {
+        padding: 10px 8px;
+    }
+
+    .isago-ai-prompt-template-body th:first-child,
+    .isago-ai-prompt-template-body td:first-child {
+        width: 36%;
+    }
+}
+
+
+
+
+
+
+
+
+/* ISAGO — FIX HOW TO USE THIS PROMPT SPACING */
+
+.isago-ai-prompt-instructions-body > div {
+    display: flow-root;
+    margin-bottom: 22px !important;
+    line-height: 1.85 !important;
+}
+
+.isago-ai-prompt-instructions-body > div:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Give each step heading its own line */
+.isago-ai-prompt-instructions-body > div > strong:first-child {
+    display: block;
+    margin-bottom: 8px;
+}
+
+
+
+
+
+
+/* =========================================
+   AI PROMPT CATEGORY TABS — HORIZONTAL SCROLL
+========================================= */
+
+.ai-prompt-subcategory-navigation {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.ai-prompt-subcategory-tabs-shell {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr) 36px;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.ai-prompt-subcategory-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.ai-prompt-subcategory-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.ai-prompt-subcategory-tabs > .ai-prompt-subcategory-tab {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    scroll-snap-align: start;
+    max-width: none;
+}
+
+.ai-prompt-subcategory-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    padding: 0;
+
+    border: 1px solid #dfe5e8;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #20272d;
+
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.ai-prompt-subcategory-arrow:hover:not(:disabled) {
+    background: #00d4f5;
+    border-color: #00d4f5;
+    color: #102126;
+}
+
+.ai-prompt-subcategory-arrow:focus-visible {
+    outline: 2px solid #00d4f5;
+    outline-offset: 3px;
+}
+
+.ai-prompt-subcategory-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+/* Hide arrows when all tabs fit on screen. */
+.ai-prompt-subcategory-tabs-shell:not(.is-overflowing)
+.ai-prompt-subcategory-arrow {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Dark-theme support */
+[data-theme="dark"] .ai-prompt-subcategory-arrow,
+.dark-mode .ai-prompt-subcategory-arrow {
+    background: #20262c;
+    border-color: #3a444c;
+    color: #f3f6f8;
+}
+
+[data-theme="dark"] .ai-prompt-subcategory-arrow:hover:not(:disabled),
+.dark-mode .ai-prompt-subcategory-arrow:hover:not(:disabled) {
+    background: #00d4f5;
+    border-color: #00d4f5;
+    color: #102126;
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+    .ai-prompt-subcategory-tabs-shell {
+        grid-template-columns: 30px minmax(0, 1fr) 30px;
+        gap: 5px;
+    }
+
+    .ai-prompt-subcategory-arrow {
+        width: 30px;
+        height: 30px;
+    }
+
+    .ai-prompt-subcategory-tabs {
+        gap: 8px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .ai-prompt-subcategory-tabs {
+        scroll-behavior: auto;
+    }
+
+    .ai-prompt-subcategory-arrow {
+        transition: none;
+    }
+}

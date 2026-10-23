@@ -12,11 +12,11 @@ if (!defined('ABSPATH')) {
         class="magzine-small-image"
         href="<?php the_permalink(); ?>">
 
-        <?php
+        <?php  
 
-        if (has_post_thumbnail()) {
+    echo isago_get_post_thumbnail(
 
-            the_post_thumbnail(
+    get_the_ID(),
                 'medium_large',
                 [
                     'loading' => 'lazy',
@@ -26,22 +26,6 @@ if (!defined('ABSPATH')) {
                 ]
             );
 
-        } else {
-
-            ?>
-
-            <img
-                src="<?php echo esc_url(
-                    get_template_directory_uri()
-                    . '/assets/images/placeholder.png'
-                ); ?>"
-                alt="<?php the_title_attribute(); ?>"
-                loading="lazy">
-
-            <?php
-
-        }
-
         ?>
 
     </a>
@@ -49,7 +33,7 @@ if (!defined('ABSPATH')) {
 
     <div class="magzine-small-content">
 
-        <div class="magzine-category">
+        <div class="category-text">
 
             <?php
 
@@ -68,7 +52,7 @@ if (!defined('ABSPATH')) {
         </div>
 
 
-        <h3>
+        <h3 class="isago-small-post-title">
 
             <a href="<?php the_permalink(); ?>">
 
@@ -79,7 +63,7 @@ if (!defined('ABSPATH')) {
         </h3>
 
 
-        <div class="magzine-small-meta">
+        <div class="isago-post-meta">
 
             <?php echo esc_html(get_the_date()); ?>
 

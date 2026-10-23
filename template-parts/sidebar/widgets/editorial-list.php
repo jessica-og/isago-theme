@@ -40,20 +40,30 @@ return;
     <a class="sidebar-mini-thumb"
        href="<?php the_permalink(); ?>">
 
-        <?php the_post_thumbnail('thumbnail'); ?>
+        <?php     echo isago_get_post_thumbnail(
+
+    get_the_ID(),
+                'medium_large',
+                [
+                    'loading' => 'lazy',
+                     'alt'     => the_title_attribute([
+                        'echo' => false
+                    ])
+                ]
+            );?>
 
     </a>
 
     <div>
 
-        <h4>
+        <h4 class="sidebar-post-title">
 
             <a href="<?php the_permalink(); ?>">
 
                 <?php the_title(); ?>
 
             </a>
-
+  
         </h4>
 
     </div>
