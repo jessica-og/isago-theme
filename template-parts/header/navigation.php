@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 }
 
 $menu = isago_get_menu();
-
+  
 ?>
 
 <nav class="isago-navigation">

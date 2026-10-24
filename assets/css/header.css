@@ -15,7 +15,7 @@ ISAGO HEADER - TOP NAV
         background .3s ease,
         color .3s ease;
 }
-
+  
 .isago-header-wrapper{
 
 position:sticky;
@@ -1492,63 +1492,60 @@ MOBILE AUTH LOCATION
 
 
 /* =========================================================
-   ISAGO — SCROLL HEADER BEHAVIOUR
-   Collapse the top bar and keep navigation visible.
+   ISAGO HEADER AND NAVIGATION STACKING FIX
 ========================================================= */
 
-/* Keep the wrapper in the normal document flow */
+/* Keep the complete header above page content. */
 .isago-header-wrapper {
     position: relative;
-    top: auto;
-    z-index: 9999;
+    z-index: 10010;
+    isolation: isolate;
     background: var(--isago-bg);
 }
 
-/* Animate the top header */
+/* Keep the top header above the navigation. */
 .isago-header {
     position: relative;
-    max-height: 140px;
-    overflow: hidden;
-    opacity: 1;
-    transform: translateY(0);
-    transition:
-        max-height 0.3s ease,
-        opacity 0.2s ease,
-        transform 0.3s ease;
+    z-index: 10012;
+    overflow: visible;
 }
 
-/* Collapse the top bar when scrolling down */
-body.isago-scrolling-down .isago-header {
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-10px);
-    border-bottom: 0;
-    pointer-events: none;
+/* Keep the profile dropdown above navigation and page content. */
+.isago-header-right,
+.isago-header-social-auth,
+.isago-header-user {
+    position: relative;
+    z-index: 10015;
 }
 
-/* Keep the navigation at the top while scrolling */
+.isago-header-user-dropdown {
+    position: absolute;
+    z-index: 10020;
+}
+
+/* Navigation stays below the top header and its dropdown. */
 .isago-navigation {
-    position: sticky;
-    top: 0;
-    z-index: 10001;
+    position: relative;
+    z-index: 10005;
     background: var(--isago-card);
 }
 
-/* Keep dropdowns above page content */
+/* Keep navigation dropdowns above the navigation bar itself. */
 .isago-navigation .isago-dropdown,
 .isago-navigation .isago-submenu {
-    z-index: 10002;
+    z-index: 10006;
 }
 
-/* Keep the header visible while search is open */
+/* Preserve the header when the search overlay is open. */
 body.isago-search-open .isago-header {
-    max-height: 140px;
+    max-height: none;
     opacity: 1;
     transform: translateY(0);
+    overflow: visible;
     pointer-events: auto;
 }
 
-/* Respect reduced-motion preferences */
+/* Respect reduced-motion preferences. */
 @media (prefers-reduced-motion: reduce) {
     .isago-header {
         transition: none;
